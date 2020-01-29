@@ -5,3 +5,5 @@
 *.out
 *.synctex.gz
 *.zip
+*.blg
+*.eps
