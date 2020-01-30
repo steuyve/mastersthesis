@@ -49,10 +49,6 @@
 
 Outline:
 \begin{enumerate}[label=(\alph*)]
-\item Introduction to Schroder paths and weightings - primitives for roof and flat step.
-\item Explain what $N$ and $D$ are.
-\item Taking the second derivative.
-\item Simplify $D'/D$ expression immediately.
 \item Paths with two flat steps in them. Explain that we only have two big cases (well, three, but by symmetry two).
 \item For each case give the additional primitives of M and asymmetric M.
 \item mu simplification - identify which cases we now have, but don't need to write out their values explicitly.
@@ -61,6 +57,7 @@ Outline:
 \end{enumerate}
 
 \subsection*{The problem}
+
 Let $d = 2m+1$ where $m$ is a natural number. Denote by $B_2^d$ the $d$-dimensional Euclidean ball and $tB_2^d$ the $d$-dimensional ball with radius $t$ for $t > 0$. In general we are interested in the asymptotic behavior of the magnitude function of the odd dimensional Euclidean ball as we shrink it down to a point. Meckes in \cite{meckes_magnitude_2019} showed that
 \begin{equation*}
 \frac{d}{dt}\text{Mag}(tB_2^d)\big\vert_{t=0} = \frac{1}{2}V_1(B_2^d)
@@ -73,6 +70,7 @@ We are interested computing the value of
 We will follow the same approach that Meckes used for the result above, with many of the techniques introduced by Willerton in \cite{willerton_magnitude_2017}.
 
 \subsection*{Explicit magnitude functions for low dimensions}
+
 Barcelo and Carbery in \cite{barcelo_magnitudes_2016} explicitly calculated the magnitude functions of Euclidean balls in dimensions 3,5,7:
 \begin{align*}
 &\text{Mag}(tB_2^3) = \frac{t^3}{3!}+t^2+2t+1 \\
@@ -90,6 +88,7 @@ So taking second derivatives and evaluating at $t = 0$, we have
 We will use these values as sanity checks to compare against throughout our calculations.
 
 \subsection*{Schröder paths}
+
 Willerton in \cite{willerton_magnitude_2017} gave an expression for the magnitude function of odd dimensional balls in terms of collections of Schröder paths. We introduce them below:
 \begin{defn}
 \begin{enumerate}[label=$\bullet$]
@@ -99,7 +98,7 @@ Willerton in \cite{willerton_magnitude_2017} gave an expression for the magnitud
 \end{enumerate}
 \end{defn}
 
-When thinking about what kinds of disjoint $k$-collections we can have in $X_k^j$ for some fixed $j$, it is often useful to think about what a path needs to look like for increasing values of $i$. For example, consider the set $X_k^0$, that is, the set of disjoint $k$-collections with exactly 0 flat steps. At $i = 0$ we have the single dot at $(0,0)$ and at $i = 1$, since we are allowed no flat steps, the only possible path we can have is the path made up of one ascent followed immediately by one descent. Then for $i = 2$, the disjoint condition and the presence of the earlier path at height $i=1$ ensures that the only possible path we can have is the path made up of two ascents followed by two descents. We continue this argument for successive values of $i$. We will call the path at height $i$ consisting of $i$ ascents followed by $i$ descents a \textbf{V-path at height $i$} (because they look like upside down V's). So it turns out that $X_k^0$ consists only of one collection, denoted $\sigma_{\text{roof}}^k$ which is made up entirely of V-paths for each $0\leq i\leq k$.
+When thinking about what kinds of disjoint $k$-collections we can have in $X_k^j$ for some fixed $j$, it is often useful to think about what a path needs to look like for increasing values of $i$. For example, consider the set $X_k^0$, that is, the set of disjoint $k$-collections with exactly 0 flat steps. At $i = 0$ we have the single dot at $(0,0)$ and at $i = 1$, since we are allowed no flat steps, the only possible path we can have is the path made up of one ascent followed immediately by one descent. Then for $i = 2$, the disjointness condition and the presence of the earlier path at height $i=1$ ensures that the only possible path we can have is the path made up of two ascents followed by two descents. We continue this argument for successive values of $i$. We will call the path at height $i$ consisting of $i$ ascents followed by $i$ descents a \textbf{V-path at height $i$} (because they look like upside down V's). So it turns out that $X_k^0$ consists only of one collection, denoted $\sigma_{\text{roof}}^k$, which is made up entirely of V-paths for each $0\leq i\leq k$.
 
 Let $\sigma$ be a disjoint $k$-collection in $X_k$. For each path in $\sigma$ we associate a weighting to each step $\tau$ in the path by the following:
 \begin{equation*}
@@ -109,38 +108,56 @@ t &\text{if $\tau$ is a flat step,} \\
 y+1-j &\text{if $\tau$ is a descent from height $y$ to height $y-1$.}
 \end{cases}
 \end{equation*}
-For a collection $\sigma\in X_k$ the \textbf{(total) weight of $\sigma$}, denoted by $\omega_j(\sigma)$ is the product of all the weightings
-
-\subsubsection*{Taking the Second Derivative}
-Willerton in \cite{willerton_magnitude_2017} gave an expression for the magnitude of odd-dimensional balls in terms of Schröder paths:
+For a collection $\sigma\in X_k$ the \textbf{(total) weight of $\sigma$}, denoted by $\omega_j(\sigma)$ is the product of all the weightings of each step of a path in $\sigma$, that is,
 \begin{equation*}
-\text{Mag}(tB_2^d) = \frac{\sum\limits_{\sigma\in X_{m+1}}\prod\limits_{\tau\in\sigma}w_2(\tau)}{d!\sum\limits_{\sigma\in X_{m-1}}\prod\limits_{\tau\in\sigma}w_0(\tau)} = \frac{N(t)}{d!D(t)}
+\omega_j(\sigma) = \prod\limits_{\tau\in\sigma}\omega_j(\tau)
 \end{equation*}
-and gave the relation
-\begin{equation*}
-N(0) = d!D(0)
-\end{equation*}
-Meckes used this in \cite{meckes_magnitude_2019}, to show that that
-\begin{equation*}
-\frac{d}{dt}\text{Mag}(tB_2^d)\big\vert_{t=0} = \frac{1}{2}V_1(B_2^d)
-\end{equation*}
-where $B_d^2$ is a $d = 2m+1$ dimensional Euclidean ball and $V_1$ is its first intrinsic volume.
-Denote 
+Note that if $\sigma \in X_k^\ell$, that is $\sigma$ has exactly $\ell$ flat steps, then $\omega_j(\sigma)$ will take the form $ct^\ell$ where $c$ is the product of all the weights on descents in $\sigma$. We will only use the weightings $\omega_0$ and $\omega_2$ for our purposes, that is, a descent starting at height $y$ will be weighted by either $y+1$ and $y-1$ respectively. Consider a V-path $\delta$ at height $i$, then we have
 \begin{align*}
-&V := \frac{1}{2}V_1 \\
-&D := D(0),\quad N := N(0) \\
-&D' := D'(0),\quad N' := N'(0) \\
-&D'' := \frac{1}{2}D''(0),\quad N '' := \frac{1}{2}N''(0)
+&\omega_0(\delta) = \frac{(2i+1)!}{(i+1)!} \\
+&\omega_2(\delta) = \frac{(2i-1)!}{(i-1)!}
 \end{align*}
-Then, in particular, Meckes showed the relation
+and since $\sigma_{\text{roof}}^k$ consists only of V-paths, we have
+\begin{align*}
+&\omega_0\left(\sigma_{\text{roof}}^k\right) = \prod\limits_{i=0}^k\frac{(2i+1)!}{(i+1)!} \\
+&\omega_2\left(\sigma_{\text{roof}}^k\right) = \prod\limits_{i=1}^k\frac{(2i-1)!}{(i-1)!} \\
+\end{align*}
+
+We will call a path $\delta$ starting at height $i$ consisting of $i-1$ ascents, followed by a flat step, followed by $i-1$ descents a \textbf{flat step path at height $i$}. Note that the weightings for this kind of path are given by
+\begin{align*}
+&\omega_0(\delta) = \frac{(2p)!}{(p+1)!} \\
+&\omega_2(\delta) = \frac{(2p-1)!}{(p-1)!}
+\end{align*}
+
+We are interested in these weightings on collections of Schröder paths because Willerton in \cite{willerton_magnitude_2017} showed the following:
+
+\begin{theo}[\cite{willerton_magnitude_2017}, Corollary 27]
+Let $d = 2m+1$ be odd. Then
 \begin{equation*}
-N'D-ND'=Vd!D^2
+\text{Mag}\left(tB_2^d\right) = \frac{\sum\limits_{\sigma\in X_{m+1}}\omega_2(\sigma)}{d!\sum\limits_{\sigma\in X_{m-1}}\omega_0(\sigma)} = \frac{\sum\limits_{\sigma\in X_{m+1}}\prod\limits_{\tau\in\sigma}\omega_2(\tau)}{d!\sum\limits_{\sigma\in X_{m-1}}\prod\limits_{\tau\in\sigma}\omega_0(\tau)}
 \end{equation*}
-We want to see what closed form expression we can get for
+for all $t > 0$.
+\end{theo}
+As mentioned before, $\omega_j(\sigma)$ are of the form $ct^\ell$ where $\ell$ is the number of flat steps in $\sigma$ and $c$ is a constant, so the numerator and the denominator in the expression above are both polynomials in $t$. We will denote the function in the numerator by $N(t)$ and the function in the denominator (without the extra $d!$) by $D(t)$. Put more succinctly, we have
+\begin{equation*}
+\text{Mag}\left(tB_2^d\right) = \frac{N(t)}{d!D(t)}.
+\end{equation*}
+
+\subsection*{Taking the second derivative}
+
+From now on, when writing down the value of a function evaluated at zero, for convenience we will omit the ``$(0)$'' part, that is, we write $N$ for $N(0)$ and $N'$ for $N'(0)$ and similarly for $D(0)$ and $D'(0)$. For higher derivatives we divide by the order of the derivative, that is, we denote $\frac{1}{2}N''(0)$ by $N''$ and $\frac{1}{2}D''(0)$ by $D''$. The point of this is that $N''$ and $D''$ are the values of the coefficients of the second order terms in $N(t)$ and $D(t)$ respectively. In Theorem 28 of \cite{willerton_magnitude_2017}, Willerton showed the following identity
+\begin{equation*}
+N = d!D
+\end{equation*}
+and Meckes in the proof of Theorem 4 of \cite{meckes_magnitude_2019} showed that
+\begin{equation*}
+N'D - ND' = Vd!D^2
+\end{equation*}
+where $V$ is shorthand for $\frac{1}{2}V_1\left(B_2^d\right)$. Now we evaluate
 \begin{equation*}
 \frac{d^2}{dt^2}\text{Mag}(tB_2^d)\big\vert_{t=0}
 \end{equation*}
-We have
+Applying the quotient rule and using the two identities above, we have
 \begin{align*}
 \frac{d^2}{dt^2}\text{Mag}(tB_2^d)\big\vert_{t=0} &= \frac{d}{dt}\left(\frac{d}{dt}\text{Mag}(tB_2^d)\right)\big\vert_{t=0} \\
 &= \frac{d}{dt}\left(\frac{d}{dt}\frac{N(t)}{d!D(t)}\right)\big\vert_{t=0} \\
@@ -157,48 +174,48 @@ We have
 &= 2\left[\frac{N''-d!D''}{d!D}\right] - 2V\left[\frac{D'}{D}\right] \\
 &= 2\left[\frac{N''-d!D''}{N}\right] - 2V\left[\frac{D'}{D}\right]
 \end{align*}
-Where the factors of 2 in front of the terms containing a second derivative come from evaluation at zero.
+Where the factors of 2 in front of the terms containing a second derivative are because of the factor of $\frac{1}{2}$ that we introduced earlier in our notation for $N''$ and $D''$. To continue simplifying this expression, we have to give explicit expressions for the terms involved:
+\begin{align*}
+&N = \sum\limits_{\sigma\in X_{m+1}^0}\prod\limits_{\tau\in\sigma}\omega_2(\tau) = \prod\limits_{\tau\in\sigma_{\text{roof}}^{m+1}}\omega_2(\tau),\quad D = \sum\limits_{\sigma\in X_{m-1}^0}\prod\limits_{\tau\in\sigma}\omega_0(\tau) = \prod\limits_{\tau\in\sigma_{roof}^{m-1}}\omega_0(\tau) \\
+&N' = t^{-1}\sum\limits_{\sigma\in X_{m+1}^1}\prod\limits_{\tau\in\sigma}\omega_2(\tau),\quad D' = t^{-1}\sum\limits_{\sigma\in X_{m-1}^1}\prod\limits_{\tau\in\sigma}\omega_0(\tau) \\
+&N'' = t^{-2}\sum\limits_{\sigma\in X_{m+1}^2}\prod\limits_{\tau\in\sigma}\omega_2(\tau),\quad D'' = t^{-2}\sum\limits_{\sigma\in X_{m-1}^2}\prod\limits_{\tau\in\sigma}\omega_0(\tau)
+\end{align*}
+This boils down to a counting problem to do with disjoint collections of Schröder paths with exactly $k$ flat steps for $k = 0,1,2$.
 
-\subsubsection*{The $\frac{D'}{D}$ Term}
+\subsubsection*{Simplifying the $\frac{D'}{D}$ Term}
 
-Let $\sigma$ be a path in a disjoint $k$ collection and $\tau$ be a step in $\sigma$. Then we define
+By above we have,
 \begin{equation*}
-\delta_j(\tau) = \begin{cases} 1 &\text{if $\tau$ is an ascent or flat step} \\
-y+1-j &\text{if $\tau$ is a descent from height $y$ to $y-1$} \end{cases}
-\end{equation*}
-Let's consider what $D(0)$ and $D'(0)$ are explicitly:
-\begin{equation*}
-D = \sum\limits_{\sigma\in X_{m-1}^0}\prod\limits_{\tau\in\sigma}\delta_0(\tau) = \prod\limits_{\tau\in X_{\text{roof}}^{m-1}}\delta_0(\tau) = \prod\limits_{k=0}^{m-1}\frac{(2k+1)!}{(k+1)!}
+D = \prod\limits_{\tau\in\sigma_{roof}^{m-1}}\omega_0(\tau) = \prod\limits_{k=0}^{m-1}\frac{(2k+1)!}{(k+1)!}
 \end{equation*}
 and
 \begin{equation*}
-D' = \sum\limits_{\sigma\in X_{m-1}^1}\prod\limits_{\tau\in\sigma}\delta_0(\tau)
+D' = t^{-1}\sum\limits_{\sigma\in X_{m-1}^1}\prod\limits_{\tau\in\sigma}\omega_0(\tau)
 \end{equation*}
-so we want to count how many disjoint $(m-1)$-collections have exactly one flat step in them. Define $\sigma^k_{p,q}$ be as in \cite{meckes_magnitude_2019}. Then $X_{m-1}^1 = \bigcup\limits_{\substack{1\leq p\leq m-1\\0\leq q\leq m-1-p}}\sigma^{m-1}_{p,q}$ Then for each $k < p, k > p+q$, we have
+so we want to count how many disjoint $(m-1)$-collections $\sigma$ have exactly one flat step in them.
+
+Let $\sigma\in X_{m-1}^1$. Let $\delta$ be the path in $\sigma$ containing the single flat step at height, say, $p$. By the same reasoning as when discussing $X_k^0$ earlier, the paths at height less than $p$ must be V-paths. But then the disjointness condition ensures that $\delta$ at height $p$ must have the flat step be centered from $(-1,p)$ to $(1,p)$, so $\delta$ is a flat step path as defined above with weighting given as earlier. For the path directly above $\delta$, we can either have a V-path as before or, because of the extra space provided by the flat step just below we can have a path consisting of $p$ ascents, one descent, one ascent and then $p$ descents. Then for the next path above, the disjointness condition ensures that this path can only be either a path of a similar form or a V-path. We will call the path at height $i$ consisting of $i-1$ ascents, one descent, one ascent and then $i$ descents a \textbf{M-path at height $i$}. So in $\sigma$, after the flat step path at height $p$ we will have some number of M-paths followed by some number of V-paths. Note that after we have switched to V-paths we cannot have any other paths above because of the disjointness condition. This allows us to characterize all the disjoint $(m-1)$-collections in $X_{m-1}^1$: fix $1\leq p\leq m-1$ and $0\leq q \leq m-1-p$, then the disjoint $(m-1)$-collection $\sigma_{p,q}^{m-1}$ from the bottom up, is composed of $p-1$ V-paths, followed by a flat step path at height $p$, followed by $q$ M-paths followed by V-paths up to height $m-1$. Then Meckes in \cite{meckes_magnitude_2019} observed that
 \begin{equation*}
-\delta_0(\tau_k) = \frac{(2k+1)!}{(k+1)!}
+X_{m-1}^1 = \bigcup\limits_{\substack{1\leq p \leq m-1 \\ 0\leq q \leq m-1-p}} \sigma_{p,q}^{m-1}
 \end{equation*}
-so for all $k < p, k > p+q$,
-\begin{equation*}
-\delta_0 = \left(\prod\limits_{k=0}^{p-1}\frac{(2k+1)!}{(k+1)!}\right)\left(\prod\limits_{k=p+q+1}^{m-1}\frac{(2k+1)!}{(k+1)!}\right)
-\end{equation*}
-For the $p$-th path, we have that $\delta_0(\tau_p) = \frac{(2p)!}{(p+1)!}$ because we have one less descent than usual at the top due to the flat step. Finally for $p+1\leq k \leq p+q$, we have
-\begin{equation*}
-\delta_0(\tau_k) = \frac{(2k)!(2k)}{(k+1)!}
-\end{equation*}
-where the extra factor comes from the additional descent. So for all such $k$, we have
-\begin{equation*}
-\delta_0 = \prod\limits_{k=p+1}^{p+q}\frac{(2k)!(2k)}{(k+1)!}
-\end{equation*}
+
+Let $\delta$ be a M-path at height $k$, then we have
 \begin{align*}
-D' &= \sum\limits_{\substack{1\leq p\leq m-1\\0\leq q\leq m-1-p}}\delta_0(X_{p,q}^{m-1}) \\
-&= \sum\limits_{\substack{1\leq p\leq m-1\\0\leq q\leq m-1-p}}\left(\prod\limits_{k=0}^{p-1}\frac{(2k+1)!}{(k+1)!}\right)\left(\prod\limits_{k=p+q+1}^{m-1}\frac{(2k+1)!}{(k+1)!}\right)\left(\frac{(2p)!}{(p+1)!}\right)\left(\prod\limits_{k=p+1}^{p+q}\frac{(2k)!(2k)}{(k+1)!}\right)
+&\omega_0(\delta) = \frac{(2k)!(2k)}{(k+1)!} \\
+&\omega_2(\delta) = \frac{(2k-1)!(2k-1)}{(k-1)!}
 \end{align*}
-We can try to simplify things: For each summand depending on $p,q$ in the quotient $D'/D$, we have
+where the extra factor on the numerator comes from the additional descent we have in $\delta$. The $\omega_2$ weighting will become relevant later when we evaluate $N$.
+
+Since we can recognize $X_{m-1}^1$ as a union of disjoint $(m-1)$-collections with a specific form, we can write down an explicit expression for $D'$:
+\begin{equation*}
+D' = \sum\limits_{\substack{1\leq p\leq m-1\\0\leq q\leq m-1-p}}\left(\prod\limits_{k=0}^{p-1}\frac{(2k+1)!}{(k+1)!}\right)\left(\frac{(2p)!}{(p+1)!}\right)\left(\prod\limits_{k=p+1}^{p+q}\frac{(2k)!(2k)}{(k+1)!}\right)\left(\prod\limits_{k=p+q+1}^{m-1}\frac{(2k+1)!}{(k+1)!}\right)
+\end{equation*}
+
+We can try to simplify the quotient $D'/D$: For each summand depending on $p,q$ in the quotient $D'/D$, we have
 \begin{equation*}
 \frac{\prod\limits_{k=0}^{p-1}\frac{1}{(k+1)!}\frac{1}{p!}\prod\limits_{k=p+1}^{p+q}\frac{1}{(k+1)!}\prod\limits_{k=p+q+1}^{m}\frac{1}{(k+1)!}\prod\limits_{k=0}^{p-1}(2k+1)!(2p)!\prod\limits_{k=p+1}^{p+q}(2k)!(2k)\prod\limits_{k=p+q+1}^{m}(2k+1)!}{\prod\limits_{k=0}^{m}\frac{1}{(k+1)!}\prod\limits_{k=0}^{m}(2k+1)!}
 \end{equation*}
-So we can cancel the $\frac{1}{(k+1)!}$ since on the top we also have a product of $\frac{1}{(k+1)!}$'s from 0 up to m. This gives us
+We can cancel the product of all the $\frac{1}{(k+1)!}$'s since on the top we also have a product of $\frac{1}{(k+1)!}$'s from 0 up to m. This gives us
 \begin{equation*}
 \frac{\prod\limits_{k=0}^{p-1}(2k+1)!(2p)!\prod\limits_{k=p+1}^{p+q}(2k)!(2k)\prod\limits_{k=p+q+1}^{m}(2k+1)!}{\prod\limits_{k=0}^{m}(2k+1)!}
 \end{equation*}
@@ -206,13 +223,11 @@ We can further cancel all the $(2k+1)!$'s from $k = 0$ to $p-1$ and from $p+q+1$
 \begin{align*}
 \frac{(2p)!\prod\limits_{k=p+1}^{p+q}(2k)!(2k)}{\prod\limits_{k=p}^{p+q}(2k+1)!} &= \frac{(2p)!\prod\limits_{k=p+1}^{p+q}(2k)!(2k)}{(2p+1)!\prod\limits_{k=p+1}^{p+q}(2k+1)! }\\
 &=\frac{1}{2p+1}\left(\prod\limits_{k=p+1}^{p+q}\frac{2k}{2k+1}\right) \\
-&= \frac{1}{2p+1}\left(\prod\limits_{k=p+1}^{p+q}1-\frac{1}{2k+1}\right)
 \end{align*}
 So we have
 \begin{equation*}
 \frac{D'}{D} = \sum\limits_{\substack{1\leq p \leq m-1 \\ 0 \leq q \leq m - 1 - p}}\frac{1}{2p+1}\prod\limits_{k=p+1}^{p+q}\left(1-\frac{1}{2k+1}\right)
 \end{equation*}
-which is nicer.
 
 \subsubsection*{The $N''-d!D''$ Term}
 
@@ -220,7 +235,10 @@ Now we want to look at the
 \begin{equation*}
 \frac{N''-d!D''}{N}
 \end{equation*}
-term in our second derivative. We first need to consider how many disjoint $k$-collections there are with exactly 2 flat steps. We can already rule out the case where a disjoint $k$-collection has 2 flat steps on the same path. This is because any path below the one with the flat steps needs to be an upside down $V$'s and there's then not enough room for any path above it to start flat stepping at any coordinate other than the centre one. This then also tells us that for any disjoint $k$-collection with 2 flat steps, the 2 flat steps will be on separate paths and moreover the first flat step will be centred. The second flat step can either be centred or offset by one to the right or the left. We also have some rules governing the paths that do not contain a flat step. As mentioned before, the only kind of path below the first one with a flat step must be upside down $V$'s. They can't be $M$'s since those will bump into the $V$'s underneath it. The second is that $M$'s can only follow the flat step path (for the same reason) and they can only go under the upside down $V$'s, again for the same reason. Finally if we have the second flat step be off-centred, then directly above it we can have asymmetric $M$'s followed by $M$'s followed by upside down $V$'s. We can't have asymmetric $M$'s any later the $M$'s or upside down $V$'s will bump into them. So in general we have two cases that we need to consider:
+term in our second derivative. We first need to consider how many disjoint $k$-collections there are with exactly 2 flat steps. We can already rule out the case where a disjoint $k$-collection has 2 flat steps on the same path. This is because any path below the one with the flat steps needs to V-path and there's then not enough room for any path above it to start flat stepping at any coordinate other than the centre one. This then also tells us that for any disjoint $k$-collection with 2 flat steps, the 2 flat steps will be on separate paths and moreover the first flat step will be centred.
+
+
+The second flat step can either be centred or offset by one to the right or the left. We also have some rules governing the paths that do not contain a flat step. As mentioned before, the only kind of path below the first one with a flat step must be upside down $V$'s. They can't be $M$'s since those will bump into the $V$'s underneath it. The second is that $M$'s can only follow the flat step path (for the same reason) and they can only go under the upside down $V$'s, again for the same reason. Finally if we have the second flat step be off-centred, then directly above it we can have asymmetric $M$'s followed by $M$'s followed by upside down $V$'s. We can't have asymmetric $M$'s any later the $M$'s or upside down $V$'s will bump into them. So in general we have two cases that we need to consider:
 
 \begin{enumerate}[label=(\alph*)]
 \item Two centred flat steps. Below the first flat step are upside down $V$'s, above it and above the second flat step are some number of $M$'s followed by some number of upside down $V$'s
