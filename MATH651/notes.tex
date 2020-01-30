@@ -213,20 +213,20 @@ D' = \sum\limits_{\substack{1\leq p\leq m-1\\0\leq q\leq m-1-p}}\left(\prod\limi
 
 We can try to simplify the quotient $D'/D$: For each summand depending on $p,q$ in the quotient $D'/D$, we have
 \begin{equation*}
-\frac{\prod\limits_{k=0}^{p-1}\frac{1}{(k+1)!}\frac{1}{p!}\prod\limits_{k=p+1}^{p+q}\frac{1}{(k+1)!}\prod\limits_{k=p+q+1}^{m}\frac{1}{(k+1)!}\prod\limits_{k=0}^{p-1}(2k+1)!(2p)!\prod\limits_{k=p+1}^{p+q}(2k)!(2k)\prod\limits_{k=p+q+1}^{m}(2k+1)!}{\prod\limits_{k=0}^{m}\frac{1}{(k+1)!}\prod\limits_{k=0}^{m}(2k+1)!}
+\frac{\prod\limits_{k=0}^{p-1}\frac{1}{(k+1)!}\frac{1}{p!}\prod\limits_{k=p+1}^{p+q}\frac{1}{(k+1)!}\prod\limits_{k=p+q+1}^{m-1}\frac{1}{(k+1)!}\prod\limits_{k=0}^{p-1}(2k+1)!(2p)!\prod\limits_{k=p+1}^{p+q}(2k)!(2k)\prod\limits_{k=p+q+1}^{m-1}(2k+1)!}{\prod\limits_{k=0}^{m-1}\frac{1}{(k+1)!}\prod\limits_{k=0}^{m-1}(2k+1)!}
 \end{equation*}
-We can cancel the product of all the $\frac{1}{(k+1)!}$'s since on the top we also have a product of $\frac{1}{(k+1)!}$'s from 0 up to m. This gives us
+We can cancel the product of all the $\frac{1}{(k+1)!}$'s since on the top we also have a product of $\frac{1}{(k+1)!}$'s from 0 up to $m-1$. This gives us
 \begin{equation*}
-\frac{\prod\limits_{k=0}^{p-1}(2k+1)!(2p)!\prod\limits_{k=p+1}^{p+q}(2k)!(2k)\prod\limits_{k=p+q+1}^{m}(2k+1)!}{\prod\limits_{k=0}^{m}(2k+1)!}
+\frac{\prod\limits_{k=0}^{p-1}(2k+1)!(2p)!\prod\limits_{k=p+1}^{p+q}(2k)!(2k)\prod\limits_{k=p+q+1}^{m-1}(2k+1)!}{\prod\limits_{k=0}^{m-1}(2k+1)!}
 \end{equation*}
-We can further cancel all the $(2k+1)!$'s from $k = 0$ to $p-1$ and from $p+q+1$ to $m$:
+We can further cancel all the $(2k+1)!$'s from $k = 0$ to $p-1$ and from $p+q+1$ to $m-1$:
 \begin{align*}
 \frac{(2p)!\prod\limits_{k=p+1}^{p+q}(2k)!(2k)}{\prod\limits_{k=p}^{p+q}(2k+1)!} &= \frac{(2p)!\prod\limits_{k=p+1}^{p+q}(2k)!(2k)}{(2p+1)!\prod\limits_{k=p+1}^{p+q}(2k+1)! }\\
 &=\frac{1}{2p+1}\left(\prod\limits_{k=p+1}^{p+q}\frac{2k}{2k+1}\right) \\
 \end{align*}
-So we have
+So summing over all such $p$ and $q$ we have
 \begin{equation*}
-\frac{D'}{D} = \sum\limits_{\substack{1\leq p \leq m-1 \\ 0 \leq q \leq m - 1 - p}}\frac{1}{2p+1}\prod\limits_{k=p+1}^{p+q}\left(1-\frac{1}{2k+1}\right)
+\frac{D'}{D} = \sum\limits_{\substack{1\leq p \leq m-1 \\ 0 \leq q \leq m - 1 - p}}\frac{1}{2p+1}\prod\limits_{k=p+1}^{p+q}\left(\frac{2k}{2k+1}\right)
 \end{equation*}
 
 \subsubsection*{The $N''-d!D''$ Term}
