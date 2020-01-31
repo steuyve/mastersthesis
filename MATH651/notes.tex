@@ -235,8 +235,20 @@ Now we want to look at the
 \begin{equation*}
 \frac{N''-d!D''}{N}
 \end{equation*}
-term in our second derivative. We first need to consider how many disjoint $k$-collections there are with exactly 2 flat steps. We can already rule out the case where a disjoint $k$-collection has 2 flat steps on the same path. This is because any path below the one with the flat steps needs to V-path and there's then not enough room for any path above it to start flat stepping at any coordinate other than the centre one. This then also tells us that for any disjoint $k$-collection with 2 flat steps, the 2 flat steps will be on separate paths and moreover the first flat step will be centred.
+term in our second derivative. 
 
+Since we understand V-paths, we can immediately write down an explicit expression for $N$:
+\begin{equation*}
+N = \prod\limits_{\tau\in\sigma_{\text{roof}}^{m+1}}\omega_2(\tau) = \prod\limits_{k=1}^{m+1}\frac{(2k-1)!}{(k-1)!}
+\end{equation*}
+
+Recall for $N''$ and $D''$ we have:
+\begin{equation*}
+N'' = t^{-2}\sum\limits_{\sigma\in X_{m+1}^2}\prod\limits_{\tau\in\sigma}\omega_2(\tau),\quad D'' = t^{-2}\sum\limits_{\sigma\in X_{m-1}^2}\prod\limits_{\tau\in\sigma}\omega_0(\tau)
+\end{equation*}
+So we need to consider how many disjoint $k$-collections there are with exactly 2 flat steps. We can already rule out the case where a disjoint $k$-collection has 2 flat steps on the same path. This is because any path below the one with the flat steps needs to be a V-path and there's then not enough room on the path with the flat step for a flat step to appear anywhere other than the center. This then also tells us that for any disjoint $k$-collection with 2 flat steps, the 2 flat steps will be on separate paths and moreover the first flat step will be centered.
+
+As before, after the first flat step we can have some number of M-paths followed by some number of V-paths. If we have a nonzero amount of V-paths, then again by the same reasoning that forces the second path containing a flat step to have its flat step in the center.
 
 The second flat step can either be centred or offset by one to the right or the left. We also have some rules governing the paths that do not contain a flat step. As mentioned before, the only kind of path below the first one with a flat step must be upside down $V$'s. They can't be $M$'s since those will bump into the $V$'s underneath it. The second is that $M$'s can only follow the flat step path (for the same reason) and they can only go under the upside down $V$'s, again for the same reason. Finally if we have the second flat step be off-centred, then directly above it we can have asymmetric $M$'s followed by $M$'s followed by upside down $V$'s. We can't have asymmetric $M$'s any later the $M$'s or upside down $V$'s will bump into them. So in general we have two cases that we need to consider:
 
