@@ -286,7 +286,7 @@ L = &\sum\limits_{\substack{2\leq p_2\leq m+1 \\ 0\leq q_1 \leq p_2-2 \\ 0 \leq 
  &\quad+ \sum\limits_{\substack{2 \leq p_1 \leq m \\ 0 \leq q_1 \leq m-p_1}}\omega_2(L_{p_1,m+1,q_1,0}^{m+1}) + \sum\limits_{\substack{2 \leq p_1 \leq m \\ p_1+1 \leq p_2 \leq m-1 \\ 0 \leq q_1 \leq p_2-p_1-1}} \omega_2(L_{p_1,p_2,q_1,m+1-p_2}^{m+1})
 \end{align*}
 
-\subsection*{$\sigma = L$}
+\subsection*{Proof that $\sigma = L$}
 
 We show that in fact the values of $\sigma$ and $L$ above are equal. By abuse of notation, denote $\sigma$ to be the set of disjoint $(m+1)$-collections that we are considering when computing the number $\sigma$ above and similarly for $L$. We will show that there is a bijection of sets $f:\sigma \to L$ that preserves the product of the weights.
 
@@ -296,12 +296,6 @@ Now we define a function $g:L\to\sigma$. Let $\delta$ instead be a disjoint $(m+
 
 \subsubsection*{$\sigma$ Term}
 
-Now we want to look at the
-\begin{equation*}
-\frac{N''-d!D''}{N}
-\end{equation*}
-term in our second derivative. 
-
 Since we understand V-paths, we can immediately write down an explicit expression for $N$:
 \begin{equation*}
 N = \prod\limits_{\tau\in\sigma_{\text{roof}}^{m+1}}\omega_2(\tau) = \prod\limits_{k=1}^{m+1}\frac{(2k-1)!}{(k-1)!}
@@ -310,11 +304,6 @@ N = \prod\limits_{\tau\in\sigma_{\text{roof}}^{m+1}}\omega_2(\tau) = \prod\limit
 So by above, we have
 \begin{equation*}
 \frac{N''-d!D''}{N} = \frac{3\sigma}{N}
-\end{equation*}
-
-The denominator $N$ is given by
-\begin{equation*}
-N = \sum\limits_{\sigma \in X^0_{m+1}}\prod\limits_{\tau\in\sigma}\delta_2(\tau) = \prod\limits_{\tau \in X^{m+1}_\text{roof}}\delta_2(\tau) = \prod\limits_{k=0}^{m+1}\frac{(2k-1)!}{(k-1)!}
 \end{equation*}
 
 Earlier we had split $\sigma$ into four smaller sums based on which case they fell into. Consider a disjoint $(m+1)$-collection in the first case, that is, we fix $p_1 = 1$, $2\leq p_2\leq m+1$, $0\leq q_1\leq p_2 - 2$, $0\leq q_2 \leq m+1-p_2$. Then we have
