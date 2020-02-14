@@ -358,6 +358,21 @@ So all together we have
 &V_{1}\sum\limits_{\substack{1\leq p \leq m-1 \\ 0 \leq q \leq m - 1 - p}}\frac{1}{2p+1}\prod\limits_{k=p+1}^{p+q}\left(\frac{2k}{2k+1}\right)
 \end{align*}
 
+\subsection*{Skip Factorials}
+
+The products
+\begin{equation*}
+\prod\limits_{k=a}^{b}\frac{(2k-2)}{(2k-1)}
+\end{equation*}
+are ratios of skip or double factorials, where the numerator is a product of the even integers from $2(a-2)$ up to $2(b-1)$ and the denominator is a product of the odd integers from $2(a-1)-1$ up to $2b-1$. Using some facts about double factorials, we can simplify expressions of the form above to
+\begin{align*}
+\prod\limits_{k=a}^{b}\frac{(2k-2)}{(2k-1)} &= \frac{\frac{(2(b-1))!!}{2(a-2)!!}}{\frac{(2b-1)!!}{(2(a-1)-1)!!}} \\
+&= \frac{2^{2b-1}}{2^{2(a-1)-1}}\frac{(a-1)\binom{2(a-1)}{a-1}}{b\binom{2b}{b}} \\
+&= \frac{2^{2b-1}}{2^{2(a-1)-1}}\frac{(a-1)aC_{a-1}}{b(b+1)C_b} \\
+&= \frac{\Gamma(b)\Gamma\left(a-\frac{1}{2}\right)}{\Gamma(a-1)\Gamma\left(b+\frac{1}{2}\right)}
+\end{align*}
+where $\Gamma$ is the gamma function and $C_n$ is the $n$-th Catalan number.
+
 \pagebreak
 
 \subsubsection*{Things to look at.}
