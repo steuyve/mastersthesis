@@ -288,7 +288,7 @@ L = &\sum\limits_{\substack{2\leq p_2\leq m+1 \\ 0\leq q_1 \leq p_2-2 \\ 0 \leq 
 We show that in fact the values of $\sigma$ and $L$ above are equal. We will show that there is a bijection of sets $f:\sigma \to L$ that preserves the product of the weights.
 
 \begin{proof}
-Let $\delta$ be a disjoint $(m+1)$-collection in $\sigma$. In general, $\delta$ will have its first flat step at $p_1$ and second flat step at $p_2$. In between the two flat steps there will be $q_1$ $M$'s followed by $p_2-p_1-q_1$ number of upside down $V$'s. We'll call the height at which this first upside down $V$ path appears to be $v$. Then we define $f(\delta)$ to be a disjoint $(m+1)$-collection in $L$ where we take $\delta$ and replace the upside down $V$ path at $v$ with a off-centred flat step path and all the paths from $v+1$ up to $p_2$ are replaced with asymmetric $M$'s. If $\delta$ had no upside down $V$'s in between the first two flat steps, then just replace the second flat step with an off-centred flat step. Clearly $f(\delta)$ is a unique disjoint $(m+1)$-collection in $L$ and this defines a well-defined function of sets from $\sigma$ to $L$. We can see that $f$ preserves the product of the weights on $\delta$: each upside down $V$ path starting at a height of say, $h$ had product of weights $\frac{(2h-1)!}{(h-1)!}$ and this path was replaced by an asymmetric $M$ path with product of weights $\frac{(2h-2)!}{(h-1)!}$ but on the asymmetric $M$ path of height $h+1$ we have an extra factor of $(2(h+1)-3) = (2h+2-3) = (2h-1)$ so in total we also have product of weights $\frac{(2h-1)!}{(h-1)!}$. Note that this also applies to the flat step we introduced at height $v$: it had product of weights $\frac{(2v-2)!}{(v-1)!}$ but the asymmetric $M$ just above it gives an extra factor of $(2v-1)$ so we're fine. Finally the flat step at $p_2$ in $\delta$ had product of weights $\frac{(2p_2-2)!}{(p_2-1)}$ which is the same as the product of the weights in the asymmetric $M$ we introduced at $p_2$. So we see that $f$ preserves weighting.
+Let $\delta$ be a disjoint $(m+1)$-collection in $\sigma$. In general, $\delta$ will have its first flat step at $p_1$ and second flat step at $p_2$. In between the two flat steps there will be $q_1$ $M$'s followed by $p_2-p_1-q_1$ number of upside down $V$'s. We'll call the height at which this first upside down $V$ path appears to be $v$. Then we define $f(\delta)$ to be a disjoint $(m+1)$-collection in $L$ where we take $\delta$ and replace the upside down $V$ path at $v$ with a off-centred flat step path and all the paths from $v+1$ up to $p_2$ are replaced with asymmetric $M$'s. If $\delta$ had no upside down $V$'s in between the first two flat steps, then just replace the second flat step with an off-centred flat step. Clearly $f(\delta)$ is a unique disjoint $(m+1)$-collection in $L$ and this defines a well-defined function of sets from $\sigma$ to $L$. We can see that $f$ preserves the product of the weights on $\delta$: each upside down $V$ path starting at a height of say, $h$ had product of weights $\frac{(2h-1)!}{(h-1)!}$ and this path was replaced by an asymmetric $M$ path with product of weights $\frac{(2h-2)!}{(h-1)!}$ but on the asymmetric $M$ path of height $h+1$ we have an extra factor of $(2(h+1)-3) = (2h+2-3) = (2h-1)$ so in total we also have product of weights $\frac{(2h-1)!}{(h-1)!}$. Note that this also applies to the flat step we introduced at height $v$: it had product of weights $\frac{(2v-2)!}{(v-1)!}$ but the asymmetric $M$ just above it gives an extra factor of $(2v-1)$ which is already accounted for. Finally the flat step at $p_2$ in $\delta$ had product of weights $\frac{(2p_2-2)!}{(p_2-1)}$ which is the same as the product of the weights in the asymmetric $M$ we introduced at $p_2$. So we see that $f$ preserves weighting.
 
 Now we define a function $g:L\to\sigma$. Let $\delta$ instead be a disjoint $(m+1)$-collection in $L$. The collection $\delta$ has a second off-centred flat step at height $p_2$ with $q_1$ number of asymmetric $M$'s above it. Then we define $g(\delta)$ to be the disjoint $(m+1)$-collection where we replace the second flat step at $p_2$ and all the asymmetric $M$'s above it with upside down $V$'s except for the last one, which we turn into a centred flat step (ie. at height $p_2+q_1$. The paths above $p_2+q_1$ will be either upside down $V$'s or $M$'s and so this gives us a disjoint $(m+1)$-collection in $\sigma$. Clearly, $g,f$ are inverse to each other, giving us a bijection $\sigma\to L$. Since $f$ preserves products of weights, this also gives us that $\sigma = L$ as values.
 \end{proof}
@@ -362,16 +362,61 @@ So all together we have
 
 The products
 \begin{equation*}
+\prod\limits_{k=a}^{b}\frac{(2k-2)}{(2k-1)},\qquad\prod\limits_{k=a}^b\frac{2k}{2k+1}
+\end{equation*}
+that appear in the sums above are ratios of skip or double factorials. In the following, we will refer to the identities about skip factorials given just below:
+\begin{align*}
+&(2n)!! = 2^nn! \\
+&(2n-1)!! = \frac{(2n)!}{2^nn!} \\
+&(2n+1)!! = \frac{(2n+1)!}{2^nn!}
+\end{align*}
+We will also use Catalan numbers, which are defined by
+\begin{equation*}
+C_n = \frac{1}{n+1}\binom{(2n)}{n} = \frac{1}{2n+1}\binom{(2n+1)}{n}
+\end{equation*}
+Now let's write the product
+\begin{equation*}
 \prod\limits_{k=a}^{b}\frac{(2k-2)}{(2k-1)}
 \end{equation*}
-are ratios of skip or double factorials, where the numerator is a product of the even integers from $2(a-2)$ up to $2(b-1)$ and the denominator is a product of the odd integers from $2(a-1)-1$ up to $2b-1$. Using some facts about double factorials, we can simplify expressions of the form above to
+in terms of skip factorials and try to simplify from there:
 \begin{align*}
-\prod\limits_{k=a}^{b}\frac{(2k-2)}{(2k-1)} &= \frac{\frac{(2(b-1))!!}{2(a-2)!!}}{\frac{(2b-1)!!}{(2(a-1)-1)!!}} \\
+\prod\limits_{k=a}^{b}\frac{(2k-2)}{(2k-1)} &= \frac{2(a-1)}{2a-1}\cdots\frac{2(b-1)}{2b-1} \\
+&= \frac{(2(b-1))!!}{(2(a-2))!!}\left[\frac{(2b-1)!!}{(2(a-1)-1)!!}\right]^{-1} \\
+&= \frac{2^{b-1}(b-1)!}{2^{a-2}(a-2)!}\left[\frac{(2b)!}{2^bb!}\frac{2^{a-1}(a-1)!}{(2(a-1))!}\right]^{-1} \\
+&= \frac{2^{2b-1}}{2^{2(a-1)-1}}\frac{b!(b-1)!}{(2b)!}\frac{(2(a-1))!}{(a-1)!(a-2)!} \\
 &= \frac{2^{2b-1}}{2^{2(a-1)-1}}\frac{(a-1)\binom{2(a-1)}{a-1}}{b\binom{2b}{b}} \\
-&= \frac{2^{2b-1}}{2^{2(a-1)-1}}\frac{(a-1)aC_{a-1}}{b(b+1)C_b} \\
-&= \frac{\Gamma(b)\Gamma\left(a-\frac{1}{2}\right)}{\Gamma(a-1)\Gamma\left(b+\frac{1}{2}\right)}
+&= \frac{2^{2b-1}}{2^{2(a-1)-1}}\frac{(a-1)aC_{a-1}}{b(b+1)C_b}
 \end{align*}
-where $\Gamma$ is the gamma function and $C_n$ is the $n$-th Catalan number.
+And similarly:
+\begin{align*}
+\prod\limits_{k=a}^b\frac{2k}{2k+1} &= \frac{2a}{2a+1}\cdots\frac{2b}{2b+1} \\
+&= \frac{(2b)!!}{(2(a-1))!!}\left[\frac{(2b+1)!!}{(2a-1)!!}\right]^{-1} \\
+&= \frac{2^bb!}{2^{a-1}(a-1)!}\left[\frac{(2b+1)!}{2^bb!}\frac{2^aa!}{(2a)!}\right]^{-1} \\
+&= \frac{2^{2b}}{2^{2a-1}}\frac{(b!)^2}{(2b+1)!}\frac{(2a)!}{a!(a-1)!} \\
+&= \frac{2^{2b}}{2^{2a-1}}\frac{a\binom{2a}{a}}{(b+1)\binom{2b+1}{b}} \\
+&= \frac{2^{2b}}{2^{2a-1}}\frac{a(a+1)C_a}{(2b+1)(b+1)C_b}
+\end{align*}
+
+Using the above, we can rewrite the last sum in our expression for the second derivative as the following:
+\begin{equation*}
+V_{1}\sum\limits_{\substack{1\leq p \leq m-1 \\ 0 \leq q \leq m - 1 - p}}\frac{1}{2p+1}\prod\limits_{k=p+1}^{p+q}\left(\frac{2k}{2k+1}\right) = V_1\sum\limits_{\substack{1\leq p \leq m-1 \\ 0 leq q \leq m-1}} \frac{1}{2p+1}\frac{2^{2(p+q)}}{2^{2(p+1)-1}}\frac{(p+1)(p+2)C_{p+1}}{(2(p+q)+1)(p+q+1)C_{p+q}}
+\end{equation*}
+Setting $k = p+q$, this last sum turns into
+\begin{align*}
+&V_1\sum\limits_{k=1}^{m-1}\sum\limits_{q=0}^{k-1}\frac{1}{2k+1-2q}\frac{2^k}{2^{2k-2q+1}}\frac{(k-q+1)(k-q+2)C_{k-q+1}}{(2k+1)(k+1)C_k} \\
+&\quad= V_1\sum\limits_{k=0}^{m-1}\frac{2^k}{(2k+1)(k+1)C_k}\sum\limits_{q=0}^{k-1}\frac{(k-q+1)(k-q+2)C_{k-q+1}}{2^{2k-2q+1}(2k+1-2q)} \\
+\end{align*}
+We use the following identity associated with the Catalan numbers:
+\begin{equation*}
+C_k = \frac{1}{k}\sum\limits_{q=0}^{k-1}C_{k-q+1}\frac{(2q+1)!}{(q+1)!q!}
+\end{equation*}
+so multiplying by 1 in clever ways above, we have
+\begin{align*}
+&V_1\sum\limits_{k=0}^{m-1}\frac{2^k}{(2k+1)(k+1)C_k}\sum\limits_{q=0}^{k-1}\frac{(k-q+1)(k-q+2)C_{k-q+1}}{2^{2k-2q+1}(2k+1-2q)} \\
+&\quad=V_1\sum\limits_{k=0}^{m-1}\frac{2^k}{(2k+1)(k+1)C_k}k\frac{1}{k}\sum\limits_{q=0}^{k-1}\frac{(k-q+1)(k-q+2)C_{k-q+1}}{2^{2k-2q+1}(2k+1-2q)}\frac{(2q+1)!}{(q+1)!q!}\frac{(q+1)!q!}{(2q+1)!} \\
+&\quad=V_1\sum\limits_{k=0}^{m-1}\frac{2^kkC_k}{(2k+1)(k+1)C_k}\sum\limits_{q=0}^{k-1}\frac{(k-q+1)(k-q+2)}{2^{2k-2q+1}(2k+1-2q)}\frac{(q+1)!q!}{(2q+1)!} \\
+&\quad=V_1\sum\limits_{k=0}^{m-1}\frac{2^kk}{(2k+1)(k+1)}\sum\limits_{q=0}^{k-1}\frac{(k-q+1)(k-q+2)}{2^{2k-2q+1}(2k+1-2q)(2q+1)C_q} \\
+\end{align*}
 
 \pagebreak
 
