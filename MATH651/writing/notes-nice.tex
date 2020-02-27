@@ -20,7 +20,7 @@
 \newtheorem{defn}{Definition}
 
 \theoremstyle{definition}
-\newtheorem{ex}[defn]{Example}
+\newtheorem*{ex}{Example}
 
 \theoremstyle{plain}
 \newtheorem{theo}[defn]{Theorem}
@@ -55,7 +55,7 @@ Magnitude is a numerical invariant of metric spaces with origins in the notion o
 
 \subsection{The magnitude of a finite metric space}
 
-We first define the magnitude of a matrix and the magnitude of a finite metric space.
+We first define the magnitude of a matrix.
 
 \begin{defn}
 Let $\mathbf{M} \in M_n(\mathbb{R})$. The vector $w \in \mathbb{R}^n$ is called a \textbf{weighting} if $\mathbf{M}w = \mathbf{1}_n$, the vector of all $1$'s. Similarly, $v \in \mathbb{R}^n$ is called a \textbf{coweighting} if $v^\star\mathbf{M} = \mathbf{1}_n^\star$.
@@ -121,7 +121,7 @@ and so $A$ has magnitude
 \end{enumerate}
 \end{ex}
 
-Given a finite metric space $A$, we have a one parameter family of matrices $tA$ where the distances in $A$ are scaled by a real parameter $t > 0$.
+Given a finite metric space $A$, we have a one parameter family of matrices $tA$ where the distances in $A$ are scaled by a real parameter $t > 0$. Then we call the assignment $t\mapsto\vert tA \vert$ the \textbf{magnitude function} of $A$. Note that the metric space $tA$ does not necessarily admit a weighting for all values of $t$, so the magnitude function is a partially defined function from $(0,\infty)\to\mathbb{R}$.
 
 \subsection{The magnitude function}
 
@@ -140,7 +140,7 @@ Let $d = 2m+1$ where $m$ is a natural number. Denote by $B_2^d$ the $d$-dimensio
 where $V_1(B_2^d)$ is the first instrinsic volume of the Euclidean ball.
 We are interested computing the value of
 \begin{equation*}
-\frac{d^2\text{Mag}(tB_2^d)}{dt^2}\big\vert_{t=0}.
+\frac{d^2}{dt^2}\text{Mag}(tB_2^d)\big\vert_{t=0}.
 \end{equation*}
 We will follow the same approach that Meckes used for the result above, with many of the techniques introduced by Willerton in \cite{willerton_magnitude_2017}.
 
@@ -155,9 +155,9 @@ Barcelo and Carbery in \cite{barcelo_magnitudes_2016} explicitly calculated the 
 \end{align*}
 So taking second derivatives and evaluating at $t = 0$, we have
 \begin{align*}
-&\frac{d\text{Mag}^2(tB_2^3)}{dt^2}\big\vert_{t=0} = 2 \\
-&\frac{d\text{Mag}^2(tB_2^5)}{dt^2}\big\vert_{t=0} = \frac{38}{9} = 4.222\dots \\
-&\frac{d\text{Mag}^2(tB_2^7)}{dt^2}\big\vert_{t=0} = \frac{162}{25} = 6.48 \\
+&\frac{d^2}{dt^2}\text{Mag}(tB_2^3)\big\vert_{t=0} = 2 \\
+&\frac{d^2}{dt^2}\text{Mag}(tB_2^5)\big\vert_{t=0} = \frac{38}{9} = 4.222\dots \\
+&\frac{d^2}{dt^2}\text{Mag}(tB_2^7)\big\vert_{t=0} = \frac{162}{25} = 6.48 \\
 \end{align*}
 
 We will use these values as sanity checks to compare against throughout our calculations.
