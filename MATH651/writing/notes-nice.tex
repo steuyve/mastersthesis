@@ -121,9 +121,73 @@ and so $A$ has magnitude
 \end{enumerate}
 \end{ex}
 
+\subsection{The magnitude function}
+
 Given a finite metric space $A$, we have a one parameter family of matrices $tA$ where the distances in $A$ are scaled by a real parameter $t > 0$. Then we call the assignment $t\mapsto\vert tA \vert$ the \textbf{magnitude function} of $A$. Note that the metric space $tA$ does not necessarily admit a weighting for all values of $t$, so the magnitude function is a partially defined function from $(0,\infty)\to\mathbb{R}$.
 
-\subsection{The magnitude function}
+Also note that as we scale up distances between points, the metric space $A$ ``approaches" the discrete space and so we want to be able to say that $\vert tA \vert \to \#A$ as $t \to \infty$. Actually proving this statement is a little more tricky than it first seems because, as noted above, $\vert tA \vert$ is not necessarily defined for all $t$. To do this, we prove the following lemma and proposition. The lemma and proposition, along with their proofs, can be found in \cite{leinster_magnitude_nodate} as Lemma 2.2.5 and Proposition 2.2.6.
+
+\begin{defn}
+A metric space $A$ is an \textbf{expansion} of a metric space $B$ if there exists a distance-decreasing surjection from $A$ to $B$, that is, there exists an $f: A \to B$ surjective such that for all $a,b \in A$, $d_{B}(f(a),f(b)) \leq d_{A}(a,b)$.
+\end{defn}
+
+\begin{lem}\label{lem:expansion}
+Suppose $A,B$ are both finite metric spaces with nonnegative weightings (that is, the entries of their respective weightings are nonnegative). Then if $A$ is an expansion of $B$, then $\vert A \vert \geq \vert B \vert$.
+\end{lem}
+
+\begin{proof}
+Since $A$ is an expansion of $B$, there exists a distance decreasing surjection $f: A \to B$. Take a right-inverse function of $f$, say $g: B \to A$ (which we know exists since $f$ is surjective). Then for all $b \in B$, $f(g(b)) = b$ and so for all $a \in A$ and $b \in B$, we have
+\begin{equation*}
+d_{B}(f(a),b) = d_{B}(f(a),f(g(b))) \leq d_{A}(a,g(b))
+\end{equation*}
+this also means
+\begin{equation*}
+\left[\mathbf{Z}_B\right]_{f(a),b} \geq \left[\mathbf{Z}_{A}\right]_{a,g(b)}
+\end{equation*}
+(note the reversal of the direction in the inequality). Now let $w_A,w_B$ be respective nonnegative weightings. In what follows, we'll use functional notation $w_A(i)$ to denote the $i$-th entry of $w_A$ an similarly for $w_B$. Then by nonnegativity of the weighting and the inequality above, we have
+\begin{align*}
+\vert A \vert = \sum\limits_{a\in A} w_A(a) \cdot 1 &= \sum\limits_{a\in A, b\in B} w_A(a) \left[\mathbf{Z}_{B}\right]_{f(a),b}w_B(b) \\
+&\geq \sum\limits_{a\in A, b \in B} w_{A}(a) \left[\mathbf{Z}_{A}\right]_{a,g(b)} w_{B}(b) = \sum\limits_{b\in B} 1\cdot w_B(b) = \vert B \vert
+\end{align*}
+as required.
+\end{proof}
+
+\begin{prop}\label{prop:approach}
+Let $A$ be a finite metric space. Then
+\begin{enumerate}[label=(\roman*)]
+\item $tA$ is invertible and hence has magnitude for all but finitely many $t > 0$.
+\item The magnitude function of $A$ is analytic at all $t>0$ such that $tA$ is invertible.
+\item for $t \gg 0$, there is a unique, positive, weighting on $tA$.
+\item For $t \gg 0$, the magnitude function of $A$ is increasing.
+\item $\vert tA \vert \to \#A$ as $t \to \infty$.
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+Let $\#A = n$. For an $n \times n$ invertible matrix $\mathbf{M}$, by Proposition \ref{prop:inv}, the unique weighting $w$ on $\mathbf{M}$ is given by
+\begin{equation}
+w_i = \sum\limits_{j=1}^{n}\left[\mathbf{M}^{-1}\right]_{ij}
+\end{equation}
+We can rewrite (1) in terms of the adjugate and the determinant of $\mathbf{M}$:
+\begin{equation}
+w_i = \sum\limits_{j=1}^{n}\left[\mathbf{M}^{-1}\right]_{ij} = \sum\limits_{j=1}^{n} \frac{\left[\text{adj}(\mathbf{M})\right]_{ij}}{{\det{\mathbf{M}}}}
+\end{equation}
+where $\mathbf{M}\text{adj}(\mathbf{M}) = (\det{\mathbf{M}})\mathbf{I}_n$. Importantly, the adjugate is a smooth function of $\mathbf{M}$ (see section 0.8 of \cite{horn_matrix_2013}).
+
+To show $\emph{(i)}$, note that since $\mathbf{Z}_{tA} \to \mathbf{I}_n$ as $t\to\infty$ and $\mathbf{I}_n$ is invertible, $\mathbf{Z}_{tA}$ is invertible for large enough $t$. Also note that $\det{\mathbf{Z}_{tA}}$ is analytic in $t$. One way to see this is by looking at the Liebniz formula for the determinant found in \cite{horn_matrix_2013} applied to our definition of the similarity matrix:
+\begin{equation*}
+\det{\mathbf{Z}_{tA}} = \sum\limits_{\sigma} \text{sgn}(\sigma)\prod\limits_{a\in A}\left[\mathbf{Z}_{tA}\right]_{a,\sigma(a)} = \sum\limits_{\sigma}\text{sgn}(\sigma)\prod\limits_{a\in A} e^{-td(a,\sigma(a))}
+\end{equation*}
+where $\sigma$ is a permutation of $n$ elements. From the formula above, clearly the determinant is analytic in $t$ (it is the sum and product of analytic functions). Then since $\mathbf{Z}_{tA} \to \mathbf{I}_n$ as $t \to\infty$ and $\det\mathbf{I}_n$ = 1, $\det\mathbf{Z}_{tA} > 0$ for large enough $t$, and so by analyticity, $\det\mathbf{Z}_{tA}$ has finitely many zeroes for $t \in (0,\infty)$.
+
+For $\emph{(ii)}$, since magnitude is the sum of all the entries in the weighting, analyticity of the magnitude function for all $t > 0$ such that $tA$ is invertible follows from Equation (2) and analyticity of the quotient.
+
+For $\emph{(iii)}$, fix $a \in A$ and note that by Equation (2), the function $\mathbf{Z}_{tA} \mapsto w_{tA}(a)$ is continuous on the space of $n \times n$ invertible matrices (where $w_{tA}$ denotes the weighting on $\mathbf{Z}_{tA}$). Now, $w_{\mathbf{I}_n}(a) = 1$, so by continuity since $\mathbf{Z}_{tA}$ converges to $\mathbf{I}_n$ as $t \to \infty$, the weighting $w_{tA}(a)$ is also positive for large enough $t$. In other words, $\mathbf{Z}_{tA}$ has a positive weighting for large enough $t$.
+
+To show $\emph{(iv)}$, let $t \leq t'$. Note that by part $\emph{(iii)}$, $tA$ and $t'A$ have positive weightings for large enough $t$. Note also that $t'A$ is an expansion of $tA$ (taking the function $f:tA \to t'A$ to be the identity as a map of sets as our distance decreasing surjection). So applying Lemma \ref{lem:expansion} above, we see that the magnitude function is increasing for $t \gg 0$.
+
+Finally for $\emph{(v)}$, by everything above, we have that $\lim\limits_{t\to\infty} \vert tA \vert = \left\vert \lim\limits_{t\to\infty}\mathbf{Z}_{tA}\right\vert = \vert \mathbf{I}_n\vert = n = \#A$.
+\end{proof}
 
 \subsection{Finite positive definite metric spaces}
 
