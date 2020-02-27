@@ -151,9 +151,9 @@ N = d!D
 \end{equation*}
 and Meckes in the proof of Theorem 4 of \cite{meckes_magnitude_2019} showed that
 \begin{equation*}
-N'D - ND' = Vd!D^2
+N'D - ND' = \frac{1}{2}V_1d!D^2
 \end{equation*}
-where $V$ is shorthand for $\frac{1}{2}V_1\left(B_2^d\right)$. Now we evaluate
+where $V_1$ is shorthand for $V_1\left(B_2^d\right)$. Now we evaluate
 \begin{equation*}
 \frac{d^2}{dt^2}\text{Mag}(tB_2^d)\big\vert_{t=0}
 \end{equation*}
@@ -168,11 +168,11 @@ Applying the quotient rule and using the two identities above, we have
 &= \frac{D(t)^2N''(t)-D(t)N(t)D''(t)-2D'(t)D(t)N'(t)+2D'(t)^2N(t)}{d!D(t)^3}\big\vert_{t=0} \\
 &= \frac{2D^2N''-2DD'N'-2DND''+2ND'^2}{d!D^3} \\
 &= \frac{2D^2N''-2DND''-2D'(DN'-D'N)}{d!D^3} \\
-&= \frac{2D^2N''-2DND''-2D'(Vd!D^2)}{d!D^3} \\
-&= 2\left[\frac{DN''-ND''}{d!D^2}\right]-2V\left[\frac{D'}{D}\right] \\
-&= 2\left[\frac{DN''-d!DD''}{d!D^2}\right] - 2V\left[\frac{D'}{D}\right] \\
-&= 2\left[\frac{N''-d!D''}{d!D}\right] - 2V\left[\frac{D'}{D}\right] \\
-&= 2\left[\frac{N''-d!D''}{N}\right] - 2V\left[\frac{D'}{D}\right]
+&= \frac{2D^2N''-2DND''-2D'(\frac{1}{2}V_1d!D^2)}{d!D^3} \\
+&= 2\left[\frac{DN''-ND''}{d!D^2}\right]-V_1\left[\frac{D'}{D}\right] \\
+&= 2\left[\frac{DN''-d!DD''}{d!D^2}\right] - V_1\left[\frac{D'}{D}\right] \\
+&= 2\left[\frac{N''-d!D''}{d!D}\right] - V_1\left[\frac{D'}{D}\right] \\
+&= 2\left[\frac{N''-d!D''}{N}\right] - V_1\left[\frac{D'}{D}\right]
 \end{align*}
 Where the factors of 2 in front of the terms containing a second derivative are because of the factor of $\frac{1}{2}$ that we introduced earlier in our notation for $N''$ and $D''$. To continue simplifying this expression, we have to give explicit expressions for the terms involved:
 \begin{align*}
