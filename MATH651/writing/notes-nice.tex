@@ -17,32 +17,33 @@
 \newcommand{\Z}{\mathbb{Z}}
 
 \theoremstyle{definition}
-\newtheorem*{defn}{Definition}
+\newtheorem{defn}{Definition}
 
 \theoremstyle{definition}
-\newtheorem{ex}{Example}
+\newtheorem{ex}[defn]{Example}
 
 \theoremstyle{plain}
-\newtheorem{theo}{Theorem}
+\newtheorem{theo}[defn]{Theorem}
 
 \theoremstyle{plain}
-\newtheorem*{prop}{Proposition}
+\newtheorem{prop}[defn]{Proposition}
 
 \theoremstyle{plain}
-\newtheorem{lem}{Lemma}
+\newtheorem{lem}[defn]{Lemma}
 
 \theoremstyle{definition}
-\newtheorem{que}{Question}
+\newtheorem{que}[defn]{Question}
 
 \begin{document}
 
 \author{Stephen Liu}
-\title{Thesis Notes}
+\title{On the asymptotic behavior of the magnitude function for odd-dimensional Euclidean balls}
 \date{September 4, 2019}
 
 \maketitle
 
 \begin{abstract}
+Magnitude is a numerical invariant of metric spaces with origins in the notion of the Euler characteristic of a category. To this day the only convex sets in Euclidean space for which we can compute magnitude are the odd-dimensional Euclidean balls. Recent results have shed light on the asymptotic behavior of the magnitude function for these Euclidean balls, and in particular recent work by Meckes showed that the first order small-$t$ asymptotics of the magnitude function recovers its first intrinsic volume. The aim of this thesis is to survey work done to understand the magnitude function for these balls and to compute its second order small $t$ asymptotics.
 \end{abstract}
 
 \tableofcontents
@@ -53,6 +54,74 @@
 \section{Finite metric spaces}
 
 \subsection{The magnitude of a finite metric space}
+
+We first define the magnitude of a matrix and the magnitude of a finite metric space.
+
+\begin{defn}
+Let $\mathbf{M} \in M_n(\mathbb{R})$. The vector $w \in \mathbb{R}^n$ is called a \textbf{weighting} if $\mathbf{M}w = \mathbf{1}_n$, the vector of all $1$'s. Similarly, $v \in \mathbb{R}^n$ is called a \textbf{coweighting} if $v^\star\mathbf{M} = \mathbf{1}_n^\star$.
+\end{defn}
+\begin{lem}
+If $\mathbf{M}$ has a weighting $w$ and a coweighting $v$, then $\sum\limits_{j=1}^{n}w_j = \sum\limits_{j=1}^{n}v_j$.
+\end{lem}
+\begin{proof}
+\begin{equation*}
+\sum\limits_{j=1}^{n}w_j = \mathbf{1}_n^\star w = v^\star\mathbf{M}w = v^\star \mathbf{1}_n = \sum\limits_{j=1}^{n}v_j
+\end{equation*}
+\end{proof}
+The lemma ensures that if a matrix $\mathbf{M}$ admits both a weighting and a coweighting, then the sum of all the entries of the (co)weighting is independent of the (co)weighting chosen. This means we can make the following definition without ambiguity:
+\begin{defn}
+Let $\mathbf{M} \in M_n(\mathbb{R})$. If $\mathbf{M}$ has a weighting $w$ and a coweighting $v$, then its \textbf{magnitude} is defined and is given by
+\begin{equation*}
+\vert \mathbf{M} \vert = \sum\limits_{j=1}^{n} w_j = \sum\limits_{j=1}^{n}v_j
+\end{equation*}
+\end{defn}
+It is not obvious how to find the weighting of a matrix (if it exists at all), but the situation is more straightforward if the matrix is invertible.
+\begin{prop}\label{prop:inv}
+If $\mathbf{M} \in M_n$ is invertible, then it has a unique weighting and coweighting and $\vert \mathbf{M} \vert = \sum\limits_{i,j=1}^{n}[\mathbf{M}^{-1}]_{ij}$
+\end{prop}
+\begin{proof}
+If $\mathbf{M}$ is invertible, then the equations
+\begin{equation*}
+\mathbf{M}x = \mathbf{1}_n \qquad x^\star\mathbf{M} = \mathbf{1}_n^\star
+\end{equation*}
+have unique solutions which give the weighting and coweighting of $\mathbf{M}$ respectively. In particular, the weighting $w$ is given by
+\begin{equation*}
+w = \mathbf{M}^{-1}\mathbf{1}_n = \sum\limits_{j=1}^{n} a_j^{-1}
+\end{equation*}
+where $a_j^{-1}$ is the $j$-th column of $\mathbf{M}^{-1}$. Then the magnitude of $\mathbf{M}$ is given by
+\begin{equation*}
+\sum\limits_{j=1}^{n}w_j = \sum\limits_{i=1}^{n}\sum\limits_{j=1}^{n}a_{j}^{-1}(i) = \sum\limits_{i,j=1}^{n}[\mathbf{M}^{-1}]_{ij}
+\end{equation*}
+where $a_{j}^{-1}(i)$ denotes the $i$-th entry of $a_j^{-1}$.
+\end{proof}
+
+Now that we have the matrix preliminaries established we can move on to the definition of the magnitude of a metric space.
+
+\begin{defn}
+Let $A$ be a finite metric space with $n$ points and distance function $d$. Then the \textbf{similarity matrix} $\mathbf{Z}_A$ is the $n\times n$ real matrix given by $[\mathbf{Z}_A]_{ij} = e^{-d(i,j)}$ where $i,j \in A$. The \textbf{magnitude} of $A$, also denoted $\vert A \vert$ is the magnitude of its similarity matrix. 
+\end{defn}
+
+We now present some basic examples of metric spaces and their magnitudes:
+
+\begin{ex}
+\begin{enumerate}
+\item Let $A$ be the discrete metric space, that is, $d(a,b) = \infty$ for all $a \neq b$ in $A$. Then the similarity matrix $\mathbf{Z}_A$ is the identity matrix and so $\vert A \vert = \#A$ where $\#A$ is the number of points in $A$.
+\item Let $A$ be the metric space of two points $a,b$ and let $d = d(a,b)$. Then we have the similarity matrix
+\begin{equation*}
+\mathbf{Z}_A = \begin{bmatrix} 1 & e^{-d} \\ e^{-d} & 1 \end{bmatrix}
+\end{equation*}
+which is invertible with inverse matrix given by
+\begin{equation*}
+\mathbf{Z}_A^{-1} = \begin{bmatrix} \frac{1}{1-e^{-2d}} & \frac{-e^{-d}}{1-e^{-2d}} \\ \frac{-e^{-d}}{1-e^{-2d}} & \frac{1}{1-e^{-2d}} \end{bmatrix}
+\end{equation*}
+and so $A$ has magnitude
+\begin{equation*}
+\vert A \vert = \frac{2(1-e^{-d})}{1-e^{-2d}} = \frac{2(1-e^{-d})}{(1+e^{-d})(1-e^{-d})} = \frac{2}{1+e^{-d}} = 1+\tanh{\left(\frac{d}{2}\right)}
+\end{equation*}
+\end{enumerate}
+\end{ex}
+
+Given a finite metric space $A$, we have a one parameter family of matrices $tA$ where the distances in $A$ are scaled by a real parameter $t > 0$.
 
 \subsection{The magnitude function}
 
@@ -143,7 +212,7 @@ As mentioned before, $\omega_j(\sigma)$ are of the form $ct^\ell$ where $\ell$ i
 \text{Mag}\left(tB_2^d\right) = \frac{N(t)}{d!D(t)}.
 \end{equation*}
 
-\section{Taking the second derivative}
+\section{Evaluating the second derivative}
 
 From now on, when writing down the value of a function evaluated at zero, for convenience we will omit the ``$(0)$'' part, that is, we write $N$ for $N(0)$ and $N'$ for $N'(0)$ and similarly for $D(0)$ and $D'(0)$. For higher derivatives we divide by the order of the derivative, that is, we denote $\frac{1}{2}N''(0)$ by $N''$ and $\frac{1}{2}D''(0)$ by $D''$. The point of this is that $N''$ and $D''$ are the values of the coefficients of the second order terms in $N(t)$ and $D(t)$ respectively. In Theorem 28 of \cite{willerton_magnitude_2017}, Willerton showed the following identity
 \begin{equation*}
