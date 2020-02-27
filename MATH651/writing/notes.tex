@@ -400,19 +400,7 @@ V_{1}\sum\limits_{\substack{1\leq p \leq m-1 \\ 0 \leq q \leq m - 1 - p}}\frac{1
 \end{equation*}
 Setting $k = p+q$, this last sum turns into
 \begin{align*}
-&V_1\sum\limits_{k=1}^{m-1}\sum\limits_{q=0}^{k-1}\frac{1}{2k+1-2q}\frac{2^k}{2^{2k-2q+1}}\frac{(k-q+1)(k-q+2)C_{k-q+1}}{(2k+1)(k+1)C_k} \\
-&\quad= V_1\sum\limits_{k=0}^{m-1}\frac{2^k}{(2k+1)(k+1)C_k}\sum\limits_{q=0}^{k-1}\frac{(k-q+1)(k-q+2)C_{k-q+1}}{2^{2k-2q+1}(2k+1-2q)} \\
-\end{align*}
-We use the following identity associated with the Catalan numbers:
-\begin{equation*}
-C_k = \frac{1}{k}\sum\limits_{q=0}^{k-1}C_{k-q+1}\frac{(2q+1)!}{(q+1)!q!}
-\end{equation*}
-so multiplying by 1 in clever ways above, we have
-\begin{align*}
-&V_1\sum\limits_{k=0}^{m-1}\frac{2^k}{(2k+1)(k+1)C_k}\sum\limits_{q=0}^{k-1}\frac{(k-q+1)(k-q+2)C_{k-q+1}}{2^{2k-2q+1}(2k+1-2q)} \\
-&\quad=V_1\sum\limits_{k=0}^{m-1}\frac{2^k}{(2k+1)(k+1)C_k}k\frac{1}{k}\sum\limits_{q=0}^{k-1}\frac{(k-q+1)(k-q+2)C_{k-q+1}}{2^{2k-2q+1}(2k+1-2q)}\frac{(2q+1)!}{(q+1)!q!}\frac{(q+1)!q!}{(2q+1)!} \\
-&\quad=V_1\sum\limits_{k=0}^{m-1}\frac{2^kkC_k}{(2k+1)(k+1)C_k}\sum\limits_{q=0}^{k-1}\frac{(k-q+1)(k-q+2)}{2^{2k-2q+1}(2k+1-2q)}\frac{(q+1)!q!}{(2q+1)!} \\
-&\quad=V_1\sum\limits_{k=0}^{m-1}\frac{2^kk}{(2k+1)(k+1)}\sum\limits_{q=0}^{k-1}\frac{(k-q+1)(k-q+2)}{2^{2k-2q+1}(2k+1-2q)(2q+1)C_q} \\
+&V_1\sum\limits_{k=1}^{m-1}\sum\limits_{p=1}^k\frac{1}{2p+1}\frac{2^{2k}}{2^{2(p+1)-1}}\frac{(p+1)(p+2)C_{p+1}}{(2k+1)(k+1)C_k} = V_1\sum\limits_{k=1}^{m-1}\frac{2^{2k}}{(2k+1)(k+1)C_k}\sum\limits_{p=1}^k\frac{(p+1)(p+2)C_{p+1}}{2^{2p+1}(2p+1)}
 \end{align*}
 
 \pagebreak
