@@ -125,7 +125,7 @@ and so $A$ has magnitude
 
 Given a finite metric space $A$, we have a one parameter family of matrices $tA$ where the distances in $A$ are scaled by a real parameter $t > 0$. Then we call the assignment $t\mapsto\vert tA \vert$ the \textbf{magnitude function} of $A$. Note that the metric space $tA$ does not necessarily admit a weighting for all values of $t$, so the magnitude function is a partially defined function from $(0,\infty)\to\mathbb{R}$.
 
-Also note that as we scale up distances between points, the metric space $A$ ``approaches" the discrete space and so we want to be able to say that $\vert tA \vert \to \#A$ as $t \to \infty$. Actually proving this statement is a little more tricky than it first seems because, as noted above, $\vert tA \vert$ is not necessarily defined for all $t$. To do this, we prove the following lemma and proposition. The lemma and proposition, along with their proofs, can be found in \cite{leinster_magnitude_nodate} as Lemma 2.2.5 and Proposition 2.2.6.
+Note that as we scale up distances between points, the metric space $A$ ``approaches" the discrete space and so we want to be able to say that $\vert tA \vert \to \#A$ as $t \to \infty$. Actually proving this statement is a little more tricky than it first seems because, as noted above, $\vert tA \vert$ is not necessarily defined for all $t$. To do this, we prove the following lemma and proposition. The lemma and proposition, along with their proofs, can be found in \cite{leinster_magnitude_2011} as Lemma 2.2.5 and Proposition 2.2.6.
 
 \begin{defn}
 A metric space $A$ is an \textbf{expansion} of a metric space $B$ if there exists a distance-decreasing surjection from $A$ to $B$, that is, there exists an $f: A \to B$ surjective such that for all $a,b \in A$, $d_{B}(f(a),f(b)) \leq d_{A}(a,b)$.
@@ -189,7 +189,102 @@ To show $\emph{(iv)}$, let $t \leq t'$. Note that by part $\emph{(iii)}$, $tA$ a
 Finally for $\emph{(v)}$, by everything above, we have that $\lim\limits_{t\to\infty} \vert tA \vert = \left\vert \lim\limits_{t\to\infty}\mathbf{Z}_{tA}\right\vert = \vert \mathbf{I}_n\vert = n = \#A$.
 \end{proof}
 
+So for any finite metric space $A$, the value of the magnitude function approaches the cardinality of $A$ as we blow up distances between points. However, along with the fact that the magnitude may not be defined everywhere, other ``nice'' properties that we might expect from a function, such as monotonicity, are not guaranteed, as the following example shows.
+
+\begin{ex}
+Let $K_{3,2}$ be the graph with vertices $a_1,a_2,a_3$ and $b_1,b_2$ and one edge between $a_i$ and $b_j$ for each $i$ and $j$. Let each edge have length $t$. The distance function on $K_{3,2}$ is the shortest path distance in the graph. This is what $K_{3,2}$ looks like:
+
+\begin{equation*}
+\begin{xy}
+(0,0)*+{\bullet_{a_1}}="a1";
+(0,-10)*+{\bullet_{a_2}}="a2";
+(0,-20)*+{\bullet_{a_3}}="a3";
+(30,-5)*+{\bullet_{b_1}}="b1";
+(30,-15)*+{\bullet_{b_2}}="b2";
+{\ar@{-} "a1";"b1"}?*!/_3mm/{t};
+{\ar@{-} "a2";"b1"};
+{\ar@{-} "a3";"b1"};
+{\ar@{-} "a1";"b2"};
+{\ar@{-} "a2";"b2"};
+{\ar@{-} "a3";"b2"};
+\end{xy}
+\end{equation*}
+
+Then for each $t$, we can compute the similarity matrix and the magnitude:
+
+\begin{equation*}
+\mathbf{Z}_{tK_{3,2}} = \begin{bmatrix} 1 & e^{-2t} & e^{-2t} & e^{-t} & e^{-t} \\
+e^{-2t} & 1 & e^{-2t} & e^{-t} & e^{-t} \\
+e^{-2t} & e^{-2t} & 1 & e^{-t} & e^{-t} \\
+e^{-t} & e^{-t} & e^{-t} & 1 & e^{-2t} \\
+e^{-t} & e^{-t} & e^{-t} & e^{-2t} & 1
+\end{bmatrix} \qquad
+\vert tK_{3,2} \vert = \frac{5-7e^{-t}}{(1+e^{-t})(1-2e^{-2t})}
+\end{equation*}
+
+\begin{figure}[h!]
+\centerline{
+\includegraphics[width=8cm]{K32.eps}}\caption{\label{fig:K32}The magnitude function of $K_{3,2}$.}
+\end{figure}
+
+The graph of the magnitude function for $K_{3,2}$ shows how pathological the magnitude function of a metric space can be (see Figure \ref{fig:K32}). In particular,
+\begin{enumerate}[label=\arabic*.]
+\item it is undefined for $t = \log{\sqrt{2}}$,
+\item there are values for which it is negative,
+\item it is not monotonic,
+\item and finally it can exceed the cardinality of $K_{3,2}$.
+\end{enumerate}
+\end{ex}
+
 \subsection{Finite positive definite metric spaces}
+
+Given the example above, it is natural to ask whether there are classes of finite metric spaces for which the magnitude function is more well-behaved.
+
+\begin{defn}
+A finite metric space $A$ is \textbf{positive definite} if its similarity matrix $\mathbf{Z}_A$ is a positive definite matrix.
+\end{defn}
+
+Since positive definite matrices are invertible, any positive definite metric space has magnitude. Likewise, since prinicipal submatrices of positive definite matrices are positive definite, subspaces of positive definite metric spaces are positive definite and hence also have magnitude.
+
+The main attractiveness of positive definite metric spaces is that we have a more convenient explicit formula for the magnitude.
+
+\begin{theo}
+If $A$ is a positive definite metric space, then $A$ has magnitude and
+\begin{equation*}
+\vert A \vert = \sup\limits_{v \neq 0}\frac{\left(\sum_{a\in A}v_a\right)^2}{v^\star\mathbf{Z}_Av}
+\end{equation*}
+where $v \in \mathbb{R}^{\#A}$. $v$ attains the supremum if and only if it is a nonzero scalar multiple of the unique weighting on $A$.
+\end{theo}
+
+\begin{proof}
+Since $\mathbf{Z}_A$, we have the Cauchy-Schwarz inequality:
+\begin{equation*}
+(v^\star\mathbf{Z}_A w)^2 \leq (v^\star\mathbf{Z}_Av)(w^\star\mathbf{Z}_Aw)
+\end{equation*}
+with equality if and only if $v,w$ are scalar multiples of each other. We take $w$ to be the unique weighting on $\mathbf{Z}_A$. Then we have
+\begin{equation*}
+\vert A \vert = \sum\limits_{a\in A}w_a = w^\star\mathbf{Z}_Aw \geq \frac{(v^\star\mathbf{Z}_Aw)^2}{v^\star\mathbf{Z}_Av} = \frac{\left(\sum_{a\in A}v_a\right)^2}{v^\star\mathbf{Z}_Av}
+\end{equation*}
+for all $v$. So $\vert A \vert$ is greater than or equal to the supremum. But taking $w$ to be the unique weighting gives
+\begin{equation*}
+\frac{\left(\sum_{a\in A}w_a\right)^2}{w^\star\mathbf{Z}_Aw} = \frac{(w^\star\mathbf{Z}_Aw)^2}{w^\star\mathbf{Z}_Aw} = w^\star\mathbf{Z}_Aw = \sum\limits_{a\in A}w_a = \vert A \vert
+\end{equation*}
+so we have equality.
+\end{proof}
+
+Using this formulation of the magnitude, we can show some that magnitude is increasing with respect to inclusion for positive definite metric spaces.
+
+\begin{prop}
+If $A$ is a positive definite metric space and $B \subseteq A$, then $\vert B \vert \leq \vert A \vert$.
+\end{prop}
+
+\begin{proof}
+As mentioned above, since $A$ is positive definite and $B$ is a subspace of $A$, $B$ is also positive definite and so has magnitude. Then we have
+\begin{equation*}
+\vert B \vert = \sup\limits_{v\neq0}\frac{(\sum_{b\in B} v_b)^2}{v^\star\mathbf{Z}_Bv} \leq \sup\limits_{v\neq0}\frac{(\sum_{a\in A}v_a)^2}{v^\star\mathbf{Z}_Av} = \vert A\vert
+\end{equation*}
+since the space of vectors we are considering for $B$ is a subset of the space of vectors we consider for $A$ (after embedding $\mathbb{R}^{\#B}$ into $\mathbb{R}^{\#A}$).
+\end{proof}
 
 \section{Infinite metric spaces}
 
