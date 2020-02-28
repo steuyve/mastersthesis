@@ -57,42 +57,38 @@ Magnitude is a numerical invariant of metric spaces with origins in the notion o
 
 \subsection{The magnitude of a finite metric space}
 
-We first define the magnitude of a matrix.
-
-\begin{defn}
-Let $\mathbf{M} \in M_n(\mathbb{R})$. The vector $w \in \mathbb{R}^n$ is called a \textbf{weighting} if $\mathbf{M}w = \mathbf{1}_n$, the vector of all $1$'s. Similarly, $v \in \mathbb{R}^n$ is called a \textbf{coweighting} if $v^\star\mathbf{M} = \mathbf{1}_n^\star$.
-\end{defn}
+We first define the magnitude of a matrix. Let $M \in M_n(\mathbb{R})$. The vector $w \in \mathbb{R}^n$ is called a \textbf{weighting} if $Mw = 1_n$, the vector of all $1$'s. Similarly, $v \in \mathbb{R}^n$ is called a \textbf{coweighting} if $v^\star M = 1_n^\star$.
 \begin{lem}
-If $\mathbf{M}$ has a weighting $w$ and a coweighting $v$, then $\sum\limits_{j=1}^{n}w_j = \sum\limits_{j=1}^{n}v_j$.
+If $M$ has a weighting $w$ and a coweighting $v$, then $\sum\limits_{j=1}^{n}w_j = \sum\limits_{j=1}^{n}v_j$.
 \end{lem}
 \begin{proof}
 \begin{equation*}
-\sum\limits_{j=1}^{n}w_j = \mathbf{1}_n^\star w = v^\star\mathbf{M}w = v^\star \mathbf{1}_n = \sum\limits_{j=1}^{n}v_j
+\sum\limits_{j=1}^{n}w_j = 1_n^\star w = v^\star Mw = v^\star 1_n = \sum\limits_{j=1}^{n}v_j
 \end{equation*}
 \end{proof}
-The lemma ensures that if a matrix $\mathbf{M}$ admits both a weighting and a coweighting, then the sum of all the entries of the (co)weighting is independent of the (co)weighting chosen. This means we can make the following definition without ambiguity:
+The lemma ensures that if a matrix $M$ admits both a weighting and a coweighting, then the sum of all the entries of the (co)weighting is independent of the (co)weighting chosen. This means we can make the following definition without ambiguity:
 \begin{defn}
-Let $\mathbf{M} \in M_n(\mathbb{R})$. If $\mathbf{M}$ has a weighting $w$ and a coweighting $v$, then its \textbf{magnitude} is defined and is given by
+Let $M \in M_n(\mathbb{R})$. If $M$ has a weighting $w$ and a coweighting $v$, then its \textbf{magnitude} is defined and is given by
 \begin{equation*}
-\vert \mathbf{M} \vert = \sum\limits_{j=1}^{n} w_j = \sum\limits_{j=1}^{n}v_j
+\vert M \vert = \sum\limits_{j=1}^{n} w_j = \sum\limits_{j=1}^{n}v_j
 \end{equation*}
 \end{defn}
 It is not obvious how to find the weighting of a matrix (if it exists at all), but the situation is more straightforward if the matrix is invertible.
 \begin{prop}\label{prop:inv}
-If $\mathbf{M} \in M_n$ is invertible, then it has a unique weighting and coweighting and $\vert \mathbf{M} \vert = \sum\limits_{i,j=1}^{n}[\mathbf{M}^{-1}]_{ij}$
+If $M \in M_n$ is invertible, then it has a unique weighting and coweighting and $\vert M \vert = \sum\limits_{i,j=1}^{n}[M^{-1}]_{ij}$
 \end{prop}
 \begin{proof}
-If $\mathbf{M}$ is invertible, then the equations
+If $M$ is invertible, then the equations
 \begin{equation*}
-\mathbf{M}x = \mathbf{1}_n \qquad x^\star\mathbf{M} = \mathbf{1}_n^\star
+Mx = 1_n \qquad x^\star M = 1_n^\star
 \end{equation*}
-have unique solutions which give the weighting and coweighting of $\mathbf{M}$ respectively. In particular, the weighting $w$ is given by
+have unique solutions which give the weighting and coweighting of $M$ respectively. In particular, the weighting $w$ is given by
 \begin{equation*}
-w = \mathbf{M}^{-1}\mathbf{1}_n = \sum\limits_{j=1}^{n} a_j^{-1}
+w = M^{-1}1_n = \sum\limits_{j=1}^{n} a_j^{-1}
 \end{equation*}
-where $a_j^{-1}$ is the $j$-th column of $\mathbf{M}^{-1}$. Then the magnitude of $\mathbf{M}$ is given by
+where $a_j^{-1}$ is the $j$-th column of $M^{-1}$. Then the magnitude of $M$ is given by
 \begin{equation*}
-\sum\limits_{j=1}^{n}w_j = \sum\limits_{i=1}^{n}\sum\limits_{j=1}^{n}a_{j}^{-1}(i) = \sum\limits_{i,j=1}^{n}[\mathbf{M}^{-1}]_{ij}
+\sum\limits_{j=1}^{n}w_j = \sum\limits_{i=1}^{n}\sum\limits_{j=1}^{n}a_{j}^{-1}(i) = \sum\limits_{i,j=1}^{n}[M^{-1}]_{ij}
 \end{equation*}
 where $a_{j}^{-1}(i)$ denotes the $i$-th entry of $a_j^{-1}$.
 \end{proof}
@@ -100,21 +96,21 @@ where $a_{j}^{-1}(i)$ denotes the $i$-th entry of $a_j^{-1}$.
 Now that we have the matrix preliminaries established we can move on to the definition of the magnitude of a metric space.
 
 \begin{defn}
-Let $A$ be a finite metric space with $n$ points and distance function $d$. Then the \textbf{similarity matrix} $\mathbf{Z}_A$ is the $n\times n$ real matrix given by $[\mathbf{Z}_A]_{ij} = e^{-d(i,j)}$ where $i,j \in A$. The \textbf{magnitude} of $A$, also denoted $\vert A \vert$ is the magnitude of its similarity matrix. 
+Let $A$ be a finite metric space with $n$ points and distance function $d$. Then the \textbf{similarity matrix} $Z_A$ is the $n\times n$ real matrix given by $[Z_A]_{ij} = e^{-d(i,j)}$ where $i,j \in A$. The \textbf{magnitude} of $A$, also denoted $\vert A \vert$ is the magnitude of its similarity matrix. 
 \end{defn}
 
 We now present some basic examples of metric spaces and their magnitudes:
 
 \begin{ex}
 \begin{enumerate}
-\item Let $A$ be the discrete metric space, that is, $d(a,b) = \infty$ for all $a \neq b$ in $A$. Then the similarity matrix $\mathbf{Z}_A$ is the identity matrix and so $\vert A \vert = \#A$ where $\#A$ is the number of points in $A$.
+\item Let $A$ be the discrete metric space, that is, $d(a,b) = \infty$ for all $a \neq b$ in $A$. Then the similarity matrix $Z_A$ is the identity matrix and so $\vert A \vert = \#A$ where $\#A$ is the number of points in $A$.
 \item Let $A$ be the metric space of two points $a,b$ and let $d = d(a,b)$. Then we have the similarity matrix
 \begin{equation*}
-\mathbf{Z}_A = \begin{bmatrix} 1 & e^{-d} \\ e^{-d} & 1 \end{bmatrix}
+Z_A = \begin{bmatrix} 1 & e^{-d} \\ e^{-d} & 1 \end{bmatrix}
 \end{equation*}
 which is invertible with inverse matrix given by
 \begin{equation*}
-\mathbf{Z}_A^{-1} = \begin{bmatrix} \frac{1}{1-e^{-2d}} & \frac{-e^{-d}}{1-e^{-2d}} \\ \frac{-e^{-d}}{1-e^{-2d}} & \frac{1}{1-e^{-2d}} \end{bmatrix}
+Z_A^{-1} = \begin{bmatrix} \frac{1}{1-e^{-2d}} & \frac{-e^{-d}}{1-e^{-2d}} \\ \frac{-e^{-d}}{1-e^{-2d}} & \frac{1}{1-e^{-2d}} \end{bmatrix}
 \end{equation*}
 and so $A$ has magnitude
 \begin{equation*}
@@ -144,12 +140,12 @@ d_{B}(f(a),b) = d_{B}(f(a),f(g(b))) \leq d_{A}(a,g(b))
 \end{equation*}
 this also means
 \begin{equation*}
-\left[\mathbf{Z}_B\right]_{f(a),b} \geq \left[\mathbf{Z}_{A}\right]_{a,g(b)}
+\left[Z_B\right]_{f(a),b} \geq \left[Z_{A}\right]_{a,g(b)}
 \end{equation*}
 (note the reversal of the direction in the inequality). Now let $w_A,w_B$ be respective nonnegative weightings. In what follows, we'll use functional notation $w_A(i)$ to denote the $i$-th entry of $w_A$ an similarly for $w_B$. Then by nonnegativity of the weighting and the inequality above, we have
 \begin{align*}
-\vert A \vert = \sum\limits_{a\in A} w_A(a) \cdot 1 &= \sum\limits_{a\in A, b\in B} w_A(a) \left[\mathbf{Z}_{B}\right]_{f(a),b}w_B(b) \\
-&\geq \sum\limits_{a\in A, b \in B} w_{A}(a) \left[\mathbf{Z}_{A}\right]_{a,g(b)} w_{B}(b) = \sum\limits_{b\in B} 1\cdot w_B(b) = \vert B \vert
+\vert A \vert = \sum\limits_{a\in A} w_A(a) \cdot 1 &= \sum\limits_{a\in A, b\in B} w_A(a) \left[Z_{B}\right]_{f(a),b}w_B(b) \\
+&\geq \sum\limits_{a\in A, b \in B} w_{A}(a) \left[Z_{A}\right]_{a,g(b)} w_{B}(b) = \sum\limits_{b\in B} 1\cdot w_B(b) = \vert B \vert
 \end{align*}
 as required.
 \end{proof}
@@ -166,29 +162,29 @@ Let $A$ be a finite metric space. Then
 \end{prop}
 
 \begin{proof}
-Let $\#A = n$. For an $n \times n$ invertible matrix $\mathbf{M}$, by Proposition \ref{prop:inv}, the unique weighting $w$ on $\mathbf{M}$ is given by
+Let $\#A = n$. For an $n \times n$ invertible matrix $M$, by Proposition \ref{prop:inv}, the unique weighting $w$ on $M$ is given by
 \begin{equation}
-w_i = \sum\limits_{j=1}^{n}\left[\mathbf{M}^{-1}\right]_{ij}
+w_i = \sum\limits_{j=1}^{n}\left[M^{-1}\right]_{ij}
 \end{equation}
-We can rewrite (1) in terms of the adjugate and the determinant of $\mathbf{M}$:
+We can rewrite (1) in terms of the adjugate and the determinant of $M$:
 \begin{equation}
-w_i = \sum\limits_{j=1}^{n}\left[\mathbf{M}^{-1}\right]_{ij} = \sum\limits_{j=1}^{n} \frac{\left[\text{adj}(\mathbf{M})\right]_{ij}}{{\det{\mathbf{M}}}}
+w_i = \sum\limits_{j=1}^{n}\left[M^{-1}\right]_{ij} = \sum\limits_{j=1}^{n} \frac{\left[\text{adj}(M)\right]_{ij}}{{\det{M}}}
 \end{equation}
-where $\mathbf{M}\text{adj}(\mathbf{M}) = (\det{\mathbf{M}})\mathbf{I}_n$. Importantly, the adjugate is a smooth function of $\mathbf{M}$ (see section 0.8 of \cite{horn_matrix_2013}).
+where $M\text{adj}(M) = (\det{M})I_n$. Importantly, the adjugate is a smooth function of $M$ (see section 0.8 of \cite{horn_matrix_2013}).
 
-To show $\emph{(i)}$, note that since $\mathbf{Z}_{tA} \to \mathbf{I}_n$ as $t\to\infty$ and $\mathbf{I}_n$ is invertible, $\mathbf{Z}_{tA}$ is invertible for large enough $t$. Also note that $\det{\mathbf{Z}_{tA}}$ is analytic in $t$. One way to see this is by looking at the Liebniz formula for the determinant found in \cite{horn_matrix_2013} applied to our definition of the similarity matrix:
+To show $\emph{(i)}$, note that since $Z_{tA} \to I_n$ as $t\to\infty$ and $I_n$ is invertible, $Z_{tA}$ is invertible for large enough $t$. Also note that $\det{Z_{tA}}$ is analytic in $t$. One way to see this is by looking at the Liebniz formula for the determinant found in \cite{horn_matrix_2013} applied to our definition of the similarity matrix:
 \begin{equation*}
-\det{\mathbf{Z}_{tA}} = \sum\limits_{\sigma} \text{sgn}(\sigma)\prod\limits_{a\in A}\left[\mathbf{Z}_{tA}\right]_{a,\sigma(a)} = \sum\limits_{\sigma}\text{sgn}(\sigma)\prod\limits_{a\in A} e^{-td(a,\sigma(a))}
+\det{Z_{tA}} = \sum\limits_{\sigma} \text{sgn}(\sigma)\prod\limits_{a\in A}\left[Z_{tA}\right]_{a,\sigma(a)} = \sum\limits_{\sigma}\text{sgn}(\sigma)\prod\limits_{a\in A} e^{-td(a,\sigma(a))}
 \end{equation*}
-where $\sigma$ is a permutation of $n$ elements. From the formula above, clearly the determinant is analytic in $t$ (it is the sum and product of analytic functions). Then since $\mathbf{Z}_{tA} \to \mathbf{I}_n$ as $t \to\infty$ and $\det\mathbf{I}_n$ = 1, $\det\mathbf{Z}_{tA} > 0$ for large enough $t$, and so by analyticity, $\det\mathbf{Z}_{tA}$ has finitely many zeroes for $t \in (0,\infty)$.
+where $\sigma$ is a permutation of $n$ elements. From the formula above, clearly the determinant is analytic in $t$ (it is the sum and product of analytic functions). Then since $Z_{tA} \to I_n$ as $t \to\infty$ and $\det I_n$ = 1, $\det Z_{tA} > 0$ for large enough $t$, and so by analyticity, $\det Z_{tA}$ has finitely many zeroes for $t \in (0,\infty)$.
 
 For $\emph{(ii)}$, since magnitude is the sum of all the entries in the weighting, analyticity of the magnitude function for all $t > 0$ such that $tA$ is invertible follows from Equation (2) and analyticity of the quotient.
 
-For $\emph{(iii)}$, fix $a \in A$ and note that by Equation (2), the function $\mathbf{Z}_{tA} \mapsto w_{tA}(a)$ is continuous on the space of $n \times n$ invertible matrices (where $w_{tA}$ denotes the weighting on $\mathbf{Z}_{tA}$). Now, $w_{\mathbf{I}_n}(a) = 1$, so by continuity since $\mathbf{Z}_{tA}$ converges to $\mathbf{I}_n$ as $t \to \infty$, the weighting $w_{tA}(a)$ is also positive for large enough $t$. In other words, $\mathbf{Z}_{tA}$ has a positive weighting for large enough $t$.
+For $\emph{(iii)}$, fix $a \in A$ and note that by Equation (2), the function $Z_{tA} \mapsto w_{tA}(a)$ is continuous on the space of $n \times n$ invertible matrices (where $w_{tA}$ denotes the weighting on $Z_{tA}$). Now, $w_{I_n}(a) = 1$, so by continuity since $Z_{tA}$ converges to $I_n$ as $t \to \infty$, the weighting $w_{tA}(a)$ is also positive for large enough $t$. In other words, $Z_{tA}$ has a positive weighting for large enough $t$.
 
 To show $\emph{(iv)}$, let $t \leq t'$. Note that by part $\emph{(iii)}$, $tA$ and $t'A$ have positive weightings for large enough $t$. Note also that $t'A$ is an expansion of $tA$ (taking the function $f:tA \to t'A$ to be the identity as a map of sets as our distance decreasing surjection). So applying Lemma \ref{lem:expansion} above, we see that the magnitude function is increasing for $t \gg 0$.
 
-Finally for $\emph{(v)}$, by everything above, we have that $\lim\limits_{t\to\infty} \vert tA \vert = \left\vert \lim\limits_{t\to\infty}\mathbf{Z}_{tA}\right\vert = \vert \mathbf{I}_n\vert = n = \#A$.
+Finally for $\emph{(v)}$, by everything above, we have that $\lim\limits_{t\to\infty} \vert tA \vert = \left\vert \lim\limits_{t\to\infty}Z_{tA}\right\vert = \vert I_n\vert = n = \#A$.
 \end{proof}
 
 So for any finite metric space $A$, the value of the magnitude function approaches the cardinality of $A$ as we blow up distances between points. However, along with the fact that the magnitude may not be defined everywhere, other ``nice'' properties that we might expect from a function, such as monotonicity, are not guaranteed, as the following example shows.
@@ -215,7 +211,7 @@ Let $K_{3,2}$ be the graph with vertices $a_1,a_2,a_3$ and $b_1,b_2$ and one edg
 Then for each $t$, we can compute the similarity matrix and the magnitude:
 
 \begin{equation*}
-\mathbf{Z}_{tK_{3,2}} = \begin{bmatrix} 1 & e^{-2t} & e^{-2t} & e^{-t} & e^{-t} \\
+Z_{tK_{3,2}} = \begin{bmatrix} 1 & e^{-2t} & e^{-2t} & e^{-t} & e^{-t} \\
 e^{-2t} & 1 & e^{-2t} & e^{-t} & e^{-t} \\
 e^{-2t} & e^{-2t} & 1 & e^{-t} & e^{-t} \\
 e^{-t} & e^{-t} & e^{-t} & 1 & e^{-2t} \\
@@ -243,7 +239,7 @@ The graph of the magnitude function for $K_{3,2}$ shows how pathological the mag
 Given the example above, it is natural to ask whether there are classes of finite metric spaces for which the magnitude function is more well-behaved.
 
 \begin{defn}
-A finite metric space $A$ is \textbf{positive definite} if its similarity matrix $\mathbf{Z}_A$ is a positive definite matrix.
+A finite metric space $A$ is \textbf{positive definite} if its similarity matrix $Z_A$ is a positive definite matrix.
 \end{defn}
 
 Since positive definite matrices are invertible, any positive definite metric space has magnitude. Likewise, since prinicipal submatrices of positive definite matrices are positive definite, subspaces of positive definite metric spaces are positive definite and hence also have magnitude.
@@ -253,23 +249,23 @@ The main attractiveness of positive definite metric spaces is that we have a mor
 \begin{theo}
 If $A$ is a positive definite metric space, then $A$ has magnitude and
 \begin{equation*}
-\vert A \vert = \sup\limits_{v \neq 0}\frac{\left(\sum_{a\in A}v_a\right)^2}{v^\star\mathbf{Z}_Av}
+\vert A \vert = \sup\limits_{v \neq 0}\frac{\left(\sum_{a\in A}v_a\right)^2}{v^\star Z_Av}
 \end{equation*}
 where $v \in \mathbb{R}^{\#A}$. $v$ attains the supremum if and only if it is a nonzero scalar multiple of the unique weighting on $A$.
 \end{theo}
 
 \begin{proof}
-Since $\mathbf{Z}_A$, we have the Cauchy-Schwarz inequality:
+Since $Z_A$, we have the Cauchy-Schwarz inequality:
 \begin{equation*}
-(v^\star\mathbf{Z}_A w)^2 \leq (v^\star\mathbf{Z}_Av)(w^\star\mathbf{Z}_Aw)
+(v^\star Z_A w)^2 \leq (v^\star Z_Av)(w^\star Z_Aw)
 \end{equation*}
-with equality if and only if $v,w$ are scalar multiples of each other. We take $w$ to be the unique weighting on $\mathbf{Z}_A$. Then we have
+with equality if and only if $v,w$ are scalar multiples of each other. We take $w$ to be the unique weighting on $Z_A$. Then we have
 \begin{equation*}
-\vert A \vert = \sum\limits_{a\in A}w_a = w^\star\mathbf{Z}_Aw \geq \frac{(v^\star\mathbf{Z}_Aw)^2}{v^\star\mathbf{Z}_Av} = \frac{\left(\sum_{a\in A}v_a\right)^2}{v^\star\mathbf{Z}_Av}
+\vert A \vert = \sum\limits_{a\in A}w_a = w^\star Z_Aw \geq \frac{(v^\star Z_Aw)^2}{v^\star Z_Av} = \frac{\left(\sum_{a\in A}v_a\right)^2}{v^\star Z_Av}
 \end{equation*}
 for all $v$. So $\vert A \vert$ is greater than or equal to the supremum. But taking $w$ to be the unique weighting gives
 \begin{equation*}
-\frac{\left(\sum_{a\in A}w_a\right)^2}{w^\star\mathbf{Z}_Aw} = \frac{(w^\star\mathbf{Z}_Aw)^2}{w^\star\mathbf{Z}_Aw} = w^\star\mathbf{Z}_Aw = \sum\limits_{a\in A}w_a = \vert A \vert
+\frac{\left(\sum_{a\in A}w_a\right)^2}{w^\star Z_Aw} = \frac{(w^\star Z_Aw)^2}{w^\star Z_Aw} = w^\star Z_Aw = \sum\limits_{a\in A}w_a = \vert A \vert
 \end{equation*}
 so we have equality.
 \end{proof}
@@ -283,10 +279,12 @@ If $A$ is a positive definite metric space and $B \subseteq A$, then $\vert B \v
 \begin{proof}
 As mentioned above, since $A$ is positive definite and $B$ is a subspace of $A$, $B$ is also positive definite and so has magnitude. Then we have
 \begin{equation*}
-\vert B \vert = \sup\limits_{v\neq0}\frac{(\sum_{b\in B} v_b)^2}{v^\star\mathbf{Z}_Bv} \leq \sup\limits_{v\neq0}\frac{(\sum_{a\in A}v_a)^2}{v^\star\mathbf{Z}_Av} = \vert A\vert
+\vert B \vert = \sup\limits_{v\neq0}\frac{(\sum_{b\in B} v_b)^2}{v^\star Z_Bv} \leq \sup\limits_{v\neq0}\frac{(\sum_{a\in A}v_a)^2}{v^\star Z_Av} = \vert A\vert
 \end{equation*}
 since the space of vectors we are considering for $B$ is a subset of the space of vectors we consider for $A$ (after embedding $\mathbb{R}^{\#B}$ into $\mathbb{R}^{\#A}$).
 \end{proof}
+
+
 
 \section{Infinite metric spaces}
 
