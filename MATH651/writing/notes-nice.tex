@@ -57,30 +57,33 @@ Magnitude is a numerical invariant of metric spaces with origins in the notion o
 
 \subsection{The magnitude of a finite metric space}
 
-We first define the magnitude of a matrix. Let $M \in M_n(\mathbb{R})$. The vector $w \in \mathbb{R}^n$ is called a \textbf{weighting} if $Mw = 1_n$, the vector of all $1$'s. Similarly, $v \in \mathbb{R}^n$ is called a \textbf{coweighting} if $v^\star M = 1_n^\star$.
-\begin{lem}
+We first define the magnitude of a matrix. Let $M \in M_n(\mathbb{R})$. The vector $w \in \mathbb{R}^n$ is called a \textbf{weighting} if $Mw = 1_n$, the vector of all $1$'s. Similarly, $v \in \mathbb{R}^n$ is called a \textbf{coweighting} if $v^\star M = 1_n^\star$. The following lemma ensures that if a matrix $M$ admits both a weighting and a coweighting, then the sum of all the entries of the (co)weighting is independent of the (co)weighting chosen:
+
+\begin{lem}\label{lem:indepweighting}
 If $M$ has a weighting $w$ and a coweighting $v$, then $\sum\limits_{j=1}^{n}w_j = \sum\limits_{j=1}^{n}v_j$.
 \end{lem}
+
 \begin{proof}
 \begin{equation*}
-\sum\limits_{j=1}^{n}w_j = 1_n^\star w = v^\star Mw = v^\star 1_n = \sum\limits_{j=1}^{n}v_j
+\sum\limits_{j=1}^{n}w_j = 1_n^\star w = v^\star Mw = v^\star 1_n = \sum\limits_{j=1}^{n}v_j.
 \end{equation*}
 \end{proof}
-The lemma ensures that if a matrix $M$ admits both a weighting and a coweighting, then the sum of all the entries of the (co)weighting is independent of the (co)weighting chosen. This means we can make the following definition without ambiguity:
-\begin{defn}
-Let $M \in M_n(\mathbb{R})$. If $M$ has a weighting $w$ and a coweighting $v$, then its \textbf{magnitude} is defined and is given by
+
+The lemma allows us to define the magnitude of a matrix. Let $M \in M_n(\mathbb{R})$. If $M$ has a weighting $w$ and a coweighting $v$, then we say $M$ has \textbf{magnitude} and its magnitude is given by
 \begin{equation*}
-\vert M \vert = \sum\limits_{j=1}^{n} w_j = \sum\limits_{j=1}^{n}v_j
+\vert M \vert = \sum\limits_{j=1}^{n} w_j = \sum\limits_{j=1}^{n}v_j.
 \end{equation*}
-\end{defn}
-It is not obvious how to find the weighting of a matrix (if it exists at all), but the situation is more straightforward if the matrix is invertible.
-\begin{prop}\label{prop:inv}
+
+It is not obvious how to find the weighting of a matrix (if it exists at all), but the situation is more straightforward if the matrix is invertible:
+
+\begin{lem}\label{lem:inv}
 If $M \in M_n$ is invertible, then it has a unique weighting and coweighting and $\vert M \vert = \sum\limits_{i,j=1}^{n}[M^{-1}]_{ij}$
-\end{prop}
+\end{lem}
+
 \begin{proof}
 If $M$ is invertible, then the equations
 \begin{equation*}
-Mx = 1_n \qquad x^\star M = 1_n^\star
+Mx = 1_n, \quad x^\star M = 1_n^\star
 \end{equation*}
 have unique solutions which give the weighting and coweighting of $M$ respectively. In particular, the weighting $w$ is given by
 \begin{equation*}
@@ -93,11 +96,7 @@ where $a_j^{-1}$ is the $j$-th column of $M^{-1}$. Then the magnitude of $M$ is 
 where $a_{j}^{-1}(i)$ denotes the $i$-th entry of $a_j^{-1}$.
 \end{proof}
 
-Now that we have the matrix preliminaries established we can move on to the definition of the magnitude of a metric space.
-
-\begin{defn}
-Let $A$ be a finite metric space with $n$ points and distance function $d$. Then the \textbf{similarity matrix} $Z_A$ is the $n\times n$ real matrix given by $[Z_A]_{ij} = e^{-d(i,j)}$ where $i,j \in A$. The \textbf{magnitude} of $A$, also denoted $\vert A \vert$ is the magnitude of its similarity matrix. 
-\end{defn}
+Now that we have the matrix preliminaries established we can move on to the definition of the magnitude of a finite metric space. Let $A$ be a finite metric space with $n$ points and distance function $d$. Then the \textbf{similarity matrix} $Z_A$ is the $n\times n$ real matrix given by $[Z_A]_{ij} = e^{-d(i,j)}$ where $i,j \in A$. The \textbf{magnitude} of $A$ is the magnitude of its similarity matrix, assuming it has a defined magnitude. We also denote the magnitude of $A$ by $\vert A\vert$.
 
 We now present some basic examples of metric spaces and their magnitudes:
 
@@ -114,7 +113,7 @@ Z_A^{-1} = \begin{bmatrix} \frac{1}{1-e^{-2d}} & \frac{-e^{-d}}{1-e^{-2d}} \\ \f
 \end{equation*}
 and so $A$ has magnitude
 \begin{equation*}
-\vert A \vert = \frac{2(1-e^{-d})}{1-e^{-2d}} = \frac{2(1-e^{-d})}{(1+e^{-d})(1-e^{-d})} = \frac{2}{1+e^{-d}} = 1+\tanh{\left(\frac{d}{2}\right)}
+\vert A \vert = \frac{2(1-e^{-d})}{1-e^{-2d}} = \frac{2(1-e^{-d})}{(1+e^{-d})(1-e^{-d})} = \frac{2}{1+e^{-d}} = 1+\tanh{\left(\frac{d}{2}\right)}.
 \end{equation*}
 \end{enumerate}
 \end{ex}
@@ -125,9 +124,7 @@ Given a finite metric space $A$, we have a one parameter family of matrices $tA$
 
 Note that as we scale up distances between points, the metric space $A$ ``approaches" the discrete space and so we want to be able to say that $\vert tA \vert \to \#A$ as $t \to \infty$. Actually proving this statement is a little more tricky than it first seems because, as noted above, $\vert tA \vert$ is not necessarily defined for all $t$. To do this, we prove the following lemma and proposition. The lemma and proposition, along with their proofs, can be found in \cite{leinster_magnitude_2011} as Lemma 2.2.5 and Proposition 2.2.6.
 
-\begin{defn}
 A metric space $A$ is an \textbf{expansion} of a metric space $B$ if there exists a distance-decreasing surjection from $A$ to $B$, that is, there exists an $f: A \to B$ surjective such that for all $a,b \in A$, $d_{B}(f(a),f(b)) \leq d_{A}(a,b)$.
-\end{defn}
 
 \begin{lem}\label{lem:expansion}
 Suppose $A,B$ are both finite metric spaces with nonnegative weightings (that is, the entries of their respective weightings are nonnegative). Then if $A$ is an expansion of $B$, then $\vert A \vert \geq \vert B \vert$.
@@ -162,15 +159,15 @@ Let $A$ be a finite metric space. Then
 \end{prop}
 
 \begin{proof}
-Let $\#A = n$. For an $n \times n$ invertible matrix $M$, by Proposition \ref{prop:inv}, the unique weighting $w$ on $M$ is given by
+Let $\#A = n$. For an $n \times n$ invertible matrix $M$, by Lemma \ref{lem:inv}, the unique weighting $w$ on $M$ is given by
 \begin{equation}
-w_i = \sum\limits_{j=1}^{n}\left[M^{-1}\right]_{ij}
+w_i = \sum\limits_{j=1}^{n}\left[M^{-1}\right]_{ij}.
 \end{equation}
 We can rewrite (1) in terms of the adjugate and the determinant of $M$:
 \begin{equation}
 w_i = \sum\limits_{j=1}^{n}\left[M^{-1}\right]_{ij} = \sum\limits_{j=1}^{n} \frac{\left[\text{adj}(M)\right]_{ij}}{{\det{M}}}
 \end{equation}
-where $M\text{adj}(M) = (\det{M})I_n$. Importantly, the adjugate is a smooth function of $M$ (see section 0.8 of \cite{horn_matrix_2013}).
+where $M\text{adj}(M) = (\det{M})I_n$. Note that the adjugate is a smooth function of $M$ (see section 0.8 of \cite{horn_matrix_2013}).
 
 To show $\emph{(i)}$, note that since $Z_{tA} \to I_n$ as $t\to\infty$ and $I_n$ is invertible, $Z_{tA}$ is invertible for large enough $t$. Also note that $\det{Z_{tA}}$ is analytic in $t$. One way to see this is by looking at the Liebniz formula for the determinant found in \cite{horn_matrix_2013} applied to our definition of the similarity matrix:
 \begin{equation*}
@@ -187,7 +184,7 @@ To show $\emph{(iv)}$, let $t \leq t'$. Note that by part $\emph{(iii)}$, $tA$ a
 Finally for $\emph{(v)}$, by everything above, we have that $\lim\limits_{t\to\infty} \vert tA \vert = \left\vert \lim\limits_{t\to\infty}Z_{tA}\right\vert = \vert I_n\vert = n = \#A$.
 \end{proof}
 
-So for any finite metric space $A$, the value of the magnitude function approaches the cardinality of $A$ as we blow up distances between points. However, along with the fact that the magnitude may not be defined everywhere, other ``nice'' properties that we might expect from a function, such as monotonicity, are not guaranteed, as the following example shows.
+So for any finite metric space $A$, the value of the magnitude function approaches the cardinality of $A$ as we blow up distances between points. However, along with the fact that the magnitude may not be defined everywhere, other ``nice'' properties that we might expect, such as monotonicity or non-negativitiy, are not guaranteed for the magnitude function, as the following example shows:
 
 \begin{ex}
 Let $K_{3,2}$ be the graph with vertices $a_1,a_2,a_3$ and $b_1,b_2$ and one edge between $a_i$ and $b_j$ for each $i$ and $j$. Let each edge have length $t$. The distance function on $K_{3,2}$ is the shortest path distance in the graph. This is what $K_{3,2}$ looks like:
@@ -236,17 +233,11 @@ The graph of the magnitude function for $K_{3,2}$ shows how pathological the mag
 
 \subsection{Finite positive definite metric spaces}
 
-Given the example above, it is natural to ask whether there are classes of finite metric spaces for which the magnitude function is more well-behaved.
+Given the example above, it is natural to ask whether there are classes of finite metric spaces for which the magnitude function is more well-behaved. The metric spaces with positive definite similarity matrix are one such class. We say a finite metric space $A$ is \textbf{positive definite} if its similarity matrix $Z_A$ is a positive definite matrix. Since positive definite matrices are invertible, any positive definite metric space has magnitude. Likewise, since prinicipal submatrices of positive definite matrices are positive definite, subspaces of positive definite metric spaces are positive definite and hence also have magnitude.
 
-\begin{defn}
-A finite metric space $A$ is \textbf{positive definite} if its similarity matrix $Z_A$ is a positive definite matrix.
-\end{defn}
+The main attractiveness of positive definite metric spaces is that magnitude is guaranteed to be defined, and we have a more convenient explicit formula for the magnitude:
 
-Since positive definite matrices are invertible, any positive definite metric space has magnitude. Likewise, since prinicipal submatrices of positive definite matrices are positive definite, subspaces of positive definite metric spaces are positive definite and hence also have magnitude.
-
-The main attractiveness of positive definite metric spaces is that we have a more convenient explicit formula for the magnitude.
-
-\begin{theo}
+\begin{theo}\label{theo:finiteposdefsup}
 If $A$ is a positive definite metric space, then $A$ has magnitude and
 \begin{equation*}
 \vert A \vert = \sup\limits_{v \neq 0}\frac{\left(\sum_{a\in A}v_a\right)^2}{v^\star Z_Av}
@@ -272,7 +263,7 @@ so we have equality.
 
 Using this formulation of the magnitude, we can show some that magnitude is increasing with respect to inclusion for positive definite metric spaces.
 
-\begin{prop}
+\begin{prop}\label{prop:finiteposdefincreasing}
 If $A$ is a positive definite metric space and $B \subseteq A$, then $\vert B \vert \leq \vert A \vert$.
 \end{prop}
 
@@ -283,8 +274,6 @@ As mentioned above, since $A$ is positive definite and $B$ is a subspace of $A$,
 \end{equation*}
 since the space of vectors we are considering for $B$ is a subset of the space of vectors we consider for $A$ (after embedding $\mathbb{R}^{\#B}$ into $\mathbb{R}^{\#A}$).
 \end{proof}
-
-
 
 \section{Infinite metric spaces}
 
