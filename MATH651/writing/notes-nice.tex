@@ -55,9 +55,11 @@ Magnitude is a numerical invariant of metric spaces with origins in the notion o
 
 \section{Finite metric spaces}
 
+We begin by introducing the theory of magnitude for finite metric spaces. Magnitude for a finite metric space follows directly as a specialization of the notion of the Euler characteristic of a finite category enriched in the poset category $[0,\infty]$. Lawvere observed that categories enriched in $[0,\infty]$ can be viewed as generalizations of metric spaces. The Euler characteristic of a finite category was introduced by Leinster in \cite{leinster_euler_2006}. Details of this specialization can be found in \cite{leinster_magnitude_2011} or in \cite{leinster_magnitude_2017}.
+
 \subsection{The magnitude of a finite metric space}
 
-We first define the magnitude of a matrix. Let $M \in M_n(\mathbb{R})$. The vector $w \in \mathbb{R}^n$ is called a \textbf{weighting} if $Mw = 1_n$, the vector of all $1$'s. Similarly, $v \in \mathbb{R}^n$ is called a \textbf{coweighting} if $v^\star M = 1_n^\star$. The following lemma ensures that if a matrix $M$ admits both a weighting and a coweighting, then the sum of all the entries of the (co)weighting is independent of the (co)weighting chosen:
+We start with the notion of the magnitude of a matrix. Let $M \in M_n(\mathbb{R})$. The vector $w \in \mathbb{R}^n$ is called a \textbf{weighting} if $Mw = 1_n$, the vector of all $1$'s. Similarly, $v \in \mathbb{R}^n$ is called a \textbf{coweighting} if $v^\star M = 1_n^\star$. The following lemma ensures that if a matrix $M$ admits both a weighting and a coweighting, then the sum of all the entries of the (co)weighting is independent of the (co)weighting chosen:
 
 \begin{lem}\label{lem:indepweighting}
 If $M$ has a weighting $w$ and a coweighting $v$, then $\sum\limits_{j=1}^{n}w_j = \sum\limits_{j=1}^{n}v_j$.
@@ -276,6 +278,51 @@ since the space of vectors we are considering for $B$ is a subset of the space o
 \end{proof}
 
 \section{Infinite metric spaces}
+
+Now we move on to the theory of magnitude for more general classes of metric spaces. Two strategies that naturally arise for generalizing magnitude for finite spaces to infinite spaces would be to either approximate infinite metric spaces by finite subspaces, or to generalize the notion of a weighting to an infinite setting. Meckes in \cite{meckes_positive_2013} defined magnitude for the class of compact positive definite metric spaces (defined below) that is reminiscent of the formula given in Theorem \ref{theo:finiteposdefsup}, and showed that it agrees with the definition that arises out of approximating by finite subspaces. However, this only defined magnitude for positive definite spaces, and Meckes in \cite{meckes_magnitude_2015} gave a definition of magnitude for more general compact metric spaces. We briefly survey these results (without proofs) in the section below. A more comprehensive survey can be found in \cite{leinster_magnitude_2017}.
+
+\subsection{Compact positive definite metric spaces}
+
+Let $A$ be a metric space. We say $A$ is a \textbf{positive definite metric space} if every finite subspace of $A$ is positive definite. The property that $tA$ is a positive definite metric space for all $t > 0$, is equivalent to the property that $A$ is of \textbf{negative type}. Several well-known metric spaces are of negative type, and we will later see that they have well-defined magnitudes.
+
+We begin with the strategy of approximating by finite subspaces. To approximate, we need to have a topology on the class of compact metric spaces. Let $X$ be a metric space. Then the \textbf{Hausdorff metric} $d_H$ on the class of compact subsets $A,B$ is given by
+\begin{equation*}
+d_H(A,B) = \max\{\sup\limits_{a\in A}d(a,B),\sup\limits_{b\in B}d(b,A)\}
+\end{equation*}
+where $d$ is the distance function on $X$. By considering embeddings of compact metric spaces into ambient spaces, we have a notion of distances between two metric spaces: the \textbf{Gromov-Hausdorff distance} between two compact metric spaces $A,B$ is given by
+\begin{equation*}
+d_{GH}(A,B) = \inf d_H(\varphi(A),\psi(B))
+\end{equation*}
+where the infimum is over all metric spaces $X$ and isometric embeddings $\varphi:A \to X$ and $\psi: B \to X$.
+
+The following proposition allows us to define the magnitude of a compact positive definite metric space via approximations by finite positive definite spaces:
+
+\begin{prop}[Proposition 3.1 of \cite{leinster_magnitude_2017}]\label{prop:MAlsc}
+The quantity
+\begin{equation*}
+M(A) = \sup\{\vert A'\vert : A' \subseteq A, \text{$A'$ finite}\}
+\end{equation*}
+is a lower semicontinuous function of $A$ (taking values in $[0,\infty]$) in the class of compact positive definite metric spaces equipped with the Gromov-Hausdorff topology.
+\end{prop}
+
+Let $A$ be a compact positive definite metric space. We can therefore define the \textbf{magnitude} $\vert A \vert$ to be the supremum of $M(A)$. Semicontinuity and Proposition \ref{prop:finiteposdefincreasing} ensures that if $A$ is finite, then $M(A) = \vert A \vert$, so this new definition agrees with magnitude for the finite case. Furthermore, the magnitude of $A$ is independent of the choice of approximating sequence of finite subsets:
+
+\begin{prop}[Proposition 3.3 of \cite{leinster_magnitude_2017}]\label{prop:finiteapprox}
+Let $A$ be a compact positive definie metric space, and let $\{A_k\}$ be any sequence of compact subsets of $A$ such that $A_k\to A$ in the Hausdorff topology. Then $\vert A \vert = \lim\limits_{k\to\infty}\vert A_k\vert$.
+\end{prop}
+
+Recall that $A$ is of negative type if $tA$ is positive definite for all $t > 0$. Then by above all compact subsets of $A$ have a well-defined (possibly infinite) magnitude. In particular, the following spaces are known to be of negative type and hence have magnitude (Theorem 2.11 of \cite{leinster_magnitude_2017} and Theorem 3.6 of \cite{meckes_positive_2013}):
+
+\begin{enumerate}[label=\arabic*.]
+\item $\ell^n_p$ for $n\geq1$ and $1\leq p \leq 2$,
+\item $L_p[0,1]$ for $1\leq p \leq 2$,
+\item $n$-spheres with the geodesic distance,
+\item weighted trees.
+\end{enumerate}
+
+Willerton in \cite{willerton_magnitude_2014} gives an explicit formula for the magnitude of $n$-spheres with the intrinsic metric.
+
+\subsection{Compact metric spaces}
 
 \section{Odd dimensional Euclidean balls}
 
