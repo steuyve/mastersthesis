@@ -239,13 +239,13 @@ Given the example above, it is natural to ask whether there are classes of finit
 
 The main attractiveness of positive definite metric spaces is that magnitude is guaranteed to be defined, and we have a more convenient explicit formula for the magnitude:
 
-\begin{theo}\label{theo:finiteposdefsup}
+\begin{prop}\label{prop:finiteposdefsup}
 If $A$ is a positive definite metric space, then $A$ has magnitude and
 \begin{equation*}
 \vert A \vert = \sup\limits_{v \neq 0}\frac{\left(\sum_{a\in A}v_a\right)^2}{v^\star Z_Av}
 \end{equation*}
 where $v \in \mathbb{R}^{\#A}$. $v$ attains the supremum if and only if it is a nonzero scalar multiple of the unique weighting on $A$.
-\end{theo}
+\end{prop}
 
 \begin{proof}
 Since $Z_A$, we have the Cauchy-Schwarz inequality:
@@ -305,7 +305,7 @@ M(A) = \sup\{\vert A'\vert : A' \subseteq A, \text{$A'$ finite}\}
 is a lower semicontinuous function of $A$ (taking values in $[0,\infty]$) in the class of compact positive definite metric spaces equipped with the Gromov-Hausdorff topology.
 \end{prop}
 
-Let $A$ be a compact positive definite metric space. We can therefore define the \textbf{magnitude} $\vert A \vert$ to be the supremum of $M(A)$. Semicontinuity and Proposition \ref{prop:finiteposdefincreasing} ensures that if $A$ is finite, then $M(A) = \vert A \vert$, so this new definition agrees with magnitude for the finite case. Furthermore, the magnitude of $A$ is independent of the choice of approximating sequence of finite subsets:
+Let $A$ be a compact positive definite metric space. We can therefore define the \textbf{magnitude of a compact positive definite metric space} $\vert A \vert$ to be the supremum of $M(A)$. Semicontinuity and Proposition \ref{prop:finiteposdefincreasing} ensures that if $A$ is finite, then $M(A) = \vert A \vert$, so this new definition agrees with magnitude for the finite case. Furthermore, the magnitude of $A$ is independent of the choice of approximating sequence of finite subsets:
 
 \begin{prop}[Proposition 3.3 of \cite{leinster_magnitude_2017}]\label{prop:finiteapprox}
 Let $A$ be a compact positive definie metric space, and let $\{A_k\}$ be any sequence of compact subsets of $A$ such that $A_k\to A$ in the Hausdorff topology. Then $\vert A \vert = \lim\limits_{k\to\infty}\vert A_k\vert$.
@@ -323,6 +323,31 @@ Recall that $A$ is of negative type if $tA$ is positive definite for all $t > 0$
 Willerton in \cite{willerton_magnitude_2014} gives an explicit formula for the magnitude of $n$-spheres with the intrinsic metric.
 
 \subsection{Compact metric spaces}
+
+To extend the definition of magnitude to compact metric spaces, we need to generalize the notion of a weighting. Let $A$ be a compact metric space and let $\mu$ be a finite signed Borel measure on $A$. We say $\mu$ is a \textbf{weight measure} on $A$ if
+\begin{equation*}
+\int_A e^{-d(a,b)}d\mu(b) = 1
+\end{equation*}
+for all $a \in A$.
+
+Note that if $A$ is finite, then the vector $w \in \mathbb{R}^{\# A}$ given by
+\begin{equation*}
+w_a = \mu(\{a\})
+\end{equation*}
+is a weighting of $A$, and the magnitude is given by
+\begin{equation*}
+\vert A \vert = \sum\limits_{a\in A} w_a = \sum\limits_{a \in A} \mu(\{a\}) = \mu(A).
+\end{equation*}
+
+Hence we define the \textbf{magnitude of a compact metric space} $A$ to be $\vert A \vert = \mu(A)$. If $A$ is compact positive definite, then this definition agrees with the definition of magnitude given in the previous section (Proposition 3.6 of \cite{leinster_magnitude_2017}). Moreover, we have an explicit formula for the magnitude that is reminiscent of Proposition \ref{prop:finiteposdefsup}:
+
+\begin{prop}[Theorems 2.3 and 2.4 of \cite{meckes_positive_2013}]\label{prop:variationalformula}
+Let $A$ be a compact positive definite metric space, then
+\begin{equation*}
+\vert A \vert = \sup\limits_{\mu \in FM(A)}\left\{\frac{\mu(A)^2}{\int_A \int_A e^{-d(a,b)}d\mu(a)d\mu(b)}: \int_A \int_A e^{-d(a,b)}d\mu(a)d\mu(b)\neq0\right\},
+\end{equation*}
+where $FM(A)$ denotes the space of finite signed Borel measures on $A$. The supremum is attained when we take scalar multiples of the weight measure of $A$, provided $A$ possesses one.
+\end{prop}
 
 \section{Odd dimensional Euclidean balls}
 
