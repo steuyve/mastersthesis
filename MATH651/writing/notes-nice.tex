@@ -11,8 +11,6 @@
 \usepackage{enumitem}
 \usepackage{accents}
 \usepackage{tabu}
-\usepackage{setspace}
-\doublespacing
 
 \pagestyle{headings}
 
@@ -38,20 +36,21 @@
 
 \begin{document}
 
-\author{Stephen Liu}
+\author{Stephen Shang Yi Liu}
 \title{On the asymptotic behavior of the magnitude function for odd-dimensional Euclidean balls}
 \date{}
 
 \maketitle
+
+\begin{abstract}
+Magnitude is a numerical invariant of metric spaces with origins in the notion of the Euler characteristic of a category. To this day the only convex sets in Euclidean space for which we can compute magnitude are the odd-dimensional Euclidean balls. Recent results have shed light on the asymptotic behavior of the magnitude function for these Euclidean balls, and in particular recent work by Meckes showed that the first order small-$t$ asymptotics of the magnitude function recovers its first intrinsic volume. The aim of this thesis is to survey work done to understand the magnitude function for odd-dimensional Euclidean balls and to compute its second order small-$t$ asymptotics.
+\end{abstract}
 
 \newpage
 
 \tableofcontents
 
 \newpage
-\begin{abstract}
-Magnitude is a numerical invariant of metric spaces with origins in the notion of the Euler characteristic of a category. To this day the only convex sets in Euclidean space for which we can compute magnitude are the odd-dimensional Euclidean balls. Recent results have shed light on the asymptotic behavior of the magnitude function for these Euclidean balls, and in particular recent work by Meckes showed that the first order small-$t$ asymptotics of the magnitude function recovers its first intrinsic volume. The aim of this thesis is to survey work done to understand the magnitude function for odd-dimensional Euclidean balls and to compute its second order small $t$ asymptotics.
-\end{abstract}
 
 \section{Introduction}
 
@@ -351,13 +350,13 @@ Let $A$ be a compact positive definite metric space, then
 where $FM(A)$ denotes the space of finite signed Borel measures on $A$. The supremum is attained when we take scalar multiples of the weight measure of $A$, provided $A$ possesses one.
 \end{prop}
 
-\section{Odd dimensional Euclidean balls}
+\section{Odd-dimensional Euclidean balls}
 
 We now briefly survey results regarding the magnitude and magnitude function of odd-dimensional Euclidean balls. These results hinge on the formulation of magnitude in terms of potential theory and capacities of sets Meckes introduced in \cite{meckes_magnitude_2015} in defining magnitude for general compact metric spaces.
 
 \section{The problem}
 
-Let $d = 2m+1$ where $m$ is a natural number. Denote by $B_2^d$ the $d$-dimensional Euclidean ball and $tB_2^d$ the $d$-dimensional ball with radius $t$ for $t > 0$. In general we are interested in the asymptotic behavior of the magnitude function of the odd dimensional Euclidean ball as we shrink it down to a point. Meckes in \cite{meckes_magnitude_2019} showed that
+Let $d = 2m+1$ where $m$ is a natural number. Denote by $B_2^d$ the $d$-dimensional Euclidean ball and $tB_2^d$ the $d$-dimensional ball with radius $t$ for $t > 0$. In general we are interested in the asymptotic behavior of the magnitude function of the odd-dimensional Euclidean ball as we shrink it down to a point. Meckes in \cite{meckes_magnitude_2019} showed that
 \begin{equation*}
 \frac{d}{dt}\text{Mag}(tB_2^d)\big\vert_{t=0} = \frac{1}{2}V_1(B_2^d)
 \end{equation*}
@@ -388,7 +387,7 @@ We will use these values as sanity checks to compare against throughout our calc
 
 \section{Schröder paths}
 
-Willerton in \cite{willerton_magnitude_2017} gave an expression for the magnitude function of odd dimensional balls in terms of collections of Schröder paths. We introduce them below:
+Willerton in \cite{willerton_magnitude_2017} gave an expression for the magnitude function of odd-dimensional balls in terms of collections of Schröder paths. We introduce them below:
 \begin{defn}
 \begin{enumerate}[label=$\bullet$]
 \item A \textbf{Schröder path} is a finite directed path in the integer lattice in which each step $(x,y)\in\Z^2$ is either an \textbf{ascent} to $(x+1,y+1)$, a \textbf{descent} $(x-1,y-1)$ or a \textbf{flat step} $(x+2,y)$ (note the advance by \emph{two} spaces in the horizontal direction).
