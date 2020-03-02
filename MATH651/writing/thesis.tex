@@ -282,7 +282,7 @@ since the space of vectors we are considering for $B$ is a subset of the space o
 
 \section{Infinite metric spaces}
 
-Now we move on to the theory of magnitude for more general classes of metric spaces. Two strategies that naturally arise for generalizing magnitude for finite spaces to infinite spaces would be to either approximate infinite metric spaces by finite subspaces, or to generalize the notion of a weighting to an infinite setting. Meckes in \cite{meckes_positive_2013} defined magnitude for the class of compact positive definite metric spaces (defined below) that is reminiscent of the formula given in Proposition \ref{prop:finiteposdefsup}, and showed that it agrees with the definition that arises out of approximating by finite subspaces. However, this only defined magnitude for positive definite spaces, and Meckes in \cite{meckes_magnitude_2015} gave a definition of magnitude for more general compact metric spaces. We briefly survey these results (without proofs) in the section below. A more comprehensive survey can be found in \cite{leinster_magnitude_2017}.
+Now we move on to the theory of magnitude for more general classes of metric spaces. Two strategies that naturally arise for generalizing magnitude for finite spaces to infinite spaces would be to either approximate infinite metric spaces by finite subspaces, or to generalize the notion of a weighting to an infinite setting. Meckes in \cite{meckes_positive_2013} defined magnitude for the class of compact positive definite metric spaces that is reminiscent of the formula given in Proposition \ref{prop:finiteposdefsup}, and showed that it agrees with the definition that arises out of approximating by finite subspaces. However, this only defined magnitude for positive definite spaces, and Meckes in \cite{meckes_magnitude_2015} gave a definition of magnitude for more general compact metric spaces. We briefly survey these results (without proofs) in the section below. A more comprehensive survey can be found in \cite{leinster_magnitude_2017}.
 
 \subsection{Compact positive definite metric spaces}
 
@@ -352,6 +352,10 @@ Let $A$ be a compact positive definite metric space, then
 where $FM(A)$ denotes the space of finite signed Borel measures on $A$. The supremum is attained when we take scalar multiples of the weight measure of $A$, provided $A$ possesses one.
 \end{prop}
 
+\section{Odd-dimensional Euclidean balls}
+
+We now briefly survey results regarding the magnitude and magnitude function of odd-dimensional Euclidean balls. These results hinge on the formulation of magnitude in terms of potential theory and capacities of sets Meckes introduced in \cite{meckes_magnitude_2015} in defining magnitude for general compact metric spaces. We begin with a statement of the erstwhile convex magnitude conjecture, as it motivates many of the results in this section.
+
 \subsection{The convex magnitude conjecture}
 
 Let $\mathcal{K}^n$ be the space of compact convex sets in $\mathbb{R}^n$. We call a nonempty set in $\mathcal{K}^n$ a \textbf{convex body}. A \textbf{valuation} is a function $P:\mathcal{K}^n \to\mathbb{R}$ that satisfies the inclusion-exclusion principle, that is:
@@ -359,7 +363,7 @@ Let $\mathcal{K}^n$ be the space of compact convex sets in $\mathbb{R}^n$. We ca
 \item $P(\emptyset) = 0$,
 \item $P(A\cup B) = P(A) + P(B) - P(A\cap B)$
 \end{enumerate}
-whenever $A,B,A\cup B \in \mathcal{K}^n$ ($A\cap B$ is automatically in $\mathcal{K}^n$ whenever $A$ and $B$ are).
+whenever $A,B,A\cup B \in \mathcal{K}^n$ ($A\cap B$ is automatically in $\mathcal{K}^n$ whenever $A$ and $B$ are). Hadwiger's Theorem states that if a valuation $P$ is invariant under rigid motions, then there are canonical homogenous valuations $V_0,V_1,\dots,V_n$ such that $P$ can be written as a linear combination of these valuations. The valuations $V_i$ are called the $i$-th intrinsic volumes with $V_n$ being the usual $n$-dimensional volume, $V_{n-1}$ being half the surface area and $V_0$ is the Euler characteristic.
 
 Computer calculations of the magnitudes of various sets in Euclidean space found in \cite{willerton_heuristic_2009} led to the following conjecture stated in \cite{leinster_asymptotic_2013}:
 
@@ -370,10 +374,6 @@ Let $K\in\mathcal{K}^n$. Then magnitude is a valuation and moreover
 \end{equation*}
 where $V_i$ is the $i$-th intrinsic volume and $\omega_i$ is the volume of the unit ball in $\mathbb{R}^i$.
 \end{conj}
-
-\section{Odd-dimensional Euclidean balls}
-
-We now briefly survey results regarding the magnitude and magnitude function of odd-dimensional Euclidean balls. These results hinge on the formulation of magnitude in terms of potential theory and capacities of sets Meckes introduced in \cite{meckes_magnitude_2015} in defining magnitude for general compact metric spaces.
 
 Let $d = 2m+1$ where $m$ is a natural number. Denote by $B_2^d$ the $d$-dimensional Euclidean ball and $tB_2^d$ the $d$-dimensional ball with radius $t$ for $t > 0$.
 
@@ -490,7 +490,7 @@ N'D - ND' = \frac{1}{2}V_1\left(B_2^d\right)d!D^2
 In the rest of the paper below, we will use $V_1$ as shorthand for $V_1\left(B_2^d\right)$.
 Now we evaluate
 \begin{equation*}
-\frac{d^2}{dt^2}\text{Mag}(tB_2^d)\big\vert_{t=0}
+\frac{d^2}{dt^2}\text{Mag}(tB_2^d)\big\vert_{t=0}.
 \end{equation*}
 Applying the quotient rule and using the two identities above, we have
 \begin{align*}
