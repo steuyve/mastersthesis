@@ -351,32 +351,13 @@ Let $A$ be a compact positive definite metric space, then
 where $FM(A)$ denotes the space of finite signed Borel measures on $A$. The supremum is attained when we take scalar multiples of the weight measure of $A$, provided $A$ possesses one.
 \end{prop}
 
+\subsection{The erstwhile convex magnitude conjecture}
+
 \section{Odd-dimensional Euclidean balls}
 
 We now briefly survey results regarding the magnitude and magnitude function of odd-dimensional Euclidean balls. These results hinge on the formulation of magnitude in terms of potential theory and capacities of sets Meckes introduced in \cite{meckes_magnitude_2015} in defining magnitude for general compact metric spaces.
 
-\subsection{Convex Magnitude Conjecture}
-
-\subsection{Gimperlein and Goffeng}
-
-\subsection{Barcelo and Carbery}
-
-\subsection{Willerton}
-
-\subsection{Meckes}
-
-\section{The problem}
-
-Let $d = 2m+1$ where $m$ is a natural number. Denote by $B_2^d$ the $d$-dimensional Euclidean ball and $tB_2^d$ the $d$-dimensional ball with radius $t$ for $t > 0$. In general we are interested in the asymptotic behavior of the magnitude function of the odd-dimensional Euclidean ball as we shrink it down to a point. Meckes in \cite{meckes_magnitude_2019} showed that
-\begin{equation*}
-\frac{d}{dt}\text{Mag}(tB_2^d)\big\vert_{t=0} = \frac{1}{2}V_1(B_2^d)
-\end{equation*}
-where $V_1(B_2^d)$ is the first instrinsic volume of the Euclidean ball.
-We are interested computing the value of
-\begin{equation*}
-\frac{d^2}{dt^2}\text{Mag}(tB_2^d)\big\vert_{t=0}.
-\end{equation*}
-We will follow the same approach that Meckes used for the result above, with many of the techniques introduced by Willerton in \cite{willerton_magnitude_2017}.
+Let $d = 2m+1$ where $m$ is a natural number. Denote by $B_2^d$ the $d$-dimensional Euclidean ball and $tB_2^d$ the $d$-dimensional ball with radius $t$ for $t > 0$.
 
 \subsection{Explicit magnitude functions for balls in low dimension}
 
@@ -396,7 +377,9 @@ So taking second derivatives and evaluating at $t = 0$, we have
 
 We will use these values as sanity checks to compare against throughout our calculations.
 
-\section{Schröder paths}
+\subsection{Large $t$-asymptotics}
+
+\subsection{Schröder paths}
 
 Willerton in \cite{willerton_magnitude_2017} gave an expression for the magnitude function of odd-dimensional balls in terms of collections of Schröder paths. We introduce them below:
 \begin{defn}
@@ -434,7 +417,7 @@ and since $\sigma_{\text{roof}}^k$ consists only of V-paths, we have
 
 We are interested in these weightings on collections of Schröder paths because Willerton in \cite{willerton_magnitude_2017} showed the following:
 
-\begin{theo}[\cite{willerton_magnitude_2017}, Corollary 27]
+\begin{theo}[\cite{willerton_magnitude_2017}, Corollary 27]\label{theo:willertonND}
 Let $d = 2m+1$ be odd. Then
 \begin{equation*}
 \text{Mag}\left(tB_2^d\right) = \frac{\sum\limits_{\sigma\in X_{m+1}}\omega_2(\sigma)}{d!\sum\limits_{\sigma\in X_{m-1}}\omega_0(\sigma)} = \frac{\sum\limits_{\sigma\in X_{m+1}}\prod\limits_{\tau\in\sigma}\omega_2(\tau)}{d!\sum\limits_{\sigma\in X_{m-1}}\prod\limits_{\tau\in\sigma}\omega_0(\tau)}
@@ -446,7 +429,37 @@ As mentioned before, $\omega_j(\sigma)$ are of the form $ct^\ell$ where $\ell$ i
 \text{Mag}\left(tB_2^d\right) = \frac{N(t)}{d!D(t)}.
 \end{equation*}
 
-\section{Evaluating the second derivative}
+\subsection{First order small-$t$ asymptotics}
+
+Using Willerton's formulation of the magnitude function for odd-dimensional Euclidean balls in terms of Schröder paths, Meckes in \cite{meckes_magnitude_2019} investigated the first order small-$t$ asymptotics of the magnitude function. In particular, Meckes showed that
+
+\begin{theo}[Theorem 4 of \cite{meckes_magnitude_2019}]\label{theo:firstorder}
+Let $B_2^d$ be the $d$-dimensional unit Euclidean ball where $d$ is odd and
+\begin{equation*}
+V_1\left(B_2^d\right) = \frac{(2m+1)\sqrt{\pi}\Gamma(m+1)}{\Gamma\left(m+\frac{3}{2}\right)} = 2\binom{m-\frac{1}{2}}{m}^{-1}
+\end{equation*}
+is its first intrinsic volume. Then
+\begin{equation*}
+\frac{d}{dt}\text{Mag}(tB_2^d)\big\vert_{t=0} = \frac{1}{2}V_1(B_2^d).
+\end{equation*}
+\end{theo}
+
+\section{The problem}
+
+The rest of this thesis will be devoted to computing the value of
+\begin{equation*}
+\frac{d^2}{dt^2}\text{Mag}(tB_2^d)\big\vert_{t=0}.
+\end{equation*}
+
+We will follow the same approach that Meckes used to prove Theorem \ref{theo:firstorder}. A general outline is presented below:
+\begin{enumerate}[label=\arabic*.]
+\item Apply the quotient rule to Theorem \ref{theo:willertonND} and the result of Theorem \ref{theo:firstorder} to express the second derivative in terms of $N(t),D(t)$.
+\item The expression will contain first and second derivatives of $N(t)$ and $D(t)$ evaluated at $t = 0$. First consider disjoint $k$-collections containing exactly one flat step to simplify terms containing first derivatives.
+\item Consider disjoint $k$-collections containing exactly two flat steps to simplify terms containing second derivatives. Since this step is more involved, we put it in its own section below.
+\item Combine the previous two steps to arrive at an (partial) answer.
+\end{enumerate}
+
+\subsection{Evaluating the second derivative}
 
 From now on, when writing down the value of a function evaluated at zero, for convenience we will omit the ``$(0)$'' part, that is, we write $N$ for $N(0)$ and $N'$ for $N'(0)$ and similarly for $D(0)$ and $D'(0)$. For higher derivatives we divide by the order of the derivative, that is, we denote $\frac{1}{2}N''(0)$ by $N''$ and $\frac{1}{2}D''(0)$ by $D''$. The point of this is that $N''$ and $D''$ are the values of the coefficients of the second order terms in $N(t)$ and $D(t)$ respectively. In Theorem 28 of \cite{willerton_magnitude_2017}, Willerton showed the following identity
 \begin{equation*}
@@ -456,11 +469,7 @@ and Meckes in the proof of Theorem 4 of \cite{meckes_magnitude_2019} showed that
 \begin{equation*}
 N'D - ND' = \frac{1}{2}V_1\left(B_2^d\right)d!D^2
 \end{equation*}
-where
-\begin{equation*}
-V_1\left(B_2^d\right) = \frac{(2m+1)\sqrt{\pi}\Gamma(m+1)}{\Gamma\left(m+\frac{3}{2}\right)} = 2\binom{m-\frac{1}{2}}{m}^{-1}
-\end{equation*}
-is the first intrinsic volume of the unit ball. In the rest of the paper below, we will use $V_1$ as shorthand for $V_1\left(B_2^d\right)$.
+In the rest of the paper below, we will use $V_1$ as shorthand for $V_1\left(B_2^d\right)$.
 Now we evaluate
 \begin{equation*}
 \frac{d^2}{dt^2}\text{Mag}(tB_2^d)\big\vert_{t=0}
