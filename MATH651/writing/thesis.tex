@@ -34,6 +34,7 @@
 \newtheorem{prop}[defn]{Proposition}
 \newtheorem{lem}[defn]{Lemma}
 \newtheorem{que}[defn]{Question}
+\newtheorem*{conj}{Conjecture}
 
 \begin{document}
 
@@ -351,7 +352,24 @@ Let $A$ be a compact positive definite metric space, then
 where $FM(A)$ denotes the space of finite signed Borel measures on $A$. The supremum is attained when we take scalar multiples of the weight measure of $A$, provided $A$ possesses one.
 \end{prop}
 
-\subsection{The erstwhile convex magnitude conjecture}
+\subsection{The convex magnitude conjecture}
+
+Let $\mathcal{K}^n$ be the space of compact convex sets in $\mathbb{R}^n$. We call a nonempty set in $\mathcal{K}^n$ a \textbf{convex body}. A \textbf{valuation} is a function $P:\mathcal{K}^n \to\mathbb{R}$ that satisfies the inclusion-exclusion principle, that is:
+\begin{enumerate}[label=$\bullet$]
+\item $P(\emptyset) = 0$,
+\item $P(A\cup B) = P(A) + P(B) - P(A\cap B)$
+\end{enumerate}
+whenever $A,B,A\cup B \in \mathcal{K}^n$ ($A\cap B$ is automatically in $\mathcal{K}^n$ whenever $A$ and $B$ are).
+
+Computer calculations of the magnitudes of various sets in Euclidean space found in \cite{willerton_heuristic_2009} led to the following conjecture stated in \cite{leinster_asymptotic_2013}:
+
+\begin{conj}
+Let $K\in\mathcal{K}^n$. Then magnitude is a valuation and moreover
+\begin{equation*}
+\vert K \vert = \sum\limits_{i\geq0}\frac{V_i(K)}{i!\omega_i}
+\end{equation*}
+where $V_i$ is the $i$-th intrinsic volume and $\omega_i$ is the volume of the unit ball in $\mathbb{R}^i$.
+\end{conj}
 
 \section{Odd-dimensional Euclidean balls}
 
@@ -375,7 +393,7 @@ So taking second derivatives and evaluating at $t = 0$, we have
 &\frac{d^2}{dt^2}\text{Mag}(tB_2^7)\big\vert_{t=0} = \frac{162}{25} = 6.48 \\
 \end{align*}
 
-We will use these values as sanity checks to compare against throughout our calculations.
+In particular, the magnitude function of $B_2^5$ provides an example of where the convex magnitude conjecture is false. We will use these values as sanity checks to compare against throughout our calculations.
 
 \subsection{Large $t$-asymptotics}
 
