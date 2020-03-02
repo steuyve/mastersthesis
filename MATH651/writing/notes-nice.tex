@@ -11,27 +11,28 @@
 \usepackage{enumitem}
 \usepackage{accents}
 \usepackage{tabu}
+\usepackage{setspace}
 
 \pagestyle{headings}
 
 \newcommand{\Z}{\mathbb{Z}}
 
-\theoremstyle{definition}
-\newtheorem{defn}{Definition}
-
-\theoremstyle{definition}
+\newtheoremstyle{mythm} % name of style
+	{\topsep} % spacing above thm env
+	{\topsep} % spacing below thm env
+	{\singlespacing} % name of font and spacing to use in body of them env
+	{0pt} % indent spacing
+	{\bfseries} % name of head font
+	{.} % punctuation between head and body
+	{5pt plus 1pt minus 1pt} % space after thm head; " " = normal interword space
+	{} % head specification
+	
+\theoremstyle{mythm}
+\newtheorem{defn}{Definition}[section]
 \newtheorem*{ex}{Example}
-
-\theoremstyle{plain}
 \newtheorem{theo}[defn]{Theorem}
-
-\theoremstyle{plain}
 \newtheorem{prop}[defn]{Proposition}
-
-\theoremstyle{plain}
 \newtheorem{lem}[defn]{Lemma}
-
-\theoremstyle{definition}
 \newtheorem{que}[defn]{Question}
 
 \begin{document}
@@ -353,6 +354,16 @@ where $FM(A)$ denotes the space of finite signed Borel measures on $A$. The supr
 \section{Odd-dimensional Euclidean balls}
 
 We now briefly survey results regarding the magnitude and magnitude function of odd-dimensional Euclidean balls. These results hinge on the formulation of magnitude in terms of potential theory and capacities of sets Meckes introduced in \cite{meckes_magnitude_2015} in defining magnitude for general compact metric spaces.
+
+\subsection{Convex Magnitude Conjecture}
+
+\subsection{Gimperlein and Goffeng}
+
+\subsection{Barcelo and Carbery}
+
+\subsection{Willerton}
+
+\subsection{Meckes}
 
 \section{The problem}
 
