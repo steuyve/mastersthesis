@@ -57,9 +57,25 @@ Magnitude is a numerical invariant of metric spaces with origins in the notion o
 
 \section{Introduction}
 
+Magnitude is a numerical invariant of metric spaces. Its precursor is the Euler characteristic of a finite category, introduced by Leinster in \cite{leinster_euler_2006} as an analog to the classical notion of the Euler characteristic of a topological space. In \cite{leinster_magnitude_2011}, Leinster extended his definition of the Euler characteristic of a finite category to finite enriched categories. An enriched category $\mathscr{C}$ is one where the hom-sets of any two objects in $\mathscr{C}$ are in fact objects of some monoidal category $\mathscr{V}$. Lawvere observed that categories enriched in $([0,\infty],0,\leq)$ can be seen as generalized metric spaces where for any two objects $a,b$, the hom-set $\text{Hom}(a,b) \in [0,\infty]$ gives the distance between $a,b$ satisfying the triangle identity. This notion of distance is more general than in a classical metric space because distances are allowed to be infinite and may no longer be symmetric. Taking the definition of the Euler characteristic of a finite category enriched in $[0,\infty]$ we arrive at the definition of magnitude for a finite metric space.
+
+Soon after defining magnitude for finite metric spaces, Leinster and others considered the question of defining magnitude for infinite metric spaces. Willerton in \cite{willerton_heuristic_2009} computed the magnitudes of some infinite sets via approximation by finite subsets, though at this point it was not clear whether such computations were independent of the approximations chosen. Meckes in \cite{meckes_positive_2013} showed that defining magnitude for infinite metric spaces via approximations by finite subsets is indeed consistent for a special class of metric spaces: the compact positive definite metric spaces. In addition, Meckes showed that one can arrive at an equivalent definition that extends to compact metric spaces (see \cite{meckes_magnitude_2015} and \cite{leinster_magnitude_2017}.
+
+However, at this point, there are only a few spaces for which magnitude is known exactly. Among them include:
+\begin{enumerate}[label=\arabic*.]
+\item Compact intervals in $\mathbb{R}$ (\cite{leinster_magnitude_2017}),
+\item $n$-spheres with the intrinsic metric (\cite{willerton_magnitude_2014}),
+\item Compact $\ell_1$-convex sets in $\ell_1^n$ (\cite{leinster_magnitude_2017}),
+\item odd-dimensional Euclidean balls (\cite{barcelo_magnitudes_2016} and \cite{willerton_magnitude_2017}).
+\end{enumerate}
+
+Leinster and Willerton in \cite{leinster_asymptotic_2013} conjectured that magnitude is a valuation on convex bodies. By computing the magnitude functions of odd-dimensional Euclidean balls in dimensions 3, 5, and 7, Barcelo and Carbery showed in \cite{barcelo_magnitudes_2016} that this convex magnitude conjecture is false, however, recent work by Willerton, Gimperlein and Goffeng, and Meckes in \cite{willerton_magnitude_2017}, \cite{gimperlein_magnitude_2017}, and \cite{meckes_magnitude_2019} respectively showed evidence for various asymptotic versions of the convex magnitude conjecture.
+
+The goal of this thesis is to survey these results and to extend work by Meckes in \cite{meckes_magnitude_2019} to investigate the second order small-$t$ asymptotics of the magnitude function for odd-dimensional Euclidean balls. Chapters 2 and 3 introduces the theory of magnitude for finite and infinite metric spaces respectively. Chapter 4 surveys results regarding the magnitude of odd-dimensional Euclidean balls. Chapter 5 and 6 are devoted to computing the second order small-$t$ asymptotics of the magnitude function for odd-dimensional Euclidean balls, reducing the computation to a counting problem that has been partially solved.
+
 \section{Finite metric spaces}
 
-We begin by introducing the theory of magnitude for finite metric spaces. Magnitude for a finite metric space follows directly as a specialization of the notion of the Euler characteristic of a finite category enriched in the poset category $[0,\infty]$. Lawvere observed that categories enriched in $[0,\infty]$ can be viewed as generalizations of metric spaces. The Euler characteristic of a finite category was introduced by Leinster in \cite{leinster_euler_2006}. Details of this specialization can be found in \cite{leinster_magnitude_2011} or in \cite{leinster_magnitude_2017}.
+We begin by introducing the theory of magnitude for finite metric spaces. See \cite{leinster_magnitude_2011} for a more comprehensive introduction.
 
 \subsection{The magnitude of a finite metric space}
 
@@ -443,7 +459,7 @@ and since $\sigma_{\text{roof}}^k$ consists only of V-paths, we have
 
 \begin{figure}
 \begin{equation*}
-\begin{tikzpicture}
+\begin{tikzpicture}[scale=0.75]
 \foreach \i in {0,...,6}
 	\foreach \j in {0,...,6}{
 		\draw (\i,\j) circle(1pt);
@@ -807,7 +823,7 @@ Now we define a function $g:L\to\sigma$. Let $\delta$ instead be a disjoint $(m+
 
 \begin{figure}[h!]
 \begin{equation*}
-\begin{tikzpicture}[scale=0.70]
+\begin{tikzpicture}[scale=0.75]
 \foreach \i in {0,...,8}
 	\foreach \j in {0,...,8}{
 		\draw (\i,\j) circle(1pt);
@@ -864,7 +880,7 @@ Now we define a function $g:L\to\sigma$. Let $\delta$ instead be a disjoint $(m+
 	\draw (7,5) -- node[above] {4} (8,4);
 
 \end{tikzpicture}\qquad
-\begin{tikzpicture}[scale=0.70]
+\begin{tikzpicture}[scale=0.75]
 \foreach \i in {0,...,8}
 	\foreach \j in {0,...,8}{
 		\draw (\i,\j) circle(1pt);
