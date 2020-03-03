@@ -358,6 +358,8 @@ where $FM(A)$ denotes the space of finite signed Borel measures on $A$. The supr
 
 We now briefly survey, without proofs, results regarding the magnitude and magnitude function of odd-dimensional Euclidean balls. These results hinge on the formulation of magnitude in terms of potential theory and capacities of sets Meckes introduced in \cite{meckes_magnitude_2015} in defining magnitude for general compact metric spaces. We begin with a statement of the erstwhile convex magnitude conjecture, as it motivates many of the results in this section.
 
+Let $d = 2m+1$ where $m$ is a natural number. Denote by $B_2^d$ the $d$-dimensional closed Euclidean ball and $tB_2^d$ the $d$-dimensional ball with radius $t$ for $t > 0$.
+
 \subsection{The convex magnitude conjecture}
 
 Let $\mathcal{K}^n$ be the space of compact convex sets in $\mathbb{R}^n$. We call a nonempty set in $\mathcal{K}^n$ a \textbf{convex body}. A \textbf{valuation} is a function $P:\mathcal{K}^n \to\mathbb{R}$ that satisfies the inclusion-exclusion principle, that is:
@@ -377,7 +379,11 @@ Let $K\in\mathcal{K}^n$. Then magnitude is a valuation and moreover
 where $V_i$ is the $i$-th intrinsic volume and $\omega_i$ is the volume of the unit ball in $\mathbb{R}^i$.
 \end{conj}
 
-Let $d = 2m+1$ where $m$ is a natural number. Denote by $B_2^d$ the $d$-dimensional closed Euclidean ball and $tB_2^d$ the $d$-dimensional ball with radius $t$ for $t > 0$.
+By homogeneity of the intrinsic volumes, the conjecture is equivalent to
+\begin{equation*}
+\vert tK \vert = \sum\limits_{i\geq0}\frac{V_i(K)}{i!\omega_i}t^i.
+\end{equation*}
+That is, the magnitude function of a convex body is a polynomial in $t$ with coefficients proportional to the intrinsic volumes of $K$.
 
 \subsection{Explicit magnitude functions for balls in low dimension}
 
@@ -395,7 +401,7 @@ So taking second derivatives and evaluating at $t = 0$, we have
 &\frac{d^2}{dt^2}\text{Mag}(tB_2^7)\big\vert_{t=0} = \frac{162}{25} = 6.48 \\
 \end{align*}
 
-In particular, the magnitude function of $B_2^5$ provides an example of where the convex magnitude conjecture is false.
+In particular, the magnitude function of $B_2^5$ provides an example of where the convex magnitude conjecture is false. However, there are partial results suggesting the convex magnitude conjecture holds asymptotically for small and large $t$.
 
 \subsection{Schröder paths and large-$t$ asymptotics}
 
@@ -476,7 +482,7 @@ is its first intrinsic volume. Then
 
 \section{The problem}
 
-The rest of this thesis will be devoted to computing the value of
+The rest of this thesis is devoted to computing the value of
 \begin{equation*}
 \frac{d^2}{dt^2}\text{Mag}(tB_2^d)\big\vert_{t=0}.
 \end{equation*}
