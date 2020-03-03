@@ -7,6 +7,7 @@
 \usepackage{MnSymbol}
 \usepackage{mathrsfs}
 \usepackage[arrow]{xy}
+\usepackage{tikz}
 \usepackage{dsfont}
 \usepackage{enumitem}
 \usepackage{accents}
@@ -355,8 +356,6 @@ Let $A$ be a compact positive definite metric space, then
 where $FM(A)$ denotes the space of finite signed Borel measures on $A$. The supremum is attained when we take scalar multiples of the weight measure of $A$, provided $A$ possesses one.
 \end{prop}
 
-
-
 \section{Odd-dimensional Euclidean balls}
 
 We now briefly survey, without proofs, results regarding the magnitude and magnitude function of odd-dimensional Euclidean balls. These results hinge on the formulation of magnitude in terms of potential theory and capacities of sets Meckes introduced in \cite{meckes_magnitude_2015} in defining magnitude for general compact metric spaces. We begin with a statement of the erstwhile convex magnitude conjecture, as it motivates many of the results in this section.
@@ -442,12 +441,49 @@ and since $\sigma_{\text{roof}}^k$ consists only of V-paths, we have
 &\omega_2\left(\sigma_{\text{roof}}^k\right) = \prod\limits_{i=1}^k\frac{(2i-1)!}{(i-1)!} \\
 \end{align*}
 
-\begin{figure}\label{fig:Vpath}
+\begin{figure}
 \begin{equation*}
-\begin{xy}
-\end{xy}
+\begin{tikzpicture}
+\foreach \i in {0,...,6}
+	\foreach \j in {0,...,6}{
+		\draw (\i,\j) circle(1pt);
+	};
+	
+	% 0 level
+	\node at (3,0) [circle, fill, inner sep=1pt]{};
+	
+	% 1 level
+	\node at (2,1) [circle, fill, inner sep=1pt]{};
+	\node at (4,1) [circle, fill, inner sep=1pt]{};
+	\node at (3,2) [circle, fill, inner sep=1pt]{};
+	\draw (2,1) -- (3,2);
+	\draw (4,1) -- node[above] {1} (3,2);
+	
+	% 2 level
+	\node at (1,2) [circle, fill, inner sep=1pt]{};
+	\node at (2,3) [circle, fill, inner sep=1pt]{};
+	\node at (3,4) [circle, fill, inner sep=1pt]{};
+	\node at (4,3) [circle, fill, inner sep=1pt]{};
+	\node at (5,2) [circle, fill, inner sep=1pt]{};
+	\draw (1,2) -- (2,3) -- (3,4);
+	\draw (3,4) -- node[above] {3} (4,3);
+	\draw (4,3) -- node[above] {2} (5,2);
+	
+	% 3 level
+	\node at (0,3) [circle, fill, inner sep=1pt]{};
+	\node at (1,4) [circle, fill, inner sep=1pt]{};
+	\node at (2,5) [circle, fill, inner sep=1pt]{};
+	\node at (3,6) [circle, fill, inner sep=1pt]{};
+	\node at (4,5) [circle, fill, inner sep=1pt]{};
+	\node at (5,4) [circle, fill, inner sep=1pt]{};
+	\node at (6,3) [circle, fill, inner sep=1pt]{};
+	\draw (0,3) -- (1,4) -- (2,5) -- (3,6);
+	\draw (3,6) -- node[above] {5} (4,5);
+	\draw (4,5) -- node[above] {4} (5,4);
+	\draw (5,4) -- node[above] {3} (6,3);
+\end{tikzpicture}
 \end{equation*}
-\caption{}
+\caption{\label{fig:Vpath} The disjoint 3-collection $\sigma^3_\text{roof}$ with $\omega_2$ weightings.}
 \end{figure}
 
 We are interested in these weightings on collections of Schröder paths because Willerton in \cite{willerton_magnitude_2017} showed the following:
@@ -578,6 +614,51 @@ Let $\sigma$ be a M-path at height $k$, then we have
 \end{align*}
 where the extra factor on the numerator comes from the additional descent we have in $\sigma$. The $\omega_2$ weighting will become relevant later on when we evaluate $N$.
 
+\begin{figure}
+\begin{equation*}
+\begin{tikzpicture}[scale=0.75]
+\foreach \i in {0,...,6}
+	\foreach \j in {0,...,6}{
+		\draw (\i,\j) circle(1pt);
+	};
+	
+	% 0 level
+	\node at (3,0) [circle, fill, inner sep=1pt]{};
+	
+	% 1 level
+	\node at (2,1) [circle, fill, inner sep=1pt]{};
+	\node at (3,1) [circle, fill, inner sep=1pt]{};
+	\node at (4,1) [circle, fill, inner sep=1pt]{};
+	\draw (2,1) -- (4,1);
+	
+	% 2 level
+	\node at (1,2) [circle, fill, inner sep=1pt]{};
+	\node at (2,3) [circle, fill, inner sep=1pt]{};
+	\node at (3,2) [circle, fill, inner sep=1pt]{};
+	\node at (4,3) [circle, fill, inner sep=1pt]{};
+	\node at (5,2) [circle, fill, inner sep=1pt]{};
+	\draw (1,2) -- (2,3);
+	\draw (2,3) -- node[above] {2} (3,2);
+	\draw (3,2) -- (4,3);
+	\draw (4,3) -- node[above] {2} (5,2);
+	
+	% 3 level
+	\node at (0,3) [circle, fill, inner sep=1pt]{};
+	\node at (1,4) [circle, fill, inner sep=1pt]{};
+	\node at (2,5) [circle, fill, inner sep=1pt]{};
+	\node at (3,6) [circle, fill, inner sep=1pt]{};
+	\node at (4,5) [circle, fill, inner sep=1pt]{};
+	\node at (5,4) [circle, fill, inner sep=1pt]{};
+	\node at (6,3) [circle, fill, inner sep=1pt]{};
+	\draw (0,3) -- (1,4) -- (2,5) -- (3,6);
+	\draw (3,6) -- node[above] {5} (4,5);
+	\draw (4,5) -- node[above] {4} (5,4);
+	\draw (5,4) -- node[above] {3} (6,3);
+\end{tikzpicture}
+\end{equation*}
+\caption{\label{fig:Mpath} A disjoint 3-collection containing a flat step at height 1 and an M-path at height 2 with $\omega_2$ weightings.}
+\end{figure}
+
 Since we can recognize $X_{m-1}^1$ as a union of disjoint $(m-1)$-collections with this specific form, we can write down an explicit expression for $D'$:
 \begin{equation*}
 D' = \sum\limits_{\substack{1\leq p\leq m-1\\0\leq q\leq m-1-p}}\left(\prod\limits_{k=0}^{p-1}\frac{(2k+1)!}{(k+1)!}\right)\left(\frac{(2p)!}{(p+1)!}\right)\left(\prod\limits_{k=p+1}^{p+q}\frac{(2k)!(2k)}{(k+1)!}\right)\left(\prod\limits_{k=p+q+1}^{m-1}\frac{(2k+1)!}{(k+1)!}\right)
@@ -623,6 +704,51 @@ So we have that
 \begin{equation*}
 X_{k}^2 = \bigcup\limits_{p_1,p_2,q_1,q_2}\sigma_{p_1,p_2,q_1,q_2}^k \cup \bigcup\limits_{p_1,p_2,q_1,q_2}L_{p_1,p_2,q_1,q_2}^k \cup \bigcup\limits_{p_1,p_2,q_1,q_2}R_{p_1,p_2,q_1,q_2}^k
 \end{equation*}
+
+\begin{figure}
+\begin{equation*}
+\begin{tikzpicture}[scale=0.75]
+\foreach \i in {0,...,6}
+	\foreach \j in {0,...,6}{
+		\draw (\i,\j) circle(1pt);
+	};
+	
+	% 0 level
+	\node at (3,0) [circle, fill, inner sep=1pt]{};
+	
+	% 1 level
+	\node at (2,1) [circle, fill, inner sep=1pt]{};
+	\node at (3,1) [circle, fill, inner sep=1pt]{};
+	\node at (4,1) [circle, fill, inner sep=1pt]{};
+	\draw (2,1) -- (4,1);
+	
+	% 2 level
+	\node at (1,2) [circle, fill, inner sep=1pt]{};
+	\node at (2,3) [circle, fill, inner sep=1pt]{};
+	\node at (3,2) [circle, fill, inner sep=1pt]{};
+	\node at (4,2) [circle, fill, inner sep=1pt]{};
+	\node at (5,2) [circle, fill, inner sep=1pt]{};
+	\draw (1,2) -- (2,3);
+	\draw (2,3) -- node[above] {2} (3,2);
+	\draw (3,2) -- (4,2) -- (5,2);
+	
+	% 3 level
+	\node at (0,3) [circle, fill, inner sep=1pt]{};
+	\node at (1,4) [circle, fill, inner sep=1pt]{};
+	\node at (2,5) [circle, fill, inner sep=1pt]{};
+	\node at (3,4) [circle, fill, inner sep=1pt]{};
+	\node at (4,3) [circle, fill, inner sep=1pt]{};
+	\node at (5,4) [circle, fill, inner sep=1pt]{};
+	\node at (6,3) [circle, fill, inner sep=1pt]{};
+	\draw (0,3) -- (1,4) -- (2,5);
+	\draw (2,5) -- node[above] {4} (3,4);
+	\draw (3,4) -- node[above] {3} (4,3);
+	\draw (4,3) -- (5,4);
+	\draw (5,4) -- node[above] {3} (6,3);
+\end{tikzpicture}
+\end{equation*}
+\caption{\label{fig:asymMpath} A disjoint 3-collection containing two flat steps (one off-centered) and an asymmetric M-path with $\omega_2$ weightings.}
+\end{figure}
 
 \subsection{$\mu$ Simplification of the $N''-d!D''$ Term}
 
@@ -674,10 +800,127 @@ Let $\sigma$ and $L$ be given respectively as in (\ref{eqn:sigma}) and (\ref{eqn
 \end{lem}
 
 \begin{proof}
-We prove the lemma by showing that there is a bijection of sets $f:\sigma \to L$ that preserves the product of the weights in each disjoint $(m+1)$-collection. Let $\delta$ be a disjoint $(m+1)$-collection in $\sigma$. In general, $\delta$ will have its first flat step at $p_1$ and second flat step at $p_2$. In between the two flat steps there will be $q_1$ M-paths followed by $p_2-p_1-q_1$ number of V-paths. We'll call the height at which this first V-path appears to be $v$. Then we define $f(\delta)$ to be a disjoint $(m+1)$-collection in $L$ where we take $\delta$ and replace the V-path at $v$ with a off-centred flat step path and all the paths from $v+1$ up to $p_2$ are replaced with asymmetric M-paths. If $\delta$ had no V-paths in between the first two flat steps, then just replace the second flat step with an off-centred flat step. Clearly $f(\delta)$ is a unique disjoint $(m+1)$-collection in $L$ and this defines a well-defined function of sets from $\sigma$ to $L$. We can see that $f$ preserves the product of the weights on $\delta$: each V-path starting at a height of say, $h$ had product of weights $\frac{(2h-1)!}{(h-1)!}$ and this path was replaced by an asymmetric M-path with product of weights $\frac{(2h-2)!}{(h-1)!}$ but on the asymmetric M-path of height $h+1$ we have an extra factor of $(2(h+1)-3) = (2h+2-3) = (2h-1)$ so in total we also have product of weights $\frac{(2h-1)!}{(h-1)!}$. Note that this also applies to the flat step we introduced at height $v$: it had product of weights $\frac{(2v-2)!}{(v-1)!}$ but the asymmetric M-path just above it gives an extra factor of $(2v-1)$ which is already accounted for. Finally the flat step at $p_2$ in $\delta$ had product of weights $\frac{(2p_2-2)!}{(p_2-1)}$ which is the same as the product of the weights in the asymmetric M-path we introduced at $p_2$. So we see that $f$ preserves weighting.
+We prove the lemma by showing that there is a bijection of sets $f:\sigma \to L$ that preserves the product of the weights in each disjoint $(m+1)$-collection. Let $\delta$ be a disjoint $(m+1)$-collection in $\sigma$. In general, $\delta$ will have its first flat step at $p_1$ and second flat step at $p_2$. In between the two flat steps there will be $q_1$ M-paths followed by $p_2-p_1-q_1$ number of V-paths. We'll call the height at which this first V-path appears to be $v$. Then we define $f(\delta)$ to be a disjoint $(m+1)$-collection in $L$ where we take $\delta$ and replace the V-path at $v$ with a off-centred flat step path and all the paths from $v+1$ up to $p_2$ are replaced with asymmetric M-paths. If $\delta$ had no V-paths in between the first two flat steps, then just replace the second flat step with an off-centred flat step. Clearly $f(\delta)$ is a unique disjoint $(m+1)$-collection in $L$ and this defines a well-defined function of sets from $\sigma$ to $L$. We can see that $f$ preserves the product of the weights on $\delta$: each V-path starting at a height of say, $h$ had product of weights $\frac{(2h-1)!}{(h-1)!}$ and this path was replaced by an asymmetric M-path with product of weights $\frac{(2h-2)!}{(h-1)!}$ but on the asymmetric M-path of height $h+1$ we have an extra factor of $(2(h+1)-3) = (2h+2-3) = (2h-1)$ so in total we also have product of weights $\frac{(2h-1)!}{(h-1)!}$. Note that this also applies to the flat step we introduced at height $v$: it had product of weights $\frac{(2v-2)!}{(v-1)!}$ but the asymmetric M-path just above it gives an extra factor of $(2v-1)$ which is already accounted for. Finally the flat step at $p_2$ in $\delta$ had product of weights $\frac{(2p_2-2)!}{(p_2-1)}$ which is the same as the product of the weights in the asymmetric M-path we introduced at $p_2$. So we see that $f$ preserves weighting. An example of two disjoint collections with the same product of weights that are identified by $f$ is given in Figure \ref{fig:43200} below.
 
 Now we define a function $g:L\to\sigma$. Let $\delta$ instead be a disjoint $(m+1)$-collection in $L$. The collection $\delta$ has a second off-centred flat step at height $p_2$ with $q_1$ number of asymmetric M-paths above it. Then we define $g(\delta)$ to be the disjoint $(m+1)$-collection where we replace the second flat step at $p_2$ and all the asymmetric M-paths above it with V-paths except for the last one, which we turn into a centred flat step (ie. at height $p_2+q_1$. The paths above $p_2+q_1$ will be either V-paths or (symmetric) M-paths and so this gives us a disjoint $(m+1)$-collection in $\sigma$. Clearly, $g,f$ are inverse to each other, giving us a bijection $\sigma\to L$. Since $f$ preserves products of weights, this also gives us that $\sigma = L$ as values.
 \end{proof}
+
+\begin{figure}[h!]
+\begin{equation*}
+\begin{tikzpicture}[scale=0.70]
+\foreach \i in {0,...,8}
+	\foreach \j in {0,...,8}{
+		\draw (\i,\j) circle(1pt);
+	};
+	
+	% 0 level
+	\node at (4,0) [circle, fill, inner sep=1pt]{};
+	
+	% 1 level
+	\node at (3,1) [circle, fill, inner sep=1pt]{};
+	\node at (4,1) [circle, fill, inner sep=1pt]{};
+	\node at (5,1) [circle, fill, inner sep=1pt]{};
+	\draw (3,1) -- (5,1);
+	
+	% 2 level
+	\node at (2,2) [circle, fill, inner sep=1pt]{};
+	\node at (3,2) [circle, fill, inner sep=1pt]{};
+	\node at (4,2) [circle, fill, inner sep=1pt]{};
+	\node at (5,3) [circle, fill, inner sep=1pt]{};
+	\node at (6,2) [circle, fill, inner sep=1pt]{};
+	\draw (2,2) -- (3,2) -- (4,2);
+	\draw (4,2) -- (5,3);
+	\draw (5,3) -- node[above] {2} (6,2);
+	
+	% 3 level
+	\node at (1,3) [circle, fill, inner sep=1pt]{};
+	\node at (2,4) [circle, fill, inner sep=1pt]{};
+	\node at (3,3) [circle, fill, inner sep=1pt]{};
+	\node at (4,4) [circle, fill, inner sep=1pt]{};
+	\node at (5,5) [circle, fill, inner sep=1pt]{};
+	\node at (6,4) [circle, fill, inner sep=1pt]{};
+	\node at (7,3) [circle, fill, inner sep=1pt]{};
+	\draw (1,3) -- (2,4);
+	\draw (2,4) -- node[above] {3} (3,3);
+	\draw (3,3) -- (4,4) -- (5,5);
+	\draw (5,5) -- node[above] {4} (6,4);
+	\draw (6,4) -- node[above] {3} (7,3);
+	
+	% 4 level
+	\node at (0,4) [circle, fill, inner sep=1pt]{};
+	\node at (1,5) [circle, fill, inner sep=1pt]{};
+	\node at (2,6) [circle, fill, inner sep=1pt]{};
+	\node at (3,5) [circle, fill, inner sep=1pt]{};
+	\node at (4,6) [circle, fill, inner sep=1pt]{};
+	\node at (5,7) [circle, fill, inner sep=1pt]{};
+	\node at (6,6) [circle, fill, inner sep=1pt]{};
+	\node at (7,5) [circle, fill, inner sep=1pt]{};
+	\node at (8,4) [circle, fill, inner sep=1pt]{};
+	\draw (0,4) -- (1,5) -- (2,6);
+	\draw (2,6) -- node[above] {5} (3,5);
+	\draw (3,5) -- (4,6) -- (5,7);
+	\draw (5,7) -- node[above] {6} (6,6);
+	\draw (6,6) -- node[above] {5} (7,5);
+	\draw (7,5) -- node[above] {4} (8,4);
+
+\end{tikzpicture}\qquad
+\begin{tikzpicture}[scale=0.70]
+\foreach \i in {0,...,8}
+	\foreach \j in {0,...,8}{
+		\draw (\i,\j) circle(1pt);
+	};
+	
+	% 0 level
+	\node at (4,0) [circle, fill, inner sep=1pt]{};
+	
+	% 1 level
+	\node at (3,1) [circle, fill, inner sep=1pt]{};
+	\node at (4,1) [circle, fill, inner sep=1pt]{};
+	\node at (5,1) [circle, fill, inner sep=1pt]{};
+	\draw (3,1) -- (5,1);
+	
+	% 2 level
+	\node at (2,2) [circle, fill, inner sep=1pt]{};
+	\node at (3,3) [circle, fill, inner sep=1pt]{};
+	\node at (4,4) [circle, fill, inner sep=1pt]{};
+	\node at (5,3) [circle, fill, inner sep=1pt]{};
+	\node at (6,2) [circle, fill, inner sep=1pt]{};
+	\draw (2,2) -- (3,3) -- (4,4);
+	\draw (4,4) -- node[above] {3} (5,3);
+	\draw (5,3) -- node[above] {2} (6,2);
+	
+	% 3 level
+	\node at (1,3) [circle, fill, inner sep=1pt]{};
+	\node at (2,4) [circle, fill, inner sep=1pt]{};
+	\node at (3,5) [circle, fill, inner sep=1pt]{};
+	\node at (4,6) [circle, fill, inner sep=1pt]{};
+	\node at (5,5) [circle, fill, inner sep=1pt]{};
+	\node at (6,4) [circle, fill, inner sep=1pt]{};
+	\node at (7,3) [circle, fill, inner sep=1pt]{};
+	\draw (1,3) -- (2,4) -- (3,5) -- (4,6);
+	\draw (4,6) -- node[above] {5} (5,5);
+	\draw (5,5) -- node[above] {4} (6,4);
+	\draw (6,4) -- node[above] {3} (7,3);
+	
+	% 4 level
+	\node at (0,4) [circle, fill, inner sep=1pt]{};
+	\node at (1,5) [circle, fill, inner sep=1pt]{};
+	\node at (2,6) [circle, fill, inner sep=1pt]{};
+	\node at (3,7) [circle, fill, inner sep=1pt]{};
+	\node at (4,7) [circle, fill, inner sep=1pt]{};
+	\node at (5,7) [circle, fill, inner sep=1pt]{};
+	\node at (6,6) [circle, fill, inner sep=1pt]{};
+	\node at (7,5) [circle, fill, inner sep=1pt]{};
+	\node at (8,4) [circle, fill, inner sep=1pt]{};
+	\draw (0,4) -- (1,5) -- (2,6) -- (3,7) -- (4,7) -- (5,7);
+	\draw (5,7) -- node[above] {6} (6,6);
+	\draw (6,6) -- node[above] {5} (7,5);
+	\draw (7,5) -- node[above] {4} (8,4);
+
+\end{tikzpicture}
+\end{equation*}
+\caption{\label{fig:43200} Two corresponding disjoint $4$-collections under the bijection $f$. The total product of weights if 43200 for both collections.}
+\end{figure}
 
 \subsection{Simplifying the $\sigma$ Term}
 
