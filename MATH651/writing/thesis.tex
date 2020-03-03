@@ -342,7 +342,7 @@ is a weighting of $A$, and the magnitude is given by
 \vert A \vert = \sum\limits_{a\in A} w_a = \sum\limits_{a \in A} \mu(\{a\}) = \mu(A).
 \end{equation*}
 
-Hence we define the \textbf{magnitude of a compact metric space} $A$ to be $\vert A \vert = \mu(A)$. If $A$ is compact positive definite, then this definition agrees with the definition of magnitude given in the previous section (Proposition 3.6 of \cite{leinster_magnitude_2017}). Moreover, we have an explicit formula for the magnitude that is reminiscent of Proposition \ref{prop:finiteposdefsup}:
+Hence we define the \textbf{magnitude of a compact metric space} $A$ to be $\vert A \vert = \mu(A)$. If $A$ is compact positive definite, then this definition agrees with the definition of magnitude given in the previous section (Proposition 3.6 of \cite{leinster_magnitude_2017}). Moreover, using this definition, we have an explicit formula for the magnitude that is reminiscent of Proposition \ref{prop:finiteposdefsup}:
 
 \begin{prop}[Theorems 2.3 and 2.4 of \cite{meckes_positive_2013}]\label{prop:variationalformula}
 Let $A$ be a compact positive definite metric space, then
@@ -352,9 +352,11 @@ Let $A$ be a compact positive definite metric space, then
 where $FM(A)$ denotes the space of finite signed Borel measures on $A$. The supremum is attained when we take scalar multiples of the weight measure of $A$, provided $A$ possesses one.
 \end{prop}
 
+
+
 \section{Odd-dimensional Euclidean balls}
 
-We now briefly survey results regarding the magnitude and magnitude function of odd-dimensional Euclidean balls. These results hinge on the formulation of magnitude in terms of potential theory and capacities of sets Meckes introduced in \cite{meckes_magnitude_2015} in defining magnitude for general compact metric spaces. We begin with a statement of the erstwhile convex magnitude conjecture, as it motivates many of the results in this section.
+We now briefly survey, without proofs, results regarding the magnitude and magnitude function of odd-dimensional Euclidean balls. These results hinge on the formulation of magnitude in terms of potential theory and capacities of sets Meckes introduced in \cite{meckes_magnitude_2015} in defining magnitude for general compact metric spaces. We begin with a statement of the erstwhile convex magnitude conjecture, as it motivates many of the results in this section.
 
 \subsection{The convex magnitude conjecture}
 
@@ -363,11 +365,11 @@ Let $\mathcal{K}^n$ be the space of compact convex sets in $\mathbb{R}^n$. We ca
 \item $P(\emptyset) = 0$,
 \item $P(A\cup B) = P(A) + P(B) - P(A\cap B)$
 \end{enumerate}
-whenever $A,B,A\cup B \in \mathcal{K}^n$ ($A\cap B$ is automatically in $\mathcal{K}^n$ whenever $A$ and $B$ are). Hadwiger's Theorem states that if a valuation $P$ is invariant under rigid motions, then there are canonical homogenous valuations $V_0,V_1,\dots,V_n$ such that $P$ can be written as a linear combination of these valuations. The valuations $V_i$ are called the $i$-th intrinsic volumes with $V_n$ being the usual $n$-dimensional volume, $V_{n-1}$ being half the surface area and $V_0$ is the Euler characteristic.
+whenever $A,B,A\cup B \in \mathcal{K}^n$ ($A\cap B$ is automatically in $\mathcal{K}^n$ whenever $A$ and $B$ are). Hadwiger's Theorem states that if a valuation $P$ is invariant under rigid motions and is continuous with respect to the Hausdorff metric, then there are canonical homogenous valuations $V_0,V_1,\dots,V_n$ such that $P$ can be written as a linear combination of these valuations. The valuations $V_i$ are called the $i$-th intrinsic volumes with $V_n$ being the usual $n$-dimensional volume, $V_{n-1}$ being half the surface area and $V_0$ is the Euler characteristic.
 
 Computer calculations of the magnitudes of various sets in Euclidean space found in \cite{willerton_heuristic_2009} led to the following conjecture stated in \cite{leinster_asymptotic_2013}:
 
-\begin{conj}
+\begin{conj}[Leinster-Willerton]
 Let $K\in\mathcal{K}^n$. Then magnitude is a valuation and moreover
 \begin{equation*}
 \vert K \vert = \sum\limits_{i\geq0}\frac{V_i(K)}{i!\omega_i}
@@ -375,7 +377,7 @@ Let $K\in\mathcal{K}^n$. Then magnitude is a valuation and moreover
 where $V_i$ is the $i$-th intrinsic volume and $\omega_i$ is the volume of the unit ball in $\mathbb{R}^i$.
 \end{conj}
 
-Let $d = 2m+1$ where $m$ is a natural number. Denote by $B_2^d$ the $d$-dimensional Euclidean ball and $tB_2^d$ the $d$-dimensional ball with radius $t$ for $t > 0$.
+Let $d = 2m+1$ where $m$ is a natural number. Denote by $B_2^d$ the $d$-dimensional closed Euclidean ball and $tB_2^d$ the $d$-dimensional ball with radius $t$ for $t > 0$.
 
 \subsection{Explicit magnitude functions for balls in low dimension}
 
@@ -393,11 +395,9 @@ So taking second derivatives and evaluating at $t = 0$, we have
 &\frac{d^2}{dt^2}\text{Mag}(tB_2^7)\big\vert_{t=0} = \frac{162}{25} = 6.48 \\
 \end{align*}
 
-In particular, the magnitude function of $B_2^5$ provides an example of where the convex magnitude conjecture is false. We will use these values as sanity checks to compare against throughout our calculations.
+In particular, the magnitude function of $B_2^5$ provides an example of where the convex magnitude conjecture is false.
 
-\subsection{Large $t$-asymptotics}
-
-\subsection{Schröder paths}
+\subsection{Schröder paths and large-$t$ asymptotics}
 
 Willerton in \cite{willerton_magnitude_2017} gave an expression for the magnitude function of odd-dimensional balls in terms of collections of Schröder paths. We introduce them below:
 \begin{defn}
@@ -435,7 +435,7 @@ and since $\sigma_{\text{roof}}^k$ consists only of V-paths, we have
 
 We are interested in these weightings on collections of Schröder paths because Willerton in \cite{willerton_magnitude_2017} showed the following:
 
-\begin{theo}[\cite{willerton_magnitude_2017}, Corollary 27]\label{theo:willertonND}
+\begin{theo}[Corollary 27 of \cite{willerton_magnitude_2017}]\label{theo:willertonND}
 Let $d = 2m+1$ be odd. Then
 \begin{equation*}
 \text{Mag}\left(tB_2^d\right) = \frac{\sum\limits_{\sigma\in X_{m+1}}\omega_2(\sigma)}{d!\sum\limits_{\sigma\in X_{m-1}}\omega_0(\sigma)} = \frac{\sum\limits_{\sigma\in X_{m+1}}\prod\limits_{\tau\in\sigma}\omega_2(\tau)}{d!\sum\limits_{\sigma\in X_{m-1}}\prod\limits_{\tau\in\sigma}\omega_0(\tau)}
@@ -446,6 +446,18 @@ As mentioned before, $\omega_j(\sigma)$ are of the form $ct^\ell$ where $\ell$ i
 \begin{equation*}
 \text{Mag}\left(tB_2^d\right) = \frac{N(t)}{d!D(t)}.
 \end{equation*}
+
+Using this combinatorial formulation of the magnitude function for the Euclidean ball, Willerton was able to determine the asymptotic behavior of the magnitude function as $t\to\infty$:
+
+\begin{theo}[Corollary 30 of \cite{willerton_magnitude_2017}]\label{theo:largetasymptotics}
+Let $d$ be odd. Then asymptotically, magnitude function of the $d$-dimensional Euclidean ball is given by
+\begin{equation*}
+\text{Mag}\left(tB_2^d\right) = \frac{1}{d!}\left(t^d + \frac{d(d+1)}{2}t^{d-1} + \frac{(d-1)d(d+1)^2}{8}t^{d-2}\right) + O(t^{d-2})
+\end{equation*}
+as $t\to\infty$.
+\end{theo}
+
+Gimperlein and Goffeng in \cite{gimperlein_magnitude_2017} show that the first few coefficients in the asymptotic expansion above are proportional to the corresponding intrinsic volumes as in the convex magnitude conjecture, suggesting that the convex magnitude conjecture might hold in some asymptotic sense as $t\to\infty$.
 
 \subsection{First order small-$t$ asymptotics}
 
