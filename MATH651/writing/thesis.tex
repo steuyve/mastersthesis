@@ -57,9 +57,9 @@ Magnitude is a numerical invariant of metric spaces with origins in the notion o
 
 \section{Introduction}
 
-Magnitude is a numerical invariant of metric spaces. Its precursor is the Euler characteristic of a finite category, introduced by Leinster in \cite{leinster_euler_2006} as an analog to the classical notion of the Euler characteristic of a topological space. In \cite{leinster_magnitude_2011}, Leinster extended his definition of the Euler characteristic of a finite category to finite enriched categories. An enriched category $\mathscr{C}$ is one where the hom-sets of any two objects in $\mathscr{C}$ are in fact objects of some monoidal category $\mathscr{V}$. Lawvere observed that categories enriched in $([0,\infty],0,\leq)$ can be seen as generalized metric spaces where for any two objects $a,b$, the hom-set $\text{Hom}(a,b) \in [0,\infty]$ gives the distance between $a,b$ satisfying the triangle identity. This notion of distance is more general than in a classical metric space because distances are allowed to be infinite and may no longer be symmetric. Taking the definition of the Euler characteristic of a finite category enriched in $[0,\infty]$ we arrive at the definition of magnitude for a finite metric space.
+Magnitude is a numerical invariant of metric spaces. Its precursor is the Euler characteristic of a finite category, introduced by Leinster in \cite{leinster_euler_2006} as an analog to the classical notion of the Euler characteristic of a topological space. In \cite{leinster_magnitude_2011}, Leinster extended his definition of the Euler characteristic of a finite category to finite enriched categories. An enriched category $\mathscr{C}$ is one where the hom-sets of any two objects in $\mathscr{C}$ are replaced by objects of some monoidal category $\mathscr{V}$. Lawvere in \cite{lawvere_metric_1973} observed that categories enriched in $([0,\infty],0,\leq)$ can be seen as generalized metric spaces where for any two objects $a,b$, the hom-set $\text{Hom}(a,b) \in [0,\infty]$ gives the distance between $a,b$ satisfying the triangle identity. This notion of distance is more general than in a classical metric space because distances are allowed to be infinite and may no longer be symmetric. Taking the definition of the Euler characteristic of a finite category enriched in $[0,\infty]$ we arrive at the definition of magnitude for a finite metric space. \emph{say you will define everything later}.
 
-Soon after defining magnitude for finite metric spaces, Leinster and others considered the question of defining magnitude for infinite metric spaces. Willerton in \cite{willerton_heuristic_2009} computed the magnitudes of some infinite sets via approximation by finite subsets, though at this point it was not clear whether such computations were independent of the approximations chosen. Meckes in \cite{meckes_positive_2013} showed that defining magnitude for infinite metric spaces via approximations by finite subsets is indeed consistent for a special class of metric spaces: the compact positive definite metric spaces. In addition, Meckes showed that one can arrive at an equivalent definition that extends to compact metric spaces (see \cite{meckes_magnitude_2015} and \cite{leinster_magnitude_2017}.
+Soon after defining magnitude for finite metric spaces, Leinster and others considered the question of defining magnitude for infinite metric spaces. Willerton in \cite{willerton_heuristic_2009} computed the magnitudes of some infinite sets via approximation by finite subsets, though at this point it was not clear whether such computations were independent of the approximations chosen. Meckes in \cite{meckes_positive_2013} showed that defining magnitude for infinite metric spaces via approximations by finite subsets is indeed consistent for a special class of metric spaces: the compact positive definite metric spaces. In addition, Meckes showed that one can arrive at an equivalent definition that extends to compact metric spaces (see \cite{meckes_magnitude_2015} and \cite{leinster_magnitude_2017}).
 
 However, at this point, there are only a few spaces for which magnitude is known exactly. Among them include:
 \begin{enumerate}[label=\arabic*.]
@@ -87,7 +87,7 @@ If $M$ has a weighting $w$ and a coweighting $v$, then $\sum\limits_{j=1}^{n}w_j
 
 \begin{proof}
 \begin{equation*}
-\sum\limits_{j=1}^{n}w_j = 1_n^\star w = v^\star Mw = v^\star 1_n = \sum\limits_{j=1}^{n}v_j.
+\sum\limits_{j=1}^{n}w_j = 1_n^\star w = v^\star Mw = v^\star 1_n = \sum\limits_{j=1}^{n}v_j. \qedhere
 \end{equation*}
 \end{proof}
 
@@ -286,6 +286,8 @@ for all $v$. So $\vert A \vert$ is greater than or equal to the supremum. But ta
 so we have equality.
 \end{proof}
 
+\emph{should remark that subsets of Euclidean space are positive definite.}
+
 Using this formulation of the magnitude, we can show some that magnitude is increasing with respect to inclusion for positive definite metric spaces.
 
 \begin{prop}[Lemma 2.4.10 of \cite{leinster_magnitude_2011}]\label{prop:finiteposdefincreasing}
@@ -345,7 +347,7 @@ Recall that $A$ is of negative type if $tA$ is positive definite for all $t > 0$
 
 Willerton in \cite{willerton_magnitude_2014} gives an explicit formula for the magnitude of $n$-spheres with the intrinsic metric.
 
-\subsection{Compact metric spaces}
+\subsection{Compact metric spaces} \emph{Don't need this section}
 
 To extend the definition of magnitude to compact metric spaces, we need to generalize the notion of a weighting. Let $A$ be a compact metric space and let $\mu$ be a finite signed Borel measure on $A$. We say $\mu$ is a \textbf{weight measure} on $A$ if
 \begin{equation*}
@@ -419,7 +421,7 @@ So taking second derivatives and evaluating at $t = 0$, we have
 &\frac{d^2}{dt^2}\text{Mag}(tB_2^7)\big\vert_{t=0} = \frac{162}{25} = 6.48 \\
 \end{align*}
 
-In particular, the magnitude function of $B_2^5$ provides an example of where the convex magnitude conjecture is false. However, there are partial results suggesting the convex magnitude conjecture holds asymptotically for small and large $t$.
+In particular, the magnitude function of $B_2^5$ provides an example of where the convex magnitude conjecture is false. \emph{However, there are partial results suggesting the convex magnitude conjecture holds asymptotically for small and large $t$. - actually what happens is that the n term is the same, n = 0 term is the same, but n-1 and n-2 terms are different (GG).} 
 
 \subsection{Schröder paths and large-$t$ asymptotics}
 
@@ -526,7 +528,7 @@ Let $d$ be odd. Then asymptotically, magnitude function of the $d$-dimensional E
 as $t\to\infty$.
 \end{theo}
 
-Gimperlein and Goffeng in \cite{gimperlein_magnitude_2017} show that the first few coefficients in the asymptotic expansion above are proportional to the corresponding intrinsic volumes as in the convex magnitude conjecture, suggesting that the convex magnitude conjecture might hold in some asymptotic sense as $t\to\infty$.
+\emph{Gimperlein and Goffeng in \cite{gimperlein_magnitude_2017} show that the first few coefficients in the asymptotic expansion above are proportional to the corresponding intrinsic volumes as in the convex magnitude conjecture, suggesting that the convex magnitude conjecture might hold in some asymptotic sense as $t\to\infty$. - need to correct this.}
 
 \subsection{First order small-$t$ asymptotics}
 
@@ -879,7 +881,7 @@ Now we define a function $g:L\to\sigma$. Let $\delta$ instead be a disjoint $(m+
 	\draw (6,6) -- node[above] {5} (7,5);
 	\draw (7,5) -- node[above] {4} (8,4);
 
-\end{tikzpicture}\qquad
+\end{tikzpicture}\qquad\qquad
 \begin{tikzpicture}[scale=0.75]
 \foreach \i in {0,...,8}
 	\foreach \j in {0,...,8}{
@@ -1011,6 +1013,8 @@ Let $d$ be odd and $B_2^d$ be the closed $d$-dimensional Euclidean ball. Then
 \end{aligned}
 \end{equation}
 \end{theo}
+
+\emph{Here's what the conclusion appears to be.}
 
 %\subsection{Skip Factorials}
 %
