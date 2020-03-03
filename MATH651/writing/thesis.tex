@@ -550,7 +550,7 @@ N = d!D
 \end{equation*}
 and Meckes in the proof of Theorem 4 of \cite{meckes_magnitude_2019} showed that
 \begin{equation*}
-N'D - ND' = \frac{1}{2}V_1\left(B_2^d\right)d!D^2
+N'D - ND' = \frac{1}{2}V_1\left(B_2^d\right)d!D^2.
 \end{equation*}
 In the rest of the paper below, we will use $V_1$ as shorthand for $V_1\left(B_2^d\right)$.
 Now we evaluate
@@ -572,16 +572,16 @@ Applying the quotient rule and using the two identities above, we have
 &= 2\left[\frac{DN''-ND''}{d!D^2}\right]-V_1\left[\frac{D'}{D}\right] \\
 &= 2\left[\frac{DN''-d!DD''}{d!D^2}\right] - V_1\left[\frac{D'}{D}\right] \\
 &= 2\left[\frac{N''-d!D''}{d!D}\right] - V_1\left[\frac{D'}{D}\right] \\
-&= 2\left[\frac{N''-d!D''}{N}\right] - V_1\left[\frac{D'}{D}\right]
+&= 2\left[\frac{N''-d!D''}{N}\right] - V_1\left[\frac{D'}{D}\right].
 \end{align*}
 Where the factors of 2 in front of the terms containing a second derivative are because of the factor of $\frac{1}{2}$ that we introduced earlier in our notation for $N''$ and $D''$. To continue simplifying this expression, we have to give explicit expressions for the terms involved:
 \begin{align}
-&N = \sum\limits_{\sigma\in X_{m+1}^0}\prod\limits_{\tau\in\sigma}\omega_2(\tau) = \prod\limits_{\tau\in\sigma_{\text{roof}}^{m+1}}\omega_2(\tau) \label{eqn:N} \\
-&D = \sum\limits_{\sigma\in X_{m-1}^0}\prod\limits_{\tau\in\sigma}\omega_0(\tau) = \prod\limits_{\tau\in\sigma_{roof}^{m-1}}\omega_0(\tau) \label{eqn:D} \\
-&N' = t^{-1}\sum\limits_{\sigma\in X_{m+1}^1}\prod\limits_{\tau\in\sigma}\omega_2(\tau) \label{eqn:N'} \\
-&D' = t^{-1}\sum\limits_{\sigma\in X_{m-1}^1}\prod\limits_{\tau\in\sigma}\omega_0(\tau)  \label{eqn:D'} \\
-&N'' = t^{-2}\sum\limits_{\sigma\in X_{m+1}^2}\prod\limits_{\tau\in\sigma}\omega_2(\tau) \label{eqn:N''} \\
-&D'' = t^{-2}\sum\limits_{\sigma\in X_{m-1}^2}\prod\limits_{\tau\in\sigma}\omega_0(\tau) \label{eqn:D''}
+&N = \sum\limits_{\sigma\in X_{m+1}^0}\prod\limits_{\tau\in\sigma}\omega_2(\tau) = \prod\limits_{\tau\in\sigma_{\text{roof}}^{m+1}}\omega_2(\tau), \label{eqn:N} \\
+&D = \sum\limits_{\sigma\in X_{m-1}^0}\prod\limits_{\tau\in\sigma}\omega_0(\tau) = \prod\limits_{\tau\in\sigma_{roof}^{m-1}}\omega_0(\tau), \label{eqn:D} \\
+&N' = t^{-1}\sum\limits_{\sigma\in X_{m+1}^1}\prod\limits_{\tau\in\sigma}\omega_2(\tau), \label{eqn:N'} \\
+&D' = t^{-1}\sum\limits_{\sigma\in X_{m-1}^1}\prod\limits_{\tau\in\sigma}\omega_0(\tau), \label{eqn:D'} \\
+&N'' = t^{-2}\sum\limits_{\sigma\in X_{m+1}^2}\prod\limits_{\tau\in\sigma}\omega_2(\tau), \label{eqn:N''} \\
+&D'' = t^{-2}\sum\limits_{\sigma\in X_{m-1}^2}\prod\limits_{\tau\in\sigma}\omega_0(\tau) \label{eqn:D''}.
 \end{align}
 This boils down to a counting problem to do with disjoint collections of Schröder paths with exactly $k$ flat steps for $k = 0,1,2$.
 
@@ -593,23 +593,23 @@ D = \prod\limits_{\tau\in\sigma_{roof}^{m-1}}\omega_0(\tau) = \prod\limits_{k=0}
 \end{equation*}
 and
 \begin{equation*}
-D' = t^{-1}\sum\limits_{\sigma\in X_{m-1}^1}\prod\limits_{\tau\in\sigma}\omega_0(\tau)
+D' = t^{-1}\sum\limits_{\sigma\in X_{m-1}^1}\prod\limits_{\tau\in\sigma}\omega_0(\tau),
 \end{equation*}
 so we want to count how many disjoint $(m-1)$-collections $\sigma$ have exactly one flat step in them.
 
 Suppose we have a disjoint $k$-collection containing exactly one flat step. Let $\sigma$ be the path in this collection containing the single flat step at height, say, $p$. By the same reasoning as when discussing $X_k^0$ earlier, the paths at height less than $p$ must be V-paths. But then the disjointness condition ensures that $\sigma$ at height $p$ must have the flat step be centered, so $\sigma$ is a path consisting of $p-1$ ascents, one flat step and then $p-1$ descents. We will call such a path a \textbf{flat step path at height $p$}. Note that the weightings for this kind of path are given by
 \begin{align*}
-&\omega_0(\sigma) = \frac{(2p)!}{(p+1)!} \\
-&\omega_2(\sigma) = \frac{(2p-1)!}{(p-1)!}
+&\omega_0(\sigma) = \frac{(2p)!}{(p+1)!}, \\
+&\omega_2(\sigma) = \frac{(2p-1)!}{(p-1)!}.
 \end{align*}
 For the path directly above $\sigma$, we can either have a V-path as before or, because of the extra space provided by the flat step just below we can have a path consisting of $p$ ascents, one descent, one ascent and then $p$ descents. Then for the next path above, the disjointness condition ensures that this path can only be either a path of a similar form or a V-path. We will call the path at height $k$ consisting of $k-1$ ascents, one descent, one ascent and then $k$ descents a \textbf{M-path at height $k$}. So in $\sigma$, after the flat step path at height $p$ we will have some number of M-paths followed by some number of V-paths. Note that after we have switched to V-paths we cannot have any other paths above because of the disjointness condition. This allows us to characterize all the disjoint $(m-1)$-collections in $X_{m-1}^1$: fix $1\leq p\leq m-1$ and $0\leq q \leq m-1-p$, then the disjoint $(m-1)$-collection $\sigma_{p,q}^{m-1}$ from the bottom up, is composed of $p-1$ V-paths, followed by a flat step path at height $p$, followed by $q$ M-paths, followed by V-paths up to height $m-1$. Then Meckes in \cite{meckes_magnitude_2019} observed that
 \begin{equation*}
-X_{m-1}^1 = \bigcup\limits_{\substack{1\leq p \leq m-1 \\ 0\leq q \leq m-1-p}} \sigma_{p,q}^{m-1}
+X_{m-1}^1 = \bigcup\limits_{\substack{1\leq p \leq m-1 \\ 0\leq q \leq m-1-p}} \sigma_{p,q}^{m-1}.
 \end{equation*}
 
 Let $\sigma$ be a M-path at height $k$, then we have
 \begin{align*}
-&\omega_0(\sigma) = \frac{(2k)!(2k)}{(k+1)!} \\
+&\omega_0(\sigma) = \frac{(2k)!(2k)}{(k+1)!}, \\
 &\omega_2(\sigma) = \frac{(2k-1)!(2k-1)}{(k-1)!}
 \end{align*}
 where the extra factor on the numerator comes from the additional descent we have in $\sigma$. The $\omega_2$ weighting will become relevant later on when we evaluate $N$.
@@ -661,25 +661,25 @@ where the extra factor on the numerator comes from the additional descent we hav
 
 Since we can recognize $X_{m-1}^1$ as a union of disjoint $(m-1)$-collections with this specific form, we can write down an explicit expression for $D'$:
 \begin{equation*}
-D' = \sum\limits_{\substack{1\leq p\leq m-1\\0\leq q\leq m-1-p}}\left(\prod\limits_{k=0}^{p-1}\frac{(2k+1)!}{(k+1)!}\right)\left(\frac{(2p)!}{(p+1)!}\right)\left(\prod\limits_{k=p+1}^{p+q}\frac{(2k)!(2k)}{(k+1)!}\right)\left(\prod\limits_{k=p+q+1}^{m-1}\frac{(2k+1)!}{(k+1)!}\right)
+D' = \sum\limits_{\substack{1\leq p\leq m-1\\0\leq q\leq m-1-p}}\left(\prod\limits_{k=0}^{p-1}\frac{(2k+1)!}{(k+1)!}\right)\left(\frac{(2p)!}{(p+1)!}\right)\left(\prod\limits_{k=p+1}^{p+q}\frac{(2k)!(2k)}{(k+1)!}\right)\left(\prod\limits_{k=p+q+1}^{m-1}\frac{(2k+1)!}{(k+1)!}\right).
 \end{equation*}
 
 We can simplify the quotient $D'/D$: For each summand depending on $p,q$ in the quotient $D'/D$, we have
 \begin{equation*}
-\frac{\prod\limits_{k=0}^{p-1}\frac{1}{(k+1)!}\frac{1}{p!}\prod\limits_{k=p+1}^{p+q}\frac{1}{(k+1)!}\prod\limits_{k=p+q+1}^{m-1}\frac{1}{(k+1)!}\prod\limits_{k=0}^{p-1}(2k+1)!(2p)!\prod\limits_{k=p+1}^{p+q}(2k)!(2k)\prod\limits_{k=p+q+1}^{m-1}(2k+1)!}{\prod\limits_{k=0}^{m-1}\frac{1}{(k+1)!}\prod\limits_{k=0}^{m-1}(2k+1)!}
+\frac{\prod\limits_{k=0}^{p-1}\frac{1}{(k+1)!}\frac{1}{p!}\prod\limits_{k=p+1}^{p+q}\frac{1}{(k+1)!}\prod\limits_{k=p+q+1}^{m-1}\frac{1}{(k+1)!}\prod\limits_{k=0}^{p-1}(2k+1)!(2p)!\prod\limits_{k=p+1}^{p+q}(2k)!(2k)\prod\limits_{k=p+q+1}^{m-1}(2k+1)!}{\prod\limits_{k=0}^{m-1}\frac{1}{(k+1)!}\prod\limits_{k=0}^{m-1}(2k+1)!}.
 \end{equation*}
 We can cancel the product of all the $\frac{1}{(k+1)!}$'s since on the top we also have a product of $\frac{1}{(k+1)!}$'s from 0 up to $m-1$. This gives us
 \begin{equation*}
-\frac{\prod\limits_{k=0}^{p-1}(2k+1)!(2p)!\prod\limits_{k=p+1}^{p+q}(2k)!(2k)\prod\limits_{k=p+q+1}^{m-1}(2k+1)!}{\prod\limits_{k=0}^{m-1}(2k+1)!}
+\frac{\prod\limits_{k=0}^{p-1}(2k+1)!(2p)!\prod\limits_{k=p+1}^{p+q}(2k)!(2k)\prod\limits_{k=p+q+1}^{m-1}(2k+1)!}{\prod\limits_{k=0}^{m-1}(2k+1)!}.
 \end{equation*}
 We can further cancel all the $(2k+1)!$'s from $k = 0$ to $p-1$ and from $p+q+1$ to $m-1$:
 \begin{align*}
 \frac{(2p)!\prod\limits_{k=p+1}^{p+q}(2k)!(2k)}{\prod\limits_{k=p}^{p+q}(2k+1)!} &= \frac{(2p)!\prod\limits_{k=p+1}^{p+q}(2k)!(2k)}{(2p+1)!\prod\limits_{k=p+1}^{p+q}(2k+1)! }\\
-&=\frac{1}{2p+1}\left(\prod\limits_{k=p+1}^{p+q}\frac{2k}{2k+1}\right) \\
+&=\frac{1}{2p+1}\left(\prod\limits_{k=p+1}^{p+q}\frac{2k}{2k+1}\right). \\
 \end{align*}
 So summing over all such $p$ and $q$ we have
 \begin{equation}\label{eqn:D'/D}
-\frac{D'}{D} = \sum\limits_{\substack{1\leq p \leq m-1 \\ 0 \leq q \leq m - 1 - p}}\frac{1}{2p+1}\prod\limits_{k=p+1}^{p+q}\left(\frac{2k}{2k+1}\right)
+\frac{D'}{D} = \sum\limits_{\substack{1\leq p \leq m-1 \\ 0 \leq q \leq m - 1 - p}}\frac{1}{2p+1}\prod\limits_{k=p+1}^{p+q}\left(\frac{2k}{2k+1}\right).
 \end{equation}
 
 \section{Disjoint $k$-collections with two flat steps}
@@ -690,7 +690,7 @@ As before, after the first flat step we can have some number of M-paths followed
 
 Suppose we have an left asymmetric M-path $\sigma$ at height $k$, then the product of the weights on this path is given by
 \begin{equation*}
-\omega_2(\sigma) = \frac{(2k-2)!}{(k-1)!}(2k-3)
+\omega_2(\sigma) = \frac{(2k-2)!}{(k-1)!}(2k-3).
 \end{equation*}
 Notice that by symmetry, a right asymmetric M-path (corresponding to the case where the second flat step is off-set to the right) will have the same product of weights. This means that a disjoint $k$-collection of where the second flat step is offset to the left followed by left asymmetric M-paths will have the same total weighting as the disjoint $k$-collection yielded by reflecting across the $y$-axis. For this reason, we will only need to consider the left offset case.
 
@@ -702,7 +702,7 @@ To summarize, we have two cases of disjoint $k$-collections containing exactly t
 
 So we have that
 \begin{equation*}
-X_{k}^2 = \bigcup\limits_{p_1,p_2,q_1,q_2}\sigma_{p_1,p_2,q_1,q_2}^k \cup \bigcup\limits_{p_1,p_2,q_1,q_2}L_{p_1,p_2,q_1,q_2}^k \cup \bigcup\limits_{p_1,p_2,q_1,q_2}R_{p_1,p_2,q_1,q_2}^k
+X_{k}^2 = \bigcup\limits_{p_1,p_2,q_1,q_2}\sigma_{p_1,p_2,q_1,q_2}^k \cup \bigcup\limits_{p_1,p_2,q_1,q_2}L_{p_1,p_2,q_1,q_2}^k \cup \bigcup\limits_{p_1,p_2,q_1,q_2}R_{p_1,p_2,q_1,q_2}^k.
 \end{equation*}
 
 \begin{figure}
@@ -754,16 +754,16 @@ X_{k}^2 = \bigcup\limits_{p_1,p_2,q_1,q_2}\sigma_{p_1,p_2,q_1,q_2}^k \cup \bigcu
 
 Recall that for $N''$ and $D''$ we have:
 \begin{equation*}
-N'' = t^{-2}\sum\limits_{\sigma\in X_{m+1}^2}\prod\limits_{\tau\in\sigma}\omega_2(\tau),\quad D'' = t^{-2}\sum\limits_{\sigma\in X_{m-1}^2}\prod\limits_{\tau\in\sigma}\omega_0(\tau)
+N'' = t^{-2}\sum\limits_{\sigma\in X_{m+1}^2}\prod\limits_{\tau\in\sigma}\omega_2(\tau),\quad D'' = t^{-2}\sum\limits_{\sigma\in X_{m-1}^2}\prod\limits_{\tau\in\sigma}\omega_0(\tau),
 \end{equation*}
 so in $N''$ we are considering disjoint $(m+1)$-collections with exactly two flat steps while in $D''$ we are considering disjoint $(m-1)$-collections. In order to not have to consider both, we employ the same trick originally used in \cite{willerton_magnitude_2017} to show $N = d!D$ (which we will call $\mu$ simplification). The idea is to view disjoint $(m-1)$-collections in $X_{m-1}$ as being embedded in $X_{m+1}$ and so we only need to work in $X_{m+1}^2$. Let $\sigma \in X_{m-1}$, then we get a corresponding $\mu(\sigma)\in X_{m+1}$ by shifting all paths up two units, adding ascents from $(-i,i)$ to $(-i+1,i+1)$ and descents from $(i-1,i+1)$ to $(i,i)$ for $1\leq i \leq m$, and finally adding a V-path at height $m+1$. Then $\mu(\sigma)$ has the same number of flat steps as $\sigma$ and
 \begin{equation}\label{eqn:mu}
-\prod\limits_{\tau\in\mu(\sigma)}\omega_2(\tau) = d!\prod\limits_{\tau\in\sigma}\omega_0(\tau)
+\prod\limits_{\tau\in\mu(\sigma)}\omega_2(\tau) = d!\prod\limits_{\tau\in\sigma}\omega_0(\tau).
 \end{equation}
 Let $\mu(X_{m-1}^2)\subseteq X_{m+1}^2$ denote the disjoint $(m+1)$-collections that are these embeddings of all the disjoint $(m-1)$-collections in $X_{m-1}^2$, then by (\ref{eqn:mu}), we have
 \begin{align*}
 N''-d!D'' &= t^{-2}\sum\limits_{\sigma\in X_{m+1}^2}\prod\limits_{\tau\in\sigma}\omega_2(\tau) - d!t^{-2}\sum\limits_{\sigma\in X_{m-1}^2}\prod\limits_{\tau\in\sigma}\omega_0(\tau) \\
-&= t^{-2}\sum\limits_{\sigma\in X_{m+1}^2\setminus\mu(X_{m-1}^2)}\prod\limits_{\tau\in\sigma}\omega_2(\tau)
+&= t^{-2}\sum\limits_{\sigma\in X_{m+1}^2\setminus\mu(X_{m-1}^2)}\prod\limits_{\tau\in\sigma}\omega_2(\tau).
 \end{align*}
 So our next step is to describe all disjoint $(m+1)$-collections with two flat steps that are not embeddings of disjoint $(m-1)$-collections with two flat steps. We have four disjoint cases:
 \begin{enumerate}
@@ -787,7 +787,7 @@ and
 \begin{equation}\label{eqn:L}
 \begin{aligned}
 L = &\sum\limits_{\substack{2\leq p_2\leq m+1 \\ 0\leq q_1 \leq p_2-2 \\ 0 \leq q_2 \leq m+1-p_2}}\omega_2(L_{1,p_2,q_1,q_2}^{m+1}) + \sum\limits_{\substack{2 \leq p_1 \leq m-1 \\ 0 \leq q_1 \leq m-p_1-1}}\omega_2(L_{p_1,m,q_1,m+1-p_2}^{m+1}) \\
- &\quad+ \sum\limits_{\substack{2 \leq p_1 \leq m \\ 0 \leq q_1 \leq m-p_1}}\omega_2(L_{p_1,m+1,q_1,0}^{m+1}) + \sum\limits_{\substack{2 \leq p_1 \leq m \\ p_1+1 \leq p_2 \leq m-1 \\ 0 \leq q_1 \leq p_2-p_1-1}} \omega_2(L_{p_1,p_2,q_1,m+1-p_2}^{m+1})
+ &\quad+ \sum\limits_{\substack{2 \leq p_1 \leq m \\ 0 \leq q_1 \leq m-p_1}}\omega_2(L_{p_1,m+1,q_1,0}^{m+1}) + \sum\limits_{\substack{2 \leq p_1 \leq m \\ p_1+1 \leq p_2 \leq m-1 \\ 0 \leq q_1 \leq p_2-p_1-1}} \omega_2(L_{p_1,p_2,q_1,m+1-p_2}^{m+1}).
 \end{aligned}
 \end{equation}
 
@@ -926,24 +926,24 @@ Now we define a function $g:L\to\sigma$. Let $\delta$ instead be a disjoint $(m+
 
 Since we understand V-paths, we can immediately write down an explicit expression for $N$:
 \begin{equation*}
-N = \prod\limits_{\tau\in\sigma_{\text{roof}}^{m+1}}\omega_2(\tau) = \prod\limits_{k=1}^{m+1}\frac{(2k-1)!}{(k-1)!}
+N = \prod\limits_{\tau\in\sigma_{\text{roof}}^{m+1}}\omega_2(\tau) = \prod\limits_{k=1}^{m+1}\frac{(2k-1)!}{(k-1)!}.
 \end{equation*}
 
 So by the equality of $\sigma$ and $L$ and (\ref{eqn:L=R}), we have
 \begin{equation*}
-\frac{N''-d!D''}{N} = \frac{\sigma + 2L}{N} = \frac{3\sigma}{N}
+\frac{N''-d!D''}{N} = \frac{\sigma + 2L}{N} = \frac{3\sigma}{N}.
 \end{equation*}
 
 Earlier we had split $\sigma$ into four smaller sums based on which case they fell into (equation (\ref{eqn:sigma})). Consider a disjoint $(m+1)$-collection in the first case, that is, we fix $p_1 = 1$, $2\leq p_2\leq m+1$, $0\leq q_1\leq p_2 - 2$, $0\leq q_2 \leq m+1-p_2$. Then each summand in this first sum is given by
 \begin{align*}
 \frac{\sigma'}{N} &= \frac{\left(\prod\limits_{k=2}^{q_1+2}(2k-2)!(2k-2)\right)\left(\prod\limits_{k=q_1+2}^{p_2-1}(2k-1)!\right)(2p_2-2)!\left(\prod\limits_{k=p_2+1}^{p_2+q_2}(2k-2)!(2k-2)\right)\left(\prod\limits_{k=p_2+q_2+1}^{m+1}(2k-1)!\right)}{\left(\prod\limits_{k=0}^{m+1}(2k-1)!\right)} \\
 &= \frac{\left(\prod\limits_{k=2}^{q_1+2}(2k-2)!(2k-2)\right)(2p_2-2)!\left(\prod\limits_{k=p_2+1}^{p_2+q_2}(2k-2)!(2k-2)\right)}{\left(\prod\limits_{k=2}^{q_1+2}(2k-1)!\right)\left(\prod\limits_{k=p_2}^{p_2+q_2}(2k-1)!\right)} \\
-&= \frac{1}{2p_2-1}\left(\prod\limits_{k=2}^{q_1+2}\frac{(2k-2)}{(2k-1)}\right)\left(\prod\limits_{k=p_2+1}^{p_2+q_2}\frac{(2k-2)}{(2k-1)}\right)
+&= \frac{1}{2p_2-1}\left(\prod\limits_{k=2}^{q_1+2}\frac{(2k-2)}{(2k-1)}\right)\left(\prod\limits_{k=p_2+1}^{p_2+q_2}\frac{(2k-2)}{(2k-1)}\right).
 \end{align*}
 
 So for the first case, we have
 \begin{equation}\label{eqn:sigma1}
-\frac{\sigma_1}{N} = \sum\limits_{\substack{2\leq p_2\leq m+1 \\ 0\leq q_1 \leq p_2-2 \\ 0\leq q_2 \leq m+1-p_2}}\frac{1}{2p_2-1}\left(\prod\limits_{k=2}^{q_1+2}\frac{(2k-2)}{(2k-1)}\right)\left(\prod\limits_{k=p_2+1}^{p_2+q_2}\frac{(2k-2)}{(2k-1)}\right)
+\frac{\sigma_1}{N} = \sum\limits_{\substack{2\leq p_2\leq m+1 \\ 0\leq q_1 \leq p_2-2 \\ 0\leq q_2 \leq m+1-p_2}}\frac{1}{2p_2-1}\left(\prod\limits_{k=2}^{q_1+2}\frac{(2k-2)}{(2k-1)}\right)\left(\prod\limits_{k=p_2+1}^{p_2+q_2}\frac{(2k-2)}{(2k-1)}\right).
 \end{equation}
 
 We similarly find expressions for the other three smaller sums.
@@ -954,7 +954,7 @@ Consider a disjoint $(m+1)$-collection in the second case, that is, we fix $2\le
 \end{equation*}
 and for the second case, we have
 \begin{equation}\label{eqn:sigma2}
-\frac{\sigma_2}{N} = \sum\limits_{\substack{2\leq p_1\leq m-1 \\ 0\leq q_1\leq m-p_1-1}}\frac{1}{2p_1-1}\left(\prod\limits_{k=p_1+1}^{p_1+q_1}\frac{(2k-2)}{(2k-1)}\right)\left(\frac{2m}{(2m-1)(2m+1)}\right)
+\frac{\sigma_2}{N} = \sum\limits_{\substack{2\leq p_1\leq m-1 \\ 0\leq q_1\leq m-p_1-1}}\frac{1}{2p_1-1}\left(\prod\limits_{k=p_1+1}^{p_1+q_1}\frac{(2k-2)}{(2k-1)}\right)\left(\frac{2m}{(2m-1)(2m+1)}\right).
 \end{equation}
 
 Consider a disjoint $(m+1)$-collection in the third case. Then each summand is given by
@@ -963,7 +963,7 @@ Consider a disjoint $(m+1)$-collection in the third case. Then each summand is g
 \end{equation*}
 and for the third case, we have
 \begin{equation}\label{eqn:sigma3}
-\frac{\sigma_3}{N} = \sum\limits_{\substack{2\leq p_1\leq m \\ 0\leq q_1\leq m-p_1}}\frac{1}{2p_1-1}\left(\prod\limits_{k=p_1+1}^{p_1+q_1}\frac{(2k-2)}{(2k-1)}\right)\left(\frac{1}{2m+1}\right)
+\frac{\sigma_3}{N} = \sum\limits_{\substack{2\leq p_1\leq m \\ 0\leq q_1\leq m-p_1}}\frac{1}{2p_1-1}\left(\prod\limits_{k=p_1+1}^{p_1+q_1}\frac{(2k-2)}{(2k-1)}\right)\left(\frac{1}{2m+1}\right).
 \end{equation}
 
 Consider a disjoint $(m+1)$-collection in the fourth case. Then each summand is given by
@@ -972,7 +972,7 @@ Consider a disjoint $(m+1)$-collection in the fourth case. Then each summand is 
 \end{equation*}
 and for the fourth case, we have
 \begin{equation}\label{eqn:sigma4}
-\frac{\sigma_4}{N} = \sum\limits_{\substack{2\leq p_1\leq m \\ p_1+1\leq p_2 \leq m-1 \\ 0\leq q_1\leq p_2-p_1-1 }}\frac{1}{2p_1-1}\left(\prod\limits_{k=p_1+1}^{p_1+q_1}\frac{(2k-2)}{(2k-1)}\right)\frac{1}{2p_2-1}\left(\prod\limits_{k=p_2+1}^{m+1}\frac{(2k-2)}{(2k-1)}\right)
+\frac{\sigma_4}{N} = \sum\limits_{\substack{2\leq p_1\leq m \\ p_1+1\leq p_2 \leq m-1 \\ 0\leq q_1\leq p_2-p_1-1 }}\frac{1}{2p_1-1}\left(\prod\limits_{k=p_1+1}^{p_1+q_1}\frac{(2k-2)}{(2k-1)}\right)\frac{1}{2p_2-1}\left(\prod\limits_{k=p_2+1}^{m+1}\frac{(2k-2)}{(2k-1)}\right).
 \end{equation}
 
 \subsection{Putting It All Together}
