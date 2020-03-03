@@ -6,5 +6,5 @@
 *.synctex.gz
 *.zip
 *.blg
-MATH651/writing/*.pdf
-MATH651/writing/*.toc
+writing/*.toc
+writing/*.pdf
