@@ -192,15 +192,16 @@ Finally for $\emph{(v)}$, by everything above, we have that $\lim\limits_{t\to\i
 So for any finite metric space $A$, the value of the magnitude function approaches the cardinality of $A$ as we blow up distances between points. However, along with the fact that the magnitude may not be defined everywhere, other ``nice'' properties that we might expect, such as monotonicity or non-negativitiy, are not guaranteed for the magnitude function, as the following example shows:
 
 \begin{ex}
-Let $K_{3,2}$ be the graph with vertices $a_1,a_2,a_3$ and $b_1,b_2$ and one edge between $a_i$ and $b_j$ for each $i$ and $j$. Let each edge have length $t$. The distance function on $K_{3,2}$ is the shortest path distance in the graph. This is what $K_{3,2}$ looks like:
+Let $K_{3,2}$ be the graph with vertices $a_1,a_2,a_3$ and $b_1,b_2$ and one edge between $a_i$ and $b_j$ for each $i$ and $j$. Let each edge have length $t$. The distance function on $K_{3,2}$ is the shortest path distance in the graph (see Figure \ref{fig:K32}).
 
+\begin{figure}[h!]
 \begin{equation*}
 \begin{xy}
 (0,0)*+{\bullet_{a_1}}="a1";
-(0,-10)*+{\bullet_{a_2}}="a2";
-(0,-20)*+{\bullet_{a_3}}="a3";
-(30,-5)*+{\bullet_{b_1}}="b1";
-(30,-15)*+{\bullet_{b_2}}="b2";
+(0,-20)*+{\bullet_{a_2}}="a2";
+(0,-40)*+{\bullet_{a_3}}="a3";
+(60,-10)*+{\bullet_{b_1}}="b1";
+(60,-30)*+{\bullet_{b_2}}="b2";
 {\ar@{-} "a1";"b1"}?*!/_3mm/{t};
 {\ar@{-} "a2";"b1"};
 {\ar@{-} "a3";"b1"};
@@ -209,6 +210,8 @@ Let $K_{3,2}$ be the graph with vertices $a_1,a_2,a_3$ and $b_1,b_2$ and one edg
 {\ar@{-} "a3";"b2"};
 \end{xy}
 \end{equation*}
+\caption{\label{fig:K32}The graph $K_{3,2}$.}
+\end{figure}
 
 Then for each $t$, we can compute the similarity matrix and the magnitude:
 
@@ -224,10 +227,10 @@ e^{-t} & e^{-t} & e^{-t} & e^{-2t} & 1
 
 \begin{figure}[h!]
 \centerline{
-\includegraphics[width=8cm]{K32.eps}}\caption{\label{fig:K32}The magnitude function of $K_{3,2}$.}
+\includegraphics[width=10cm]{K32.eps}}\caption{\label{fig:K32magfun}The magnitude function of $K_{3,2}$.}
 \end{figure}
 
-The graph of the magnitude function for $K_{3,2}$ shows how pathological the magnitude function of a metric space can be (see Figure \ref{fig:K32}). In particular,
+The graph of the magnitude function for $K_{3,2}$ shows how pathological the magnitude function of a metric space can be (see Figure \ref{fig:K32magfun}). In particular,
 \begin{enumerate}[label=\arabic*.]
 \item it is undefined for $t = \log{\sqrt{2}}$,
 \item there are values for which it is negative,
@@ -438,6 +441,14 @@ and since $\sigma_{\text{roof}}^k$ consists only of V-paths, we have
 &\omega_0\left(\sigma_{\text{roof}}^k\right) = \prod\limits_{i=0}^k\frac{(2i+1)!}{(i+1)!} \\
 &\omega_2\left(\sigma_{\text{roof}}^k\right) = \prod\limits_{i=1}^k\frac{(2i-1)!}{(i-1)!} \\
 \end{align*}
+
+\begin{figure}\label{fig:Vpath}
+\begin{equation*}
+\begin{xy}
+\end{xy}
+\end{equation*}
+\caption{}
+\end{figure}
 
 We are interested in these weightings on collections of Schröder paths because Willerton in \cite{willerton_magnitude_2017} showed the following:
 
