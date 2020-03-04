@@ -349,7 +349,7 @@ Willerton in \cite{willerton_magnitude_2014} gives an explicit formula for the m
 
 \section{Odd-dimensional Euclidean balls}
 
-We now briefly survey, without proofs, results regarding the magnitude and magnitude function of odd-dimensional Euclidean balls. These results hinge on the formulation of magnitude in terms of potential theory and capacities of sets Meckes introduced in \cite{meckes_magnitude_2015} in defining magnitude for general compact metric spaces. We begin with a statement of the erstwhile convex magnitude conjecture, as it motivates many of the results in this section.
+We now briefly survey, without proofs, results regarding the magnitude and magnitude function of sets in Euclidean space, ultimately specializing to odd-dimensional Euclidean balls. These results hinge on the formulation of magnitude in terms of potential theory and capacities of sets Meckes introduced in \cite{meckes_magnitude_2015} in defining magnitude for general compact metric spaces. We begin with a statement of the erstwhile convex magnitude conjecture, as it motivates many of the results in this section.
 
 Let $d = 2m+1$ where $m$ is a natural number. Denote by $B_2^d$ the $d$-dimensional closed Euclidean ball and $tB_2^d$ the $d$-dimensional ball with radius $t$ for $t > 0$.
 
@@ -360,7 +360,7 @@ Let $\mathcal{K}^n$ be the space of compact convex sets in $\mathbb{R}^n$. We ca
 \item $P(\emptyset) = 0$,
 \item $P(A\cup B) = P(A) + P(B) - P(A\cap B)$
 \end{enumerate}
-whenever $A,B,A\cup B \in \mathcal{K}^n$ ($A\cap B$ is automatically in $\mathcal{K}^n$ whenever $A$ and $B$ are). Hadwiger's Theorem states that if a valuation $P$ is invariant under rigid motions and is continuous with respect to the Hausdorff metric, then there are canonical homogenous valuations $V_0,V_1,\dots,V_n$ such that $P$ can be written as a linear combination of these valuations. The valuations $V_i$ are called the $i$-th intrinsic volumes with $V_n$ being the usual $n$-dimensional volume, $V_{n-1}$ being half the surface area and $V_0$ is the Euler characteristic. See \cite{schneider_convex_2014} for more on Hadwiger's Theorem and convex bodies in general.
+whenever $A,B,A\cup B \in \mathcal{K}^n$ ($A\cap B$ is automatically in $\mathcal{K}^n$ whenever $A$ and $B$ are). Hadwiger's Theorem states that if a valuation $P$ is invariant under rigid motions and is continuous with respect to the Hausdorff metric, then there are canonical valuations $V_0,V_1,\dots,V_n$ that are homogenous of degree $i$ such that $P$ can be written as a linear combination of these valuations. The valuations $V_i$ are called the $i$-th intrinsic volumes with $V_n$ being the usual $n$-dimensional volume, $V_{n-1}$ being half the surface area and $V_0$ being the Euler characteristic. See \cite{schneider_convex_2014} for more on Hadwiger's Theorem and convex bodies in general.
 
 Computer calculations of the magnitudes of various sets in Euclidean space found in \cite{willerton_heuristic_2009} led to the following conjecture stated in \cite{leinster_asymptotic_2013}:
 
@@ -374,31 +374,68 @@ where $V_i$ is the $i$-th intrinsic volume and $\omega_i$ is the volume of the u
 
 By homogeneity of the intrinsic volumes, the conjecture is equivalent to
 \begin{equation*}
-\vert tK \vert = \sum\limits_{i\geq0}\frac{V_i(K)}{i!\omega_i}t^i.
+\text{Mag}(tK) = \sum\limits_{i\geq0}\frac{V_i(K)}{i!\omega_i}t^i.
 \end{equation*}
 That is, the magnitude function of a convex body is a polynomial in $t$ with coefficients proportional to the intrinsic volumes of $K$.
 
-\subsection{Explicit magnitude functions for balls in low dimension}
+\subsection{Asymptotic results}
 
 Barcelo and Carbery in \cite{barcelo_magnitudes_2016} explicitly calculated the magnitude functions of Euclidean balls in dimensions 3,5,7:
-\begin{align*}
+\begin{equation}\label{eqn:explicitmagfuns}
+\begin{aligned}
 &\text{Mag}(tB_2^3) = \frac{t^3}{3!}+t^2+2t+1 \\
 &\text{Mag}(tB_2^5) = \frac{t^6+18t^5+135t^4+525t^3+1080t^2+1080t+360}{5!(t+3)} \\
 &\text{Mag}(tB_2^7) = \frac{t^7}{7!} \\
 &+ \frac{\frac{1}{180}t^9+\frac{2}{15}t^8+\frac{3}{2}t^7+\frac{31}{3}t^6+\frac{189}{4}t^5+145t^4+\frac{1165}{4}t^3+360t^2+240t+60}{t^3+12t^2+48t+60}
-\end{align*}
-So taking second derivatives and evaluating at $t = 0$, we have
+\end{aligned}
+\end{equation}
+
+In particular, the magnitude function of $B_2^5$ provides an example of where the convex magnitude conjecture is false, since it is a rational function of $t$. However, recent results have shown that some intrinsic volumes still appear in the asymptotic expansions of the magnitude function as we take $t \to \infty$ and $t \to 0$ separately, though with not necessarily the same scalar multiples as predicted by the convex magnitude conjecture. In \cite{barcelo_magnitudes_2016}, Barcelo and Carbery established the top-order asymptotics of the magnitude function for both $t\to\infty$ and $t\to0$ in the following theorem:
+
+\begin{theo}[Theorem 1 of \cite{barcelo_magnitudes_2016}]\label{theo:bcasym}
+Let $K$ be a nonempty compact set in $\mathbb{R}^n$. Then
+\begin{equation*}
+\text{Mag}(tK) \to 1 \text{ as $t \to 0$}
+\end{equation*}
+and
+\begin{equation*}
+t^{-n}\text{Mag}(tK) \to \frac{\text{Vol}(K)}{n!\omega_n} \text{ as $t\to\infty$}
+\end{equation*}
+\end{theo}
+
+In particular, the theorem says the first and last coefficients of the magnitude function were correctly predicted by the convex magnitude conjecture as we take $t \to\infty$ and $t\to0$ respectively.
+
+However, the other terms in the asymptotic expansion of the magnitude function for $t\to\infty$ do not agree with the convex magnitude conjecture. Building on work by Willerton in \cite{willerton_magnitude_2017}, Gimperlein and Goffeng in \cite{gimperlein_magnitude_2017} showed the following theorem.
+
+\begin{theo}[Theorem 2(c)-(d) of \cite{gimperlein_magnitude_2017}]\label{theo:largeasym}
+Let $d\geq3$ be odd and let $K$ be a $d$-dimensional convex body with nonempty interior and smooth body. Then
 \begin{align*}
-&\frac{d^2}{dt^2}\text{Mag}(tB_2^3)\big\vert_{t=0} = 2 \\
-&\frac{d^2}{dt^2}\text{Mag}(tB_2^5)\big\vert_{t=0} = \frac{38}{9} = 4.222\dots \\
-&\frac{d^2}{dt^2}\text{Mag}(tB_2^7)\big\vert_{t=0} = \frac{162}{25} = 6.48 \\
+\text{Mag}(tK) &= \frac{1}{d!\omega_d}\left(V_d(K)t^d+(d+1)V_{d-1}(K)t^{d-1}+\frac{\pi}{4}(d+1)^2V_{d-2}(K)t^{d-2}\right) \\
+&\qquad+ O(t^{d-3}).
 \end{align*}
+\end{theo}
 
-In particular, the magnitude function of $B_2^5$ provides an example of where the convex magnitude conjecture is false. \emph{However, there are partial results suggesting the convex magnitude conjecture holds asymptotically for small and large $t$. - actually what happens is that the n term is the same, n = 0 term is the same, but n-1 and n-2 terms are different (GG).} 
+That is, we can recover the next two intrinsic volumes, but with corrected coefficients, from the magnitude function of convex smooth Euclidean domains in odd-dimension. It turns out, however, that the next term in the asymptotic expansion above is not a multiple of an intrinsic volume \cite{meckes_magnitude_2019}.
 
-\subsection{Schröder paths and large-$t$ asymptotics}
+As for higher order terms in the small-$t$ asymptotics, Meckes in \cite{meckes_magnitude_2019} showed the following result for odd-dimensional Euclidean balls:
 
-Willerton in \cite{willerton_magnitude_2017} gave an expression for the magnitude function of odd-dimensional balls in terms of collections of Schröder paths. We introduce them below:
+\begin{theo}[Theorem 4 of \cite{meckes_magnitude_2019}]\label{theo:firstorder}
+Let $B_2^d$ be the $d$-dimensional unit Euclidean ball where $d$ is odd and
+\begin{equation*}
+V_1\left(B_2^d\right) = \frac{(2m+1)\sqrt{\pi}\Gamma(m+1)}{\Gamma\left(m+\frac{3}{2}\right)} = 2\binom{m-\frac{1}{2}}{m}^{-1}
+\end{equation*}
+is its first intrinsic volume. Then
+\begin{equation*}
+\frac{d}{dt}\text{Mag}(tB_2^d)\big\vert_{t=0} = \frac{1}{2}V_1(B_2^d).
+\end{equation*}
+\end{theo}
+
+This coefficient does agree with the coefficient predicted by the convex magnitude conjecture. So the conjecture correctly predicts the first-order behavior of the magnitude function as $t\to0$. The question of whether the conjecture correctly predicts second-order behavior for small $t$ is the subject of this thesis.
+
+Theorems \ref{theo:largeasym} and \ref{theo:firstorder} depend on work by Willerton in \cite{willerton_magnitude_2017} to give an expression for the magnitude function of odd-dimensional Euclidean balls in terms of collections of Schröder paths. Schröder paths and the result by Willerton are introduced in the section below.
+
+\subsection{Schröder paths}
+
 \begin{defn}
 \begin{enumerate}[label=$\bullet$]
 \item A \textbf{Schröder path} is a finite directed path in the integer lattice in which each step $(x,y)\in\Z^2$ is either an \textbf{ascent} to $(x+1,y+1)$, a \textbf{descent} $(x-1,y-1)$ or a \textbf{flat step} $(x+2,y)$ (note the advance by \emph{two} spaces in the horizontal direction).
@@ -491,41 +528,24 @@ As mentioned before, $\omega_j(\sigma)$ are of the form $ct^\ell$ where $\ell$ i
 \text{Mag}\left(tB_2^d\right) = \frac{N(t)}{d!D(t)}.
 \end{equation*}
 
-Using this combinatorial formulation of the magnitude function for the Euclidean ball, Willerton was able to determine the asymptotic behavior of the magnitude function as $t\to\infty$:
-
-\begin{theo}[Corollary 30 of \cite{willerton_magnitude_2017}]\label{theo:largetasymptotics}
-Let $d$ be odd. Then asymptotically, magnitude function of the $d$-dimensional Euclidean ball is given by
-\begin{equation*}
-\text{Mag}\left(tB_2^d\right) = \frac{1}{d!}\left(t^d + \frac{d(d+1)}{2}t^{d-1} + \frac{(d-1)d(d+1)^2}{8}t^{d-2}\right) + O(t^{d-2})
-\end{equation*}
-as $t\to\infty$.
-\end{theo}
-
-\emph{Gimperlein and Goffeng in \cite{gimperlein_magnitude_2017} show that the first few coefficients in the asymptotic expansion above are proportional to the corresponding intrinsic volumes as in the convex magnitude conjecture, suggesting that the convex magnitude conjecture might hold in some asymptotic sense as $t\to\infty$. - need to correct this.}
-
-\subsection{First order small-$t$ asymptotics}
-
-Using Willerton's formulation of the magnitude function for odd-dimensional Euclidean balls in terms of Schröder paths, Meckes in \cite{meckes_magnitude_2019} investigated the first order small-$t$ asymptotics of the magnitude function. In particular, Meckes showed that
-
-\begin{theo}[Theorem 4 of \cite{meckes_magnitude_2019}]\label{theo:firstorder}
-Let $B_2^d$ be the $d$-dimensional unit Euclidean ball where $d$ is odd and
-\begin{equation*}
-V_1\left(B_2^d\right) = \frac{(2m+1)\sqrt{\pi}\Gamma(m+1)}{\Gamma\left(m+\frac{3}{2}\right)} = 2\binom{m-\frac{1}{2}}{m}^{-1}
-\end{equation*}
-is its first intrinsic volume. Then
-\begin{equation*}
-\frac{d}{dt}\text{Mag}(tB_2^d)\big\vert_{t=0} = \frac{1}{2}V_1(B_2^d).
-\end{equation*}
-\end{theo}
-
 \section{The problem}
+
+Taking second derivatives and evaluating at $t = 0$ for each magnitude function in (\ref{eqn:explicitmagfuns}), we have
+\begin{equation}\label{eqn:explicitseconds}
+\begin{aligned}
+&\frac{d^2}{dt^2}\text{Mag}(tB_2^3)\big\vert_{t=0} = 2 \\
+&\frac{d^2}{dt^2}\text{Mag}(tB_2^5)\big\vert_{t=0} = \frac{38}{9} = 4.222\dots \\
+&\frac{d^2}{dt^2}\text{Mag}(tB_2^7)\big\vert_{t=0} = \frac{162}{25} = 6.48 \\
+\end{aligned}
+\end{equation}
 
 The rest of this thesis is devoted to computing the value of
 \begin{equation*}
 \frac{d^2}{dt^2}\text{Mag}(tB_2^d)\big\vert_{t=0}.
 \end{equation*}
+for odd $d$.
 
-We will follow the same approach that Meckes used to prove Theorem \ref{theo:firstorder}. A general outline is presented below:
+We will follow the same general approach that Meckes used to prove Theorem \ref{theo:firstorder} in \cite{meckes_magnitude_2019}. An outline is presented below:
 \begin{enumerate}[label=\arabic*.]
 \item Apply the quotient rule to Theorem \ref{theo:willertonND} and the result of Theorem \ref{theo:firstorder} to express the second derivative in terms of $N(t),D(t)$.
 \item The expression will contain first and second derivatives of $N(t)$ and $D(t)$ evaluated at $t = 0$. First consider disjoint $k$-collections containing exactly one flat step to simplify terms containing first derivatives.
