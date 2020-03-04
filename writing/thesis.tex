@@ -57,11 +57,11 @@ Magnitude is a numerical invariant of metric spaces with origins in the notion o
 
 \section{Introduction}
 
-Magnitude is a numerical invariant of metric spaces. Its precursor is the Euler characteristic of a finite category, introduced by Leinster in \cite{leinster_euler_2006} as an analog to the classical notion of the Euler characteristic of a topological space. In \cite{leinster_magnitude_2011}, Leinster extended his definition of the Euler characteristic of a finite category to finite enriched categories. An enriched category $\mathscr{C}$ is one where the hom-sets of any two objects in $\mathscr{C}$ are replaced by objects of some monoidal category $\mathscr{V}$. Lawvere in \cite{lawvere_metric_1973} observed that categories enriched in $([0,\infty],0,\leq)$ can be seen as generalized metric spaces where for any two objects $a,b$, the hom-set $\text{Hom}(a,b) \in [0,\infty]$ gives the distance between $a,b$ satisfying the triangle identity. This notion of distance is more general than in a classical metric space because distances are allowed to be infinite and may no longer be symmetric. Taking the definition of the Euler characteristic of a finite category enriched in $[0,\infty]$ we arrive at the definition of magnitude for a finite metric space. \emph{say you will define everything later}.
+Magnitude is a numerical invariant of metric spaces. Its precursor is the Euler characteristic of a finite category, introduced by Leinster in \cite{leinster_euler_2006} as an analog to the classical notion of the Euler characteristic of a topological space. In \cite{leinster_magnitude_2011}, Leinster extended his definition of the Euler characteristic of a finite category to finite enriched categories. An enriched category $\mathscr{C}$ is one where the hom-sets of any two objects in $\mathscr{C}$ are replaced by objects of some monoidal category $\mathscr{V}$. Lawvere in \cite{lawvere_metric_1973} observed that categories enriched in $([0,\infty],0,\leq)$ can be seen as generalized metric spaces where for any two objects $a,b$, the hom-set $\text{Hom}(a,b) \in [0,\infty]$ gives the distance between $a,b$ satisfying the triangle identity. This notion of distance is more general than in a classical metric space because distances are allowed to be infinite and may no longer be symmetric. Taking the definition of the Euler characteristic of a finite category enriched in $[0,\infty]$ we arrive at the definition of magnitude for a finite metric space. A precise definition of magnitude for a finite metric space will be given in chapter 2.
 
-Soon after defining magnitude for finite metric spaces, Leinster and others considered the question of defining magnitude for infinite metric spaces. Willerton in \cite{willerton_heuristic_2009} computed the magnitudes of some infinite sets via approximation by finite subsets, though at this point it was not clear whether such computations were independent of the approximations chosen. Meckes in \cite{meckes_positive_2013} showed that defining magnitude for infinite metric spaces via approximations by finite subsets is indeed consistent for a special class of metric spaces: the compact positive definite metric spaces. In addition, Meckes showed that one can arrive at an equivalent definition that extends to compact metric spaces (see \cite{meckes_magnitude_2015} and \cite{leinster_magnitude_2017}).
+Soon after defining magnitude for finite metric spaces, Leinster and others considered the question of defining magnitude for infinite metric spaces (defined in chapter 3). Willerton in \cite{willerton_heuristic_2009} computed the magnitudes of some infinite sets via approximation by finite subsets, though at this point it was not clear whether such computations were independent of the approximations chosen. Meckes in \cite{meckes_positive_2013} showed that defining magnitude for infinite metric spaces via approximations by finite subsets is indeed consistent for a special class of metric spaces: the compact positive definite metric spaces. In addition, Meckes showed that one can arrive at an equivalent definition that extends to compact metric spaces (see \cite{meckes_magnitude_2015} and \cite{leinster_magnitude_2017}).
 
-However, at this point, there are only a few spaces for which magnitude is known exactly. Among them include:
+However, at the time of this writing, there are only a few spaces for which magnitude is known exactly. Among them include:
 \begin{enumerate}[label=\arabic*.]
 \item Compact intervals in $\mathbb{R}$ (\cite{leinster_magnitude_2017}),
 \item $n$-spheres with the intrinsic metric (\cite{willerton_magnitude_2014}),
@@ -286,8 +286,6 @@ for all $v$. So $\vert A \vert$ is greater than or equal to the supremum. But ta
 so we have equality.
 \end{proof}
 
-\emph{should remark that subsets of Euclidean space are positive definite.}
-
 Using this formulation of the magnitude, we can show some that magnitude is increasing with respect to inclusion for positive definite metric spaces.
 
 \begin{prop}[Lemma 2.4.10 of \cite{leinster_magnitude_2011}]\label{prop:finiteposdefincreasing}
@@ -302,15 +300,17 @@ As mentioned above, since $A$ is positive definite and $B$ is a subspace of $A$,
 since the space of vectors we are considering for $B$ is a subset of the space of vectors we consider for $A$ (after embedding $\mathbb{R}^{\#B}$ into $\mathbb{R}^{\#A}$).
 \end{proof}
 
+Finite subsets of $n$-dimensional Euclidean space are positive definite and hence have magnitude. Indeed, finite subsets of several well-known spaces are known to be positive definite and so have magnitude. A more complete list of such spaces is given in the next section below where we will be able to say that compact subspaces have magnitude.
+
 \section{Infinite metric spaces}
 
-Now we move on to the theory of magnitude for more general classes of metric spaces. Two strategies that naturally arise for generalizing magnitude for finite spaces to infinite spaces would be to either approximate infinite metric spaces by finite subspaces, or to generalize the notion of a weighting to an infinite setting. Meckes in \cite{meckes_positive_2013} defined magnitude for the class of compact positive definite metric spaces that is reminiscent of the formula given in Proposition \ref{prop:finiteposdefsup}, and showed that it agrees with the definition that arises out of approximating by finite subspaces. However, this only defined magnitude for positive definite spaces, and Meckes in \cite{meckes_magnitude_2015} gave a definition of magnitude for more general compact metric spaces. We briefly survey these results (without proofs) in the section below. A more comprehensive survey can be found in \cite{leinster_magnitude_2017}.
+Now we move on to the theory of magnitude for more general classes of metric spaces. A strategy that naturally arises for generalizing magnitude for finite spaces to infinte spaces would be to approximate infinite metric spaces by finite subspaces. However, there is a question of whether magnitude for infinite metric spaces defined in this way is independent of the approximating sequence chosen. Meckes in \cite{meckes_positive_2013} defined magnitude for the class of compact positive definite metric spaces and showed that this definition for magnitude is indeed consistent. We briefly survey these results (without proofs) in the section below. A more comprehensive survey can be found in \cite{leinster_magnitude_2017}.
 
 \subsection{Compact positive definite metric spaces}
 
 Let $A$ be a metric space. We say $A$ is a \textbf{positive definite metric space} if every finite subspace of $A$ is positive definite. The property that $tA$ is a positive definite metric space for all $t > 0$, is equivalent to the property that $A$ is of \textbf{negative type}. Several well-known metric spaces are of negative type, and we will later see that they have well-defined magnitudes.
 
-We begin with the strategy of approximating by finite subspaces. To approximate, we need to have a topology on the class of compact metric spaces. Let $X$ be a metric space. Then the \textbf{Hausdorff metric} $d_H$ on the class of compact subsets $A,B$ is given by
+We first need to have a topology on the class of compact metric spaces in order to do any kind of approximation. Let $X$ be a metric space. Then the \textbf{Hausdorff metric} $d_H$ on the class of compact subsets $A,B$ is given by
 \begin{equation*}
 d_H(A,B) = \max\{\sup\limits_{a\in A}d(a,B),\sup\limits_{b\in B}d(b,A)\}
 \end{equation*}
@@ -336,7 +336,7 @@ Let $A$ be a compact positive definite metric space. We can therefore define the
 Let $A$ be a compact positive definie metric space, and let $\{A_k\}$ be any sequence of compact subsets of $A$ such that $A_k\to A$ in the Hausdorff topology. Then $\vert A \vert = \lim\limits_{k\to\infty}\vert A_k\vert$.
 \end{prop}
 
-Recall that $A$ is of negative type if $tA$ is positive definite for all $t > 0$. Then by above all compact subsets of $A$ have a well-defined (possibly infinite) magnitude. In particular, the following spaces are known to be of negative type and hence have magnitude (Theorem 2.11 of \cite{leinster_magnitude_2017} and Theorem 3.6 of \cite{meckes_positive_2013}):
+Recall that $A$ is of negative type if $tA$ is positive definite for all $t > 0$. Then by above all compact subsets of $A$ have a well-defined (possibly infinite) magnitude. In particular, the following spaces are known to be of negative type and hence their compact, as well as finite, subsets have magnitude (Theorem 2.11 of \cite{leinster_magnitude_2017} and Theorem 3.6 of \cite{meckes_positive_2013}):
 
 \begin{enumerate}[label=\arabic*.]
 \item $\ell^n_p$ for $n\geq1$ and $1\leq p \leq 2$,
@@ -346,33 +346,6 @@ Recall that $A$ is of negative type if $tA$ is positive definite for all $t > 0$
 \end{enumerate}
 
 Willerton in \cite{willerton_magnitude_2014} gives an explicit formula for the magnitude of $n$-spheres with the intrinsic metric.
-
-\subsection{Compact metric spaces} \emph{Don't need this section}
-
-To extend the definition of magnitude to compact metric spaces, we need to generalize the notion of a weighting. Let $A$ be a compact metric space and let $\mu$ be a finite signed Borel measure on $A$. We say $\mu$ is a \textbf{weight measure} on $A$ if
-\begin{equation*}
-\int_A e^{-d(a,b)}d\mu(b) = 1
-\end{equation*}
-for all $a \in A$.
-
-Note that if $A$ is finite, then the vector $w \in \mathbb{R}^{\# A}$ given by
-\begin{equation*}
-w_a = \mu(\{a\})
-\end{equation*}
-is a weighting of $A$, and the magnitude is given by
-\begin{equation*}
-\vert A \vert = \sum\limits_{a\in A} w_a = \sum\limits_{a \in A} \mu(\{a\}) = \mu(A).
-\end{equation*}
-
-Hence we define the \textbf{magnitude of a compact metric space} $A$ to be $\vert A \vert = \mu(A)$. If $A$ is compact positive definite, then this definition agrees with the definition of magnitude given in the previous section (Proposition 3.6 of \cite{leinster_magnitude_2017}). Moreover, using this definition, we have an explicit formula for the magnitude that is reminiscent of Proposition \ref{prop:finiteposdefsup}:
-
-\begin{prop}[Theorems 2.3 and 2.4 of \cite{meckes_positive_2013}]\label{prop:variationalformula}
-Let $A$ be a compact positive definite metric space, then
-\begin{equation*}
-\vert A \vert = \sup\limits_{\mu \in FM(A)}\left\{\frac{\mu(A)^2}{\int_A \int_A e^{-d(a,b)}d\mu(a)d\mu(b)}: \int_A \int_A e^{-d(a,b)}d\mu(a)d\mu(b)\neq0\right\},
-\end{equation*}
-where $FM(A)$ denotes the space of finite signed Borel measures on $A$. The supremum is attained when we take scalar multiples of the weight measure of $A$, provided $A$ possesses one.
-\end{prop}
 
 \section{Odd-dimensional Euclidean balls}
 
@@ -387,7 +360,7 @@ Let $\mathcal{K}^n$ be the space of compact convex sets in $\mathbb{R}^n$. We ca
 \item $P(\emptyset) = 0$,
 \item $P(A\cup B) = P(A) + P(B) - P(A\cap B)$
 \end{enumerate}
-whenever $A,B,A\cup B \in \mathcal{K}^n$ ($A\cap B$ is automatically in $\mathcal{K}^n$ whenever $A$ and $B$ are). Hadwiger's Theorem states that if a valuation $P$ is invariant under rigid motions and is continuous with respect to the Hausdorff metric, then there are canonical homogenous valuations $V_0,V_1,\dots,V_n$ such that $P$ can be written as a linear combination of these valuations. The valuations $V_i$ are called the $i$-th intrinsic volumes with $V_n$ being the usual $n$-dimensional volume, $V_{n-1}$ being half the surface area and $V_0$ is the Euler characteristic.
+whenever $A,B,A\cup B \in \mathcal{K}^n$ ($A\cap B$ is automatically in $\mathcal{K}^n$ whenever $A$ and $B$ are). Hadwiger's Theorem states that if a valuation $P$ is invariant under rigid motions and is continuous with respect to the Hausdorff metric, then there are canonical homogenous valuations $V_0,V_1,\dots,V_n$ such that $P$ can be written as a linear combination of these valuations. The valuations $V_i$ are called the $i$-th intrinsic volumes with $V_n$ being the usual $n$-dimensional volume, $V_{n-1}$ being half the surface area and $V_0$ is the Euler characteristic. See \cite{schneider_convex_2014} for more on Hadwiger's Theorem and convex bodies in general.
 
 Computer calculations of the magnitudes of various sets in Euclidean space found in \cite{willerton_heuristic_2009} led to the following conjecture stated in \cite{leinster_asymptotic_2013}:
 
