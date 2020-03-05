@@ -26,10 +26,16 @@ for i = 1:length(ds)
 end
 
 figure(1);
-plot(ds, firsts, 'r--o');
-hold on;
-plot(ds, seconds, 'b--o');
-plot(ds, secondsmu, 'g--o');
-plot(ds, secondsimp, 'k--o');
-hold off;
-legend('Firsts', 'Seconds', 'Secondsmu', 'Secondsimp', 'Location', 'NorthWest');
+% plot(ds, firsts, 'r--o');
+% hold on;
+% plot(ds, seconds, 'b--o');
+% plot(ds, secondsmu, 'g--o');
+% plot(ds, secondsimp, 'k--o');
+% hold off;
+% legend('Firsts', 'Seconds', 'Secondsmu', 'Secondsimp', 'Location', 'NorthWest');
+
+plot(ds, secondsimp, 'b--o');
+xlabel('Dimension d');
+ylabel('Second order term');
+title('Second order term vs. Dimension');
+set(gca, 'FontSize', 15);
