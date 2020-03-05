@@ -34,7 +34,7 @@ figure(1);
 % hold off;
 % legend('Firsts', 'Seconds', 'Secondsmu', 'Secondsimp', 'Location', 'NorthWest');
 
-plot(ds, secondsimp, 'b--o');
+plot(ds, secondsimp, 'bo');
 xlabel('Dimension d');
 ylabel('Second order term');
 title('Second order term vs. Dimension');
