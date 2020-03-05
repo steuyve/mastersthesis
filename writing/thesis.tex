@@ -947,7 +947,8 @@ So by the equality of $\sigma$ and $L$ and (\ref{eqn:L=R}), we have
 
 Earlier we had split $\sigma$ into four smaller sums based on which case they fell into (equation (\ref{eqn:sigma})). Consider a disjoint $(m+1)$-collection in the first case, that is, we fix $p_1 = 1$, $2\leq p_2\leq m+1$, $0\leq q_1\leq p_2 - 2$, $0\leq q_2 \leq m+1-p_2$. Then each summand in this first sum is given by
 \begin{align*}
-\frac{\sigma'}{N} &= \frac{\left(\prod\limits_{k=2}^{q_1+2}(2k-2)!(2k-2)\right)\left(\prod\limits_{k=q_1+2}^{p_2-1}(2k-1)!\right)(2p_2-2)!\left(\prod\limits_{k=p_2+1}^{p_2+q_2}(2k-2)!(2k-2)\right)\left(\prod\limits_{k=p_2+q_2+1}^{m+1}(2k-1)!\right)}{\left(\prod\limits_{k=0}^{m+1}(2k-1)!\right)} \\
+\frac{\sigma'}{N} &= \frac{\left(\prod\limits_{k=2}^{q_1+2}(2k-2)!(2k-2)\right)\left(\prod\limits_{k=q_1+2}^{p_2-1}(2k-1)!\right)(2p_2-2)!}{\left(\prod\limits_{k=0}^{m+1}(2k-1)!\right)}\times \\
+&\qquad\qquad\frac{\left(\prod\limits_{k=p_2+1}^{p_2+q_2}(2k-2)!(2k-2)\right)\left(\prod\limits_{k=p_2+q_2+1}^{m+1}(2k-1)!\right)}{\left(\prod\limits_{k=0}^{m+1}(2k-1)!\right)} \\
 &= \frac{\left(\prod\limits_{k=2}^{q_1+2}(2k-2)!(2k-2)\right)(2p_2-2)!\left(\prod\limits_{k=p_2+1}^{p_2+q_2}(2k-2)!(2k-2)\right)}{\left(\prod\limits_{k=2}^{q_1+2}(2k-1)!\right)\left(\prod\limits_{k=p_2}^{p_2+q_2}(2k-1)!\right)} \\
 &= \frac{1}{2p_2-1}\left(\prod\limits_{k=2}^{q_1+2}\frac{(2k-2)}{(2k-1)}\right)\left(\prod\limits_{k=p_2+1}^{p_2+q_2}\frac{(2k-2)}{(2k-1)}\right).
 \end{align*}
@@ -993,9 +994,9 @@ So combining (\ref{eqn:D'/D}), (\ref{eqn:sigma1}), (\ref{eqn:sigma2}), (\ref{eqn
 \frac{d^2}{dt^2}\text{Mag}\left(tB_2^d\right).
 \end{equation*}
 
-\begin{theo}\label{theo:partialres}
+\begin{prop}\label{prop:partialres}
 Let $d$ be odd and $B_2^d$ be the closed $d$-dimensional Euclidean ball. Then
-\begin{equation}
+\begin{equation}\label{eqn:partialres}
 \begin{aligned}
 &\frac{d^2}{dt^2}\text{Mag}(tB_2^d)\big\vert_{t=0} = \\
 &6\sum\limits_{\substack{2\leq p_2\leq m+1 \\ 0\leq q_1 \leq p_2-2 \\ 0\leq q_2 \leq m+1-p_2}}\frac{1}{2p_2-1}\left(\prod\limits_{k=2}^{q_1+2}\frac{(2k-2)}{(2k-1)}\right)\left(\prod\limits_{k=p_2+1}^{p_2+q_2}\frac{(2k-2)}{(2k-1)}\right) + \\
@@ -1005,59 +1006,77 @@ Let $d$ be odd and $B_2^d$ be the closed $d$-dimensional Euclidean ball. Then
 &V_{1}\sum\limits_{\substack{1\leq p \leq m-1 \\ 0 \leq q \leq m - 1 - p}}\frac{1}{2p+1}\prod\limits_{k=p+1}^{p+q}\left(\frac{2k}{2k+1}\right).
 \end{aligned}
 \end{equation}
-\end{theo}
+\end{prop}
 
-\emph{Here's what the conclusion appears to be.}
+Coding these explicit expressions in Matlab, we are able to plot these second derivative terms against the dimension of the ball (see Figure \ref{fig:secondsplot}).
 
-%\subsection{Skip Factorials}
-%
-%The products
-%\begin{equation*}
-%\prod\limits_{k=a}^{b}\frac{(2k-2)}{(2k-1)},\qquad\prod\limits_{k=a}^b\frac{2k}{2k+1}
-%\end{equation*}
-%that appear in the sums above are ratios of skip or double factorials. In the following, we will refer to the identities about skip factorials given just below:
-%\begin{align*}
-%&(2n)!! = 2^nn! \\
-%&(2n-1)!! = \frac{(2n)!}{2^nn!} \\
-%&(2n+1)!! = \frac{(2n+1)!}{2^nn!}
-%\end{align*}
-%We will also use Catalan numbers, which are defined by
-%\begin{equation*}
-%C_n = \frac{1}{n+1}\binom{(2n)}{n} = \frac{1}{2n+1}\binom{(2n+1)}{n}
-%\end{equation*}
-%Now let's write the product
-%\begin{equation*}
-%\prod\limits_{k=a}^{b}\frac{(2k-2)}{(2k-1)}
-%\end{equation*}
-%in terms of skip factorials and try to simplify from there:
-%\begin{align*}
-%\prod\limits_{k=a}^{b}\frac{(2k-2)}{(2k-1)} &= \frac{2(a-1)}{2a-1}\cdots\frac{2(b-1)}{2b-1} \\
-%&= \frac{(2(b-1))!!}{(2(a-2))!!}\left[\frac{(2b-1)!!}{(2(a-1)-1)!!}\right]^{-1} \\
-%&= \frac{2^{b-1}(b-1)!}{2^{a-2}(a-2)!}\left[\frac{(2b)!}{2^bb!}\frac{2^{a-1}(a-1)!}{(2(a-1))!}\right]^{-1} \\
-%&= \frac{2^{2b-1}}{2^{2(a-1)-1}}\frac{b!(b-1)!}{(2b)!}\frac{(2(a-1))!}{(a-1)!(a-2)!} \\
-%&= \frac{2^{2b-1}}{2^{2(a-1)-1}}\frac{(a-1)\binom{2(a-1)}{a-1}}{b\binom{2b}{b}} \\
-%&= \frac{2^{2b-1}}{2^{2(a-1)-1}}\frac{(a-1)aC_{a-1}}{b(b+1)C_b}
-%\end{align*}
-%And similarly:
-%\begin{align*}
-%\prod\limits_{k=a}^b\frac{2k}{2k+1} &= \frac{2a}{2a+1}\cdots\frac{2b}{2b+1} \\
-%&= \frac{(2b)!!}{(2(a-1))!!}\left[\frac{(2b+1)!!}{(2a-1)!!}\right]^{-1} \\
-%&= \frac{2^bb!}{2^{a-1}(a-1)!}\left[\frac{(2b+1)!}{2^bb!}\frac{2^aa!}{(2a)!}\right]^{-1} \\
-%&= \frac{2^{2b}}{2^{2a-1}}\frac{(b!)^2}{(2b+1)!}\frac{(2a)!}{a!(a-1)!} \\
-%&= \frac{2^{2b}}{2^{2a-1}}\frac{a\binom{2a}{a}}{(b+1)\binom{2b+1}{b}} \\
-%&= \frac{2^{2b}}{2^{2a-1}}\frac{a(a+1)C_a}{(2b+1)(b+1)C_b}
-%\end{align*}
-%
-%Using the above, we can rewrite the last sum in our expression for the second derivative as the following:
-%\begin{equation*}
-%V_{1}\sum\limits_{\substack{1\leq p \leq m-1 \\ 0 \leq q \leq m - 1 - p}}\frac{1}{2p+1}\prod\limits_{k=p+1}^{p+q}\left(\frac{2k}{2k+1}\right) = V_1\sum\limits_{\substack{1\leq p \leq m-1 \\ 0 \leq q \leq m-1}} \frac{1}{2p+1}\frac{2^{2(p+q)}}{2^{2(p+1)-1}}\frac{(p+1)(p+2)C_{p+1}}{(2(p+q)+1)(p+q+1)C_{p+q}}
-%\end{equation*}
-%Setting $k = p+q$, this last sum turns into
-%\begin{align*}
-%&V_1\sum\limits_{k=1}^{m-1}\sum\limits_{p=1}^k\frac{1}{2p+1}\frac{2^{2k}}{2^{2(p+1)-1}}\frac{(p+1)(p+2)C_{p+1}}{(2k+1)(k+1)C_k} = V_1\sum\limits_{k=1}^{m-1}\frac{2^{2k}}{(2k+1)(k+1)C_k}\sum\limits_{p=1}^k\frac{(p+1)(p+2)C_{p+1}}{2^{2p+1}(2p+1)}
-%\end{align*}
+\begin{figure}[h!]
+\centerline{\includegraphics[width=12cm]{secs.eps}}\caption{\label{fig:secondsplot} Second order terms computed from (\ref{eqn:partialres}) in Proposition \ref{prop:partialres} above for odd dimensions from 1 to 41.}
+\end{figure}
 
-\newpage
+The first few points do indeed align with those directly computed in (\ref{eqn:explicitseconds}) in chapter 5 above. In fact, the plot suggests the second order terms depend linearly on the dimension, though work to confirm or disprove this is still ongoing. The code used to produce Figure \ref{fig:secondsplot} can be found at the public github repository \url{https://github.com/ssyl55/mastersthesis-src}.
+
+\subsection{Skip Factorials}
+
+This section describes ongoing work to further simplify the expression arrived at in Proposition \ref{prop:partialres}. The products
+\begin{align}
+&\prod\limits_{k=a}^{b}\frac{(2k-2)}{(2k-1)}, \label{eqn:Nskipfact}\\
+&\prod\limits_{k=a}^b\frac{2k}{2k+1} \label{eqn:Dskipfact}
+\end{align}
+that appear in the sums in ({\ref{eqn:partialres}) above are ratios of skip or double factorials. In the following, we will use the identities about skip factorials given below \cite{weisstein_double_nodate}:
+\begin{align*}
+&(2n)!! = 2^nn!, \\
+&(2n-1)!! = \frac{(2n)!}{2^nn!}, \\
+&(2n+1)!! = \frac{(2n+1)!}{2^nn!}.
+\end{align*}
+We will also use Catalan numbers \cite{weisstein_catalan_nodate}, which are defined by
+\begin{equation*}
+C_n = \frac{1}{n+1}\binom{(2n)}{n} = \frac{1}{2n+1}\binom{(2n+1)}{n}.
+\end{equation*}
+Using these identities, we rewrite the product (\ref{eqn:Nskipfact}):
+\begin{equation}\label{eqn:Nskipfactsimp}
+\begin{aligned}
+\prod\limits_{k=a}^{b}\frac{(2k-2)}{(2k-1)} &= \frac{2(a-1)}{2a-1}\cdots\frac{2(b-1)}{2b-1} = \frac{(2(b-1))!!}{(2(a-2))!!}\left[\frac{(2b-1)!!}{(2(a-1)-1)!!}\right]^{-1} \\
+&= \frac{2^{b-1}(b-1)!}{2^{a-2}(a-2)!}\left[\frac{(2b)!}{2^bb!}\frac{2^{a-1}(a-1)!}{(2(a-1))!}\right]^{-1} \\
+&= \frac{2^{2b-1}}{2^{2(a-1)-1}}\frac{b!(b-1)!}{(2b)!}\frac{(2(a-1))!}{(a-1)!(a-2)!} = \frac{2^{2b-1}}{2^{2(a-1)-1}}\frac{(a-1)\binom{2(a-1)}{a-1}}{b\binom{2b}{b}} \\
+&= \frac{2^{2b-1}}{2^{2(a-1)-1}}\frac{(a-1)aC_{a-1}}{b(b+1)C_b}.
+\end{aligned}
+\end{equation}
+And similarly we rewrite (\ref{eqn:Dskipfact}):
+\begin{equation}\label{eqn:Dskipfactsimp}
+\begin{aligned}
+\prod\limits_{k=a}^b\frac{2k}{2k+1} &= \frac{2a}{2a+1}\cdots\frac{2b}{2b+1} = \frac{(2b)!!}{(2(a-1))!!}\left[\frac{(2b+1)!!}{(2a-1)!!}\right]^{-1} \\
+&= \frac{2^bb!}{2^{a-1}(a-1)!}\left[\frac{(2b+1)!}{2^bb!}\frac{2^aa!}{(2a)!}\right]^{-1} = \frac{2^{2b}}{2^{2a-1}}\frac{(b!)^2}{(2b+1)!}\frac{(2a)!}{a!(a-1)!} \\
+&= \frac{2^{2b}}{2^{2a-1}}\frac{a\binom{2a}{a}}{(b+1)\binom{2b+1}{b}} = \frac{2^{2b}}{2^{2a-1}}\frac{a(a+1)C_a}{(2b+1)(b+1)C_b}.
+\end{aligned}
+\end{equation}
+
+Using (\ref{eqn:Dskipfactsimp}), we can rewrite the last sum in (\ref{eqn:partialres}) as the following:
+\begin{align*}
+&V_{1}\sum\limits_{\substack{1\leq p \leq m-1 \\ 0 \leq q \leq m - 1 - p}}\frac{1}{2p+1}\prod\limits_{k=p+1}^{p+q}\left(\frac{2k}{2k+1}\right) \\
+&\qquad= V_1\sum\limits_{\substack{1\leq p \leq m-1 \\ 0 \leq q \leq m-1}} \frac{1}{2p+1}\frac{2^{2(p+q)}}{2^{2(p+1)-1}}\frac{(p+1)(p+2)C_{p+1}}{(2(p+q)+1)(p+q+1)C_{p+q}}.
+\end{align*}
+Setting $k = p+q$, this last sum turns into
+\begin{align*}\label{eqn:simplifiedlast}
+&V_1\sum\limits_{k=1}^{m-1}\sum\limits_{p=1}^k\frac{1}{2p+1}\frac{2^{2k}}{2^{2(p+1)-1}}\frac{(p+1)(p+2)C_{p+1}}{(2k+1)(k+1)C_k} \\
+&\qquad= V_1\sum\limits_{k=1}^{m-1}\frac{2^{2k}}{(2k+1)(k+1)C_k}\sum\limits_{p=1}^k\frac{(p+1)(p+2)C_{p+1}}{2^{2p+1}(2p+1)}.
+\end{align*}
+
+The inner sum on the right hand side of the above can be further simplified
+\begin{equation}\label{eqn:innersumsimp}
+\begin{aligned}
+\sum\limits_{p=1}^k\frac{(p+1)(p+2)C_{p+1}}{2^{2p+1}(2p+1)} &= \sum\limits_{p=1}^k\frac{(p+1)(p+2)\frac{1}{p+2}\binom{2(p+1)}{p+1}}{2^{2p+1}(2p+1)} \\
+&= \sum\limits_{p=1}^k\frac{(p+1)\frac{(2(p+1))!}{[(p+1)!]^2}}{2^{2p+1}(2p+1)} \\
+&= \sum\limits_{p=1}^k\frac{(2(p+1))!}{p!(p+1)!2^{2p+1}(2p+1)}.
+\end{aligned}
+\end{equation}
+
+Wolfram Alpha says that the last sum of (\ref{eqn:innersumsimp}) can be simplified to
+\begin{equation}\label{eqn:innersumsimp2}
+\sum\limits_{p=1}^k\frac{(2(p+1))!}{p!(p+1)!2^{2p+1}(2p+1)} = \frac{(k+1)(2(k+2))!}{2^{2(k+1)}(2k+3)(k+1)!(k+2)!}-1.
+\end{equation}
+
+\pagebreak
 
 \nocite{*}
 \bibliographystyle{alpha}
