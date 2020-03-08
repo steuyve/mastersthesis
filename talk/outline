@@ -1,0 +1,27 @@
+# Talk Outline
+
+1. Introduction (5min)
+	- Brief sentence on what magnitude is.
+	- Survey some results on the magnitude of odd-dimensional Euclidean balls.
+	- A calculation.
+2. Introduction to Magnitude (15min)
+	- Origins in category theory (Leinster)
+	- Magnitude of a matrix, weighting, invertible
+	- Magnitude of a finite metric space, an example.
+	- Magnitude function of K32.
+	- Positive Definite Metric spaces - examples (finite subsets of Euclidean space)
+	- Magnitude for infinite spaces via approximation by finite subspaces.
+3. Odd-dimensional Euclidean balls (15min)
+	- Convex magnitude conjecture.
+	- Asymptotic results.
+	- The calculation that we will do.
+4. Schröder paths (10min)
+	- Introduction to what they are, Willerton's result.
+	- Counting disjoint collections with exactly k flat steps.
+5. My calculation (10min)
+	- Taking the second derivative.
+	- Exactly one flat step.
+	- Exactly two flat steps.
+	- Mu simplification.
+	- Sigma = L.
+	- Graph and partial results.
