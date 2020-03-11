@@ -6,5 +6,11 @@
 *.synctex.gz
 *.zip
 *.blg
+
 writing/*.toc
 writing/*.pdf
+
+talk/*.pdf
+talk/*.toc
+talk/*.nav
+talk/*.snm
