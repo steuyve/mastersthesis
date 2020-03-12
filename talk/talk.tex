@@ -213,6 +213,8 @@ and by Lemma \ref{lem:invertible} above, the magnitude of $A$ is $\vert A \vert 
 
 \begin{frame}[allowframebreaks]{The magnitude function}
 
+Want to consider the magnitude of a space as we scale distances uniformly.
+
 \begin{definition}
 Let $t > 0$. Denote by $tA$ the metric space containing the same points as $A$ but all distances are scaled by $t$. Then we call the assignment $t\mapsto\vert tA\vert$ the \textbf{magnitude function} of $A$.
 \end{definition}
@@ -228,7 +230,7 @@ Z_{tA} = \begin{bmatrix} 1 & e^{-td} \\ e^{-td} & 1 \end{bmatrix}
 \end{equation*}
 and the magnitude function is
 \begin{equation*}
-\vert tA \vert = 1 + \tanh\left(\frac{td}{2}\right).
+\text{Mag}(tA) = 1 + \tanh\left(\frac{td}{2}\right).
 \end{equation*}
 \end{example}
 
@@ -252,7 +254,7 @@ As $t\to\infty$, the similarity matrix $Z_{tA} \to I_n$.
 \begin{example}
 Let $K_{3,2}$ denote the bipartite graph of 3 and 2 vertices with each edge having distance $t$ and using the shortest-path metric.
 \begin{columns}
-\begin{column}{0.47\textwidth}
+\begin{column}{0.45\textwidth}
 \begin{figure}
 \begin{equation*}
 \begin{xy}
@@ -272,10 +274,10 @@ Let $K_{3,2}$ denote the bipartite graph of 3 and 2 vertices with each edge havi
 \caption{\label{fig:K32}The graph $K_{3,2}$.}
 \end{figure}
 \end{column}
-\begin{column}{0.47\textwidth}
+\begin{column}{0.50\textwidth}
 Then the magnitude function of $K_{3,2}$ is given by:
 \begin{equation*}
-\vert tK_{3,2} \vert = \frac{5-7e^{-t}}{(1+e^{-t})(1-2e^{-2t})}.
+\text{Mag}\left(tK_{3,2}\right) = \frac{5-7e^{-t}}{(1+e^{-t})(1-2e^{-2t})}.
 \end{equation*}
 \end{column}
 \end{columns}
@@ -315,7 +317,7 @@ where $v \in \mathbb{R}^n$. The supremum is attained if and only if $v$ is a non
 Cauchy-Schwarz inequality applied to arbitrary $v$ and weighting $w$.
 \end{proof}
 
-\begin{theorem}[Lemma 2.4.10 of \cite{leinster_magnitude_2011}]
+\begin{theorem}[Lemma 2.4.10 of \cite{leinster_magnitude_2011}]\label{thm:subspace}
 If $A$ is a positive definite metric space and $B \subseteq A$, then $\vert B \vert \leq \vert A \vert$.
 \end{theorem}
 
@@ -333,15 +335,158 @@ since the space of vectors we are considering for $B$ is a subspace of the space
 \begin{itemize}
 \item Want to extend the definition of magnitude to include infinite sets.
 \item Idea: approximate by finite subsets.
-\item Question: is this way of extending consistent? Is the answer we get independent of the approximation we choose?
+\item Question: Is the answer we get via approximation by finite subspaces independent of the approximation we choose?
+\item Answer: Yes, for a specific class of metric spaces.
 \end{itemize}
+
+\framebreak
+
+\begin{definition}
+Let $A$ be a metric space. We say $A$ is a \textbf{positive definite metric space} if every finite subspace of $A$ is positive definite. If $A$ has the property that $tA$ is positive definite for all $t > 0$, then $A$ is of \textbf{negative type}.
+\end{definition}
+
+\begin{itemize}
+\item Negative type is a classical property from metric space theory.
+\item Many familiar metric spaces are of negative type and we will see later that they have magnitude.
+\end{itemize}
+
+\framebreak
+
+\begin{definition}[The Hausdorff metric]
+Let $X$ be a metric space and $A,B$ be compact subsets. Then $d_H(A,B)$, the \textbf{Hausdorff distance} between $A,B$ is defined to be
+\begin{equation*}
+d_H(A,B) = \max\left\{\sup\limits_{a \in A} d(a,B), \sup\limits_{b \in B} d(A,b)\right\}.
+\end{equation*}
+\end{definition}
+
+\framebreak
+
+\begin{definition}[Gromov-Hausdorff distance]
+Let $A,B$ be compact metric spaces. Then $d_{GH}(A,B)$ the Gromov-Hausdorff distance between $A,B$ is defined to be
+\begin{equation*}
+d_{GH}(A,B) = \inf d_H(\varphi(A),\psi(B))
+\end{equation*}
+where the infimum is over all metric spaces $X$ and isometric embeddings $\varphi: A \to X$ and $\psi: B \to X$.
+\end{definition}
+
+\framebreak
+
+\begin{theorem}[Proposition 3.1 of \cite{leinster_magnitude_2017}]
+The quantity
+\begin{equation*}
+M(A) = \sup\{\vert A'\vert : A' \subseteq A, \text{$A'$ finite}\}
+\end{equation*}
+is a lower semicontinuous function of $A$ (taking values in $[0,\infty]$) in the class of compact positive definite metric spaces equipped with the Gromov-Hausdorff topology.
+\end{theorem}
+
+\begin{itemize}
+\item Note that if $A$ is a finite positive definite metric space, then by semicontinuity and Theorem \ref{thm:subspace}, $M(A) = \vert A \vert$, so this agrees with the finite case.
+\end{itemize}
+
+\framebreak
+
+\begin{definition}
+Let $A$ be a compact positive definite metric space. Then the \textbf{magnitude} of $A$, written $\vert A \vert$, is the value of the supremum $M(A)$ above.
+\end{definition}
+
+\framebreak
+
+Here are some examples of metric spaces that are of negative type and hence their compact and finite subspaces have magnitude:
+
+\begin{example}
+\begin{itemize}
+\item $\ell_p^n$ for $n \geq 1$ and $1\leq p \leq 2$,
+\item $L_p[0,1]$ for $1 \leq p \leq 2$,
+\item $n$-spheres with the geodesic distance (\cite{willerton_magnitude_2014}).
+\item weighted trees.
+\end{itemize}
+\end{example}
+
 \end{frame}
 
 \section{Odd-dimensional Euclidean balls}
 
 \begin{frame}[allowframebreaks]{The convex magnitude conjecture}
+
+Computer calculations by Leinster and Willerton in \cite{leinster_asymptotic_2013} led to what became known as the convex magnitude conjecture. It has since been shown to be false, but it, along with various asymptotic versions of the conjecture, motivates many of the results in this section.
+
+\begin{definition}
+Let $\mathcal{K}^n$ be the space of compact convex sets in $\mathbb{R}^n$. A nonempty set in $\mathcal{K}^n$ is called a \textbf{convex body}. A function $P:\mathcal{K}^n \to \mathbb{R}$ is called a \textbf{valuation} if
+\begin{itemize}
+\item $P(\emptyset) = 0$,
+\item $P(A\cup B) = P(A) + P(B) - P(A\cap B)$, where $A,B, A\cup B \in \mathcal{K}^n$.
+\end{itemize}
+\end{definition}
+
+\framebreak
+
+\begin{theorem}[Hadwiger's Theorem (\cite{schneider_convex_2014})]
+If $P:\mathcal{K}^n \to \mathbb{R}$ is invariant under rigid motions and continuous with respect to the Hausdorff metric, then there are valuations $V_0,V_1,\dots,V_n$ where each $V_i$ is homogenous of degree $i$, and constants $c_0,c_1,\dots,c_n$ such that
+\begin{equation*}
+P = \sum\limits_{i=0}^n c_i V_i.
+\end{equation*}
+\end{theorem}
+
+\begin{itemize}
+\item Each $V_i$ is called the $i$-th intrinsic volume.
+\item $V_n$ is the usual $n$-dimensional volume, $V_{n-1}$ is half the surface area, and $V_0$ is the Euler characteristic.
+\end{itemize}
+
+\framebreak
+
+Leinster and Willerton in \cite{leinster_asymptotic_2013} stated the following conjecture.
+
+\begin{block}{Convex magnitude conjecture}
+Let $K \in \mathcal{K}^n$. Then magnitude is a valuation and moreover
+\begin{equation*}
+\text{Mag}(tK) = \sum\limits_{i\geq0}\frac{V_i(K)}{i!\omega_i}t^i
+\end{equation*}
+where $\omega_i$ is the volume of the $i$-th dimensional unit ball.
+\end{block}
+
+\framebreak
+
+Barcelo and Carbery explicitly calculated the magnitude function for odd-dimensional Euclidean balls, showing that the magnitude function is a \emph{rational} function in $t$:
+
+\begin{theorem}[\cite{barcelo_magnitudes_2016}]
+Let $d$ be odd and denote by $B_2^d$ the closed $d$-dimensional Euclidean ball. Then
+\begin{align*}\label{eqn:explicitmagfuns}
+&\text{Mag}\left(tB_2^3\right) = \frac{t^3}{3!}+t^2+2t+1, \\
+&\text{Mag}\left(tB_2^5\right) = \frac{t^6+18t^5+135t^4+525t^3+1080t^2+1080t+360}{5!(t+3)}. \\
+\end{align*}
+\end{theorem}
+
+\begin{itemize}
+\item In particular, the magnitude function for $B_2^5$ shows that the convex magnitude conjecture is in general false.
+\item However, various asymptotic versions of the convex magnitude conjecture (with somewhat different coefficients) have been shown.
+\end{itemize}
+
 \end{frame}
+
 \begin{frame}[allowframebreaks]{Asymptotic results}
+
+\begin{theorem}[Theorem 1 of \cite{barcelo_magnitudes_2016}]\label{thm:BCasymp}
+Let $K$ be a nonempty compact set in $\mathbb{R}^n$. Then
+\begin{equation*}
+\text{Mag}(tK) \to 1 \text{ as $t\to0$}
+\end{equation*}
+and
+\begin{equation*}
+t^{-n}\text{Mag}(tK) \to \frac{\text{Vol}(K)}{n!\omega_n} \text{ as $t\to\infty$.}
+\end{equation*}
+\end{theorem}
+So the first and last coefficients were correctly predicted by the conjecture as we take $t\to0$ and $t\to\infty$ respectively.
+
+\framebreak
+
+\begin{theorem}[Theorem 2(c)-(d) of \cite{gimperlein_magnitude_2017}]
+Let $d\geq3$ be odd and let $K$ be a $d$-dimensional convex body with nonempty interior and smooth boundary. Then
+\begin{align*}
+\text{Mag}(tK) &= \frac{1}{d!\omega_d}\left(V_d(K)t^d+(d+1)V_{d-1}(K)t^{d-1}\right. \\
+&\qquad \left.+\frac{\pi}{4}(d+1)^2V_{d-2}(K)t^{d-2}\right)+O\left(t^{d-3}\right)
+\end{align*}
+as $t\to\infty$.
+\end{theorem}
 \end{frame}
 
 \section{Schröder paths}
