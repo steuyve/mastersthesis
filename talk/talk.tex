@@ -96,6 +96,7 @@ Case Western Reserve University}
 }
 
 \usepackage[arrow]{xypic}
+\usepackage{tikz}
 
 \begin{document}
 
@@ -199,21 +200,22 @@ Then if $Z_A$ has magnitude, then we say $A$ has \textbf{magnitude} and we write
 \framebreak
 
 \begin{example}
-\begin{itemize}
+\setbeamertemplate{enumerate items}[square]
+\begin{enumerate}
 \item Let $A$ be the discrete space, that is, for all $a\neq b \in A$, $d(a,b) = \infty$. Let $A$ have $n$ points. Then the similarity matrix of $A$ is $I_n$, the $n\times n$ identity matrix, and the magnitude $\vert A \vert = n$.
 \item Let $A$ consist of two points of distance $d$ apart. Then
 \begin{equation*}
 Z_A = \begin{bmatrix} 1 & e^{-d} \\ e^{-d} & 1 \end{bmatrix}
 \end{equation*}
 and by Lemma \ref{lem:invertible} above, the magnitude of $A$ is $\vert A \vert = 1 + \tanh\left(\frac{d}{2}\right)$.
-\end{itemize}
+\end{enumerate}
 \end{example}
 
 \end{frame}
 
 \begin{frame}[allowframebreaks]{The magnitude function}
 
-Want to consider the magnitude of a space as we scale distances uniformly.
+Want to consider the magnitude of a space as we scale distances.
 
 \begin{definition}
 Let $t > 0$. Denote by $tA$ the metric space containing the same points as $A$ but all distances are scaled by $t$. Then we call the assignment $t\mapsto\vert tA\vert$ the \textbf{magnitude function} of $A$.
@@ -394,12 +396,13 @@ Let $A$ be a compact positive definite metric space. Then the \textbf{magnitude}
 Here are some examples of metric spaces that are of negative type and hence their compact and finite subspaces have magnitude:
 
 \begin{example}
-\begin{itemize}
+\setbeamertemplate{enumerate items}[square]
+\begin{enumerate}
 \item $\ell_p^n$ for $n \geq 1$ and $1\leq p \leq 2$,
 \item $L_p[0,1]$ for $1 \leq p \leq 2$,
 \item $n$-spheres with the geodesic distance (\cite{willerton_magnitude_2014}).
 \item weighted trees.
-\end{itemize}
+\end{enumerate}
 \end{example}
 
 \end{frame}
@@ -479,7 +482,7 @@ So the first and last coefficients were correctly predicted by the conjecture as
 
 \framebreak
 
-\begin{theorem}[Theorem 2(c)-(d) of \cite{gimperlein_magnitude_2017}]
+\begin{theorem}[Theorem 2(c)-(d) of \cite{gimperlein_magnitude_2017}]\label{thm:GGasymp}
 Let $d\geq3$ be odd and let $K$ be a $d$-dimensional convex body with nonempty interior and smooth boundary. Then
 \begin{align*}
 \text{Mag}(tK) &= \frac{1}{d!\omega_d}\left(V_d(K)t^d+(d+1)V_{d-1}(K)t^{d-1}\right. \\
@@ -487,16 +490,346 @@ Let $d\geq3$ be odd and let $K$ be a $d$-dimensional convex body with nonempty i
 \end{align*}
 as $t\to\infty$.
 \end{theorem}
+So we can recover the next two intrinsic volumes in the asymptotic expansion for large $t$, but the coefficients are not the ones predicted by the convex magnitude conjecture.
+
+\framebreak
+
+\begin{theorem}[Theorem 4 of \cite{meckes_magnitude_2019}]\label{thm:meckesasymp}
+Let $d=2m+1$ be odd and denote by $B_2^d$ the $d$-dimensional closed Euclidean ball. Then
+\begin{equation*}
+\frac{d}{dt}\text{Mag}\left(tB_2^d\right)\big\vert_{t=0} = \frac{1}{2}V_1\left(B_2^d\right)
+\end{equation*}
+where
+\begin{equation*}
+V_1\left(B_2^d\right) = \frac{(2m+1)\sqrt{\pi}\Gamma\left(m+1\right)}{\Gamma\left(m+\frac{3}{2}\right)} = 2\binom{m-\frac{1}{2}}{m}^{-1}
+\end{equation*}
+is the first intrinsic volume of the closed unit ball.
+\end{theorem}
+
+\begin{itemize}
+\item This result depends on work done by Willerton in \cite{willerton_magnitude_2017} to reformulate the magnitude function of odd-dimensional Euclidean balls in terms of collections of Schröder paths.
+\end{itemize}
+
 \end{frame}
 
 \section{Schröder paths}
 
 \begin{frame}[allowframebreaks]{Schröder paths}
+
+\begin{definition}
+\begin{itemize}
+\item A \textbf{Schröder path} is a finite directed path in the integer lattice in which each step starting at $(x,z) \in \mathbb{Z}^2$ is either an \textbf{ascent} to $(x+1,y+1)$, a \textbf{descent} to $(x+1,y-1)$ or a \textbf{flat step} to $(x+2,y)$.
+\item Fix $k\geq0$. A \textbf{disjoint $k$-collection} is a family of Shröder paths from $(-i,i)$ to $(i,i$ for each $0\leq i \leq k$ such that no node in $\mathbb{Z}^2$ is contained in more than one path.
+\item We denote by $X_k$ the set of all disjoint $k$-collections and by $X_k^j$ the sete of all disjoint $k$-collections containing exactly $j$ flat steps.
+\end{itemize}
+\end{definition}
+
+\framebreak
+
+\begin{itemize}
+\item What does $X_k^0$ look like? Starting from $i = 0$ and moving up we realize that each path at height $i$ can only consist of $i$ ascents followed by $i$ descents. We will call this kind of path a \textbf{V-path at height $i$}. 
+\item The set $X_k^0$ consists of only one collection, which we'll call $\sigma_{\text{roof}}^k$, which is entirely made up of V-paths for each $0\leq i \leq k$.
+\end{itemize}
+
+\framebreak
+
+Let $\sigma \in X_k$ be a disjoint $k$-collection. For each path in $\sigma$ we associate to each step $\tau$ a weighting by
+\begin{equation*}
+\omega_j(\tau) = \begin{cases}
+1 &\text{if $\tau$ is an ascent}, \\
+t &\text{if $\tau$ is a flat step}, \\
+y+1-j &\text{if $\tau$ is a descent from height $y$ to height $y-1$}.
+\end{cases}
+\end{equation*}
+
+For a collection $\sigma \in X_k$ the \textbf{total weight} of $\sigma$, denoted $\omega_j(\sigma)$ is the product of the weightings of all the steps on each path in $\sigma$. So $\omega_j(\sigma)$ is a polynomial in $t$ with degree the maximum number of flat steps in $\sigma$.
+
+\framebreak
+
+\begin{figure}[h!]
+\begin{equation*}
+\begin{tikzpicture}[scale=0.75]
+\foreach \i in {0,...,6}
+	\foreach \j in {0,...,6}{
+		\draw (\i,\j) circle(1pt);
+	};
+	
+	% 0 level
+	\node at (3,0) [circle, fill, inner sep=1pt]{};
+	
+	% 1 level
+	\node at (2,1) [circle, fill, inner sep=1pt]{};
+	\node at (4,1) [circle, fill, inner sep=1pt]{};
+	\node at (3,2) [circle, fill, inner sep=1pt]{};
+	\draw (2,1) -- (3,2);
+	\draw (4,1) -- node[above] {1} (3,2);
+	
+	% 2 level
+	\node at (1,2) [circle, fill, inner sep=1pt]{};
+	\node at (2,3) [circle, fill, inner sep=1pt]{};
+	\node at (3,4) [circle, fill, inner sep=1pt]{};
+	\node at (4,3) [circle, fill, inner sep=1pt]{};
+	\node at (5,2) [circle, fill, inner sep=1pt]{};
+	\draw (1,2) -- (2,3) -- (3,4);
+	\draw (3,4) -- node[above] {3} (4,3);
+	\draw (4,3) -- node[above] {2} (5,2);
+	
+	% 3 level
+	\node at (0,3) [circle, fill, inner sep=1pt]{};
+	\node at (1,4) [circle, fill, inner sep=1pt]{};
+	\node at (2,5) [circle, fill, inner sep=1pt]{};
+	\node at (3,6) [circle, fill, inner sep=1pt]{};
+	\node at (4,5) [circle, fill, inner sep=1pt]{};
+	\node at (5,4) [circle, fill, inner sep=1pt]{};
+	\node at (6,3) [circle, fill, inner sep=1pt]{};
+	\draw (0,3) -- (1,4) -- (2,5) -- (3,6);
+	\draw (3,6) -- node[above] {5} (4,5);
+	\draw (4,5) -- node[above] {4} (5,4);
+	\draw (5,4) -- node[above] {3} (6,3);
+\end{tikzpicture}
+\end{equation*}
+\caption{\label{fig:Vpath} The disjoint 3-collection $\sigma^3_\text{roof}$ with $\omega_2$ weightings.}
+\end{figure}
+
+\framebreak
+
+\begin{theorem}[Corollary 27 of \cite{willerton_magnitude_2017}]\label{thm:willerton}
+Let $d = 2m+1$ be odd. Then
+\begin{equation*}
+\text{Mag}\left(tB_2^d\right) = \frac{\sum\limits_{\sigma\in X_{m+1}}\omega_2(\sigma)}{d!\sum\limits_{\sigma \in X_{m-1}}\omega_0(\sigma)} =: \frac{N(t)}{d!D(t)}
+\end{equation*}
+for all $t>0$.
+\end{theorem}
+Meckes proved his result in Theorem \ref{thm:meckesasymp} by differentiating the expression above, evaluating at zero and simplifying.
+
 \end{frame}
 
-\section{A calculation}
+\section{The problem}
 
-\begin{frame}[allowframebreaks]{Partial results}
+\begin{frame}[allowframebreaks]{The problem}
+
+\begin{block}{Goal}
+Our goal is to calculate the value of
+\begin{equation*}
+\frac{d^2}{dt^2}\text{Mag}\left(tB_2^d\right)\big\vert_{t=0}.
+\end{equation*}
+\end{block}
+
+\framebreak
+
+\begin{block}{Outline}
+\setbeamertemplate{enumerate items}[square]
+\begin{enumerate}
+\item Apply the quotient rule to Theorem \ref{thm:willerton} and the result of Theorem \ref{thm:meckesasymp} to express the second derivative in terms of $N(t),D(t)$.
+\item The expression will contain first and second derivatives of $N(t)$ and $D(t)$ evaluated at $t = 0$. First consider disjoint $k$-collections containing exactly one flat step to simplify terms containing first derivatives.
+\item Consider disjoint $k$-collections containing exactly two flat steps to simplify terms containing second derivatives.
+\item Combine the previous two steps to arrive at an (partial) answer.
+\end{enumerate}
+\end{block}
+
+\end{frame}
+
+\begin{frame}{Second derivative}
+After applying the quotient rule, we get
+\begin{equation*}
+\frac{d^2}{dt^2}\text{Mag}\left(tB_2^d\right)\big\vert_{t=0} = 2\left[\frac{N''(0)-d!D''(0)}{N(0)}\right] - V_1\left(B_2^d\right)\left[\frac{D'(0)}{D(0)}\right].
+\end{equation*}
+
+\begin{align*}
+&D(0) = \omega_0\left(\sigma_\text{roof}^{m-1}\right) = \prod\limits_{k=0}^{m-1}\frac{(2k+1)!}{(k+1)!} \\
+&N(0) = \omega_2\left(\sigma_\text{roof}^{m+1}\right) = \prod\limits_{k=0}^{m+1}\frac{(2k-1)!}{(k-1)!}
+\end{align*}
+
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Collections with one flat step}
+
+\begin{equation*}
+D'(0) = t^{-1}\sum\limits_{\sigma\in X_{m-1}^1}\omega_0(\sigma)
+\end{equation*}
+So we need to consider disjoint $(m-1)$-collections of Schröder paths containing exactly one flat step.
+
+\framebreak
+
+\begin{figure}
+\begin{equation*}
+\begin{tikzpicture}[scale=0.75]
+\foreach \i in {0,...,6}
+	\foreach \j in {0,...,6}{
+		\draw (\i,\j) circle(1pt);
+	};
+	
+	% 0 level
+	\node at (3,0) [circle, fill, inner sep=1pt]{};
+	
+	% 1 level
+	\node at (2,1) [circle, fill, inner sep=1pt]{};
+	\node at (3,1) [circle, fill, inner sep=1pt]{};
+	\node at (4,1) [circle, fill, inner sep=1pt]{};
+	\draw (2,1) -- (4,1);
+	
+	% 2 level
+	\node at (1,2) [circle, fill, inner sep=1pt]{};
+	\node at (2,3) [circle, fill, inner sep=1pt]{};
+	\node at (3,2) [circle, fill, inner sep=1pt]{};
+	\node at (4,3) [circle, fill, inner sep=1pt]{};
+	\node at (5,2) [circle, fill, inner sep=1pt]{};
+	\draw (1,2) -- (2,3);
+	\draw (2,3) -- node[above] {2} (3,2);
+	\draw (3,2) -- (4,3);
+	\draw (4,3) -- node[above] {2} (5,2);
+	
+	% 3 level
+	\node at (0,3) [circle, fill, inner sep=1pt]{};
+	\node at (1,4) [circle, fill, inner sep=1pt]{};
+	\node at (2,5) [circle, fill, inner sep=1pt]{};
+	\node at (3,6) [circle, fill, inner sep=1pt]{};
+	\node at (4,5) [circle, fill, inner sep=1pt]{};
+	\node at (5,4) [circle, fill, inner sep=1pt]{};
+	\node at (6,3) [circle, fill, inner sep=1pt]{};
+	\draw (0,3) -- (1,4) -- (2,5) -- (3,6);
+	\draw (3,6) -- node[above] {5} (4,5);
+	\draw (4,5) -- node[above] {4} (5,4);
+	\draw (5,4) -- node[above] {3} (6,3);
+\end{tikzpicture}
+\end{equation*}
+\caption{\label{fig:Mpath} A disjoint 3-collection containing a flat step at height 1 and an M-path at height 2 with $\omega_2$ weightings.}
+\end{figure}
+
+\framebreak
+
+\begin{itemize}
+\item Let $\sigma \in X_{k}^1$ with path containing flat step at height $p$.
+\item All paths below $p$ must be V-paths.
+\item The disjointness condition means the flat step at height $p$ must be centered.
+\item Paths above the flat step path \text{M-paths} or V-paths.
+\item Cannot have V-paths below M-paths.
+\end{itemize}
+
+\begin{lemma}\label{lem:X1}
+Let $\sigma^k_{p,q}$ denote the disjoint $k$-collection with centered flat step at height $p$ and $q$ M-paths above it. Then
+\begin{equation*}
+X_{m-1}^1 = \bigcup\limits_{\substack{1\leq p \leq m-1 \\ 0\leq q \leq m - 1 -p}} \sigma^k_{p,q}.
+\end{equation*}
+\end{lemma}
+
+\framebreak
+
+By Lemma \ref{lem:X1} above, we have
+\begin{align*}
+D'(0) &= \sum\limits_{\substack{1\leq p\leq m-1\\0\leq q\leq m-1-p}}\left(\prod\limits_{k=0}^{p-1}\frac{(2k+1)!}{(k+1)!}\right)\left(\frac{(2p)!}{(p+1)!}\right) \times \\
+&\qquad \left(\prod\limits_{k=p+1}^{p+q}\frac{(2k)!(2k)}{(k+1)!}\right)\left(\prod\limits_{k=p+q+1}^{m-1}\frac{(2k+1)!}{(k+1)!}\right).
+\end{align*}
+
+So we have
+\begin{equation*}\label{eqn:D'/D}
+\frac{D'(0)}{D(0)} = \sum\limits_{\substack{1\leq p \leq m-1 \\ 0 \leq q \leq m - 1 - p}}\frac{1}{2p+1}\prod\limits_{k=p+1}^{p+q}\left(\frac{2k}{2k+1}\right).
+\end{equation*}
+
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Collections with two flat steps}
+
+\begin{itemize}
+\item The $N''(0)-d!D''(0)$ term requires us to think about collections containing exactly two flat steps.
+\item Again, all paths underneath the one containing flat step(s) must be V-paths.
+\item But then this means that we can't have one path containing two flat steps.
+\item Furthermore, the path containing the first flat step must have its flat step centered.
+\item We can have M-paths above the first flat step path.
+\item Second flat step can either be centered, or offset by one space to the left or right.
+\end{itemize}
+
+\framebreak
+
+\begin{columns}
+\begin{column}{0.45\textwidth}
+\begin{itemize}
+\item Above an off-centered flat step, we can have \textbf{asymmetric M-paths} followed by M-paths and then followed by V-paths.
+\item By symmetry, the weightings on the left offset case and the right offset case are the same, so only need to consider one.
+\end{itemize}
+\end{column}
+\begin{column}{0.45\textwidth}
+\begin{figure}
+\begin{equation*}
+\begin{tikzpicture}[scale=0.50]
+\foreach \i in {0,...,6}
+	\foreach \j in {0,...,6}{
+		\draw (\i,\j) circle(1pt);
+	};
+	
+	% 0 level
+	\node at (3,0) [circle, fill, inner sep=1pt]{};
+	
+	% 1 level
+	\node at (2,1) [circle, fill, inner sep=1pt]{};
+	\node at (3,1) [circle, fill, inner sep=1pt]{};
+	\node at (4,1) [circle, fill, inner sep=1pt]{};
+	\draw (2,1) -- (4,1);
+	
+	% 2 level
+	\node at (1,2) [circle, fill, inner sep=1pt]{};
+	\node at (2,3) [circle, fill, inner sep=1pt]{};
+	\node at (3,2) [circle, fill, inner sep=1pt]{};
+	\node at (4,2) [circle, fill, inner sep=1pt]{};
+	\node at (5,2) [circle, fill, inner sep=1pt]{};
+	\draw (1,2) -- (2,3);
+	\draw (2,3) -- node[above] {2} (3,2);
+	\draw (3,2) -- (4,2) -- (5,2);
+	
+	% 3 level
+	\node at (0,3) [circle, fill, inner sep=1pt]{};
+	\node at (1,4) [circle, fill, inner sep=1pt]{};
+	\node at (2,5) [circle, fill, inner sep=1pt]{};
+	\node at (3,4) [circle, fill, inner sep=1pt]{};
+	\node at (4,3) [circle, fill, inner sep=1pt]{};
+	\node at (5,4) [circle, fill, inner sep=1pt]{};
+	\node at (6,3) [circle, fill, inner sep=1pt]{};
+	\draw (0,3) -- (1,4) -- (2,5);
+	\draw (2,5) -- node[above] {4} (3,4);
+	\draw (3,4) -- node[above] {3} (4,3);
+	\draw (4,3) -- (5,4);
+	\draw (5,4) -- node[above] {3} (6,3);
+\end{tikzpicture}
+\end{equation*}
+\caption{\label{fig:asymMpath} A disjoint 3-collection containing two flat steps (one off-centered) and an asymmetric M-path with $\omega_2$ weightings.}
+\end{figure}
+\end{column}
+\end{columns}
+
+\framebreak
+
+\begin{lemma}
+\begin{itemize}
+\item Denote by $\sigma^k_{p_1,p_2,q_1,q_2}$ the disjoint $k$-collection with two centered flat step paths at heights $p_1$ and $p_2$ respectively, $q_1$ M-paths above the first flat step, $q_2$ M-paths above the second flat step, and V-paths everywhere else.
+\item Denote by $L^k_{p_1,p_2,q_1,q_2}$ the disjoint $k$-collection with two flat step paths at heights $p_1$ and $p_2$ respectively where the flat step at $p_2$ is offset one to the left, M-paths between $p_1$ and $p_2$, $q_1$ asymmetric (left) M-paths above $p_2$, $q_2$ M-paths above $p_2+q_1$ and V-paths everywhere else.
+\item $R^k_{p_1,p_2,q_1,q_2}$: The same as $L^k_{p_1,p_2,q_1,q_2}$ but the right offset case.
+\end{itemize}
+Then
+\begin{equation*}
+X_k^2 = \bigcup\limits_{p_1,p_2,q_1,q_2}\sigma_{p_1,p_2,q_1,q_2}^k \cup \bigcup\limits_{p_1,p_2,q_1,q_2}L_{p_1,p_2,q_1,q_2}^k \cup \bigcup\limits_{p_1,p_2,q_1,q_2}R_{p_1,p_2,q_1,q_2}^k.
+\end{equation*}
+\end{lemma}
+
+\end{frame}
+
+\begin{frame}[shrink]{Partial results I}
+
+Let $d=2m+1$ be odd and $B_2^d$ be the closed $d$-dimensional Euclidean ball. Then
+\begin{align*}
+&\frac{d^2}{dt^2}\text{Mag}(tB_2^d)\big\vert_{t=0} = \\
+&6\sum\limits_{\substack{2\leq p_2\leq m+1 \\ 0\leq q_1 \leq p_2-2 \\ 0\leq q_2 \leq m+1-p_2}}\frac{1}{2p_2-1}\left(\prod\limits_{k=2}^{q_1+2}\frac{(2k-2)}{(2k-1)}\right)\left(\prod\limits_{k=p_2+1}^{p_2+q_2}\frac{(2k-2)}{(2k-1)}\right) + \\
+&6\sum\limits_{\substack{2\leq p_1\leq m-1 \\ 0\leq q_1\leq m-p_1-1}}\frac{1}{2p_1-1}\left(\prod\limits_{k=p_1+1}^{p_1+q_1}\frac{(2k-2)}{(2k-1)}\right)\left(\frac{2m}{(2m-1)(2m+1)}\right) + \\
+&6\sum\limits_{\substack{2\leq p_1\leq m \\ 0\leq q_1\leq m-p_1}}\frac{1}{2p_1-1}\left(\prod\limits_{k=p_1+1}^{p_1+q_1}\frac{(2k-2)}{(2k-1)}\right)\left(\frac{1}{2m+1}\right) + \\
+&6\sum\limits_{\substack{2\leq p_1\leq m \\ p_1+1\leq p_2 \leq m-1 \\ 0\leq q_1\leq p_2-p_1-1 }}\frac{1}{2p_1-1}\left(\prod\limits_{k=p_1+1}^{p_1+q_1}\frac{(2k-2)}{(2k-1)}\right)\frac{1}{2p_2-1}\left(\prod\limits_{k=p_2+1}^{m+1}\frac{(2k-2)}{(2k-1)}\right) - \\
+&V_{1}\sum\limits_{\substack{1\leq p \leq m-1 \\ 0 \leq q \leq m - 1 - p}}\frac{1}{2p+1}\prod\limits_{k=p+1}^{p+q}\left(\frac{2k}{2k+1}\right).
+\end{align*}
+
+\end{frame}
+
+\begin{frame}{Partial results II}
+\begin{figure}
+\centerline{\includegraphics[width=9cm]{secs.eps}}\caption{\label{fig:secondsplot} Second order terms computed for odd dimensions from 1 to 41.}
+\end{figure}
 \end{frame}
 
 \begin{frame}[plain]
@@ -513,50 +846,5 @@ as $t\to\infty$.
 \bibliographystyle{amsalpha}
 \bibliography{refs.bib}
 \end{frame}
-
-%\begin{frame}{Outline}
-%  \tableofcontents
-%  % You might wish to add the option [pausesections]
-%\end{frame}
-%
-%\section{Introduction to magnitude}
-%
-%\subsection{Origins in category theory}
-%
-%\section{Magnitude of a finite metric space}
-%
-%\subsection{The magnitude function}
-%
-%\subsection{Positive definite metric spaces}
-%
-%\section{Infinite metric spaces}
-%
-%\subsection{Approximation by finite subspaces}
-%
-%\section{Magnitude of odd-dimensional Euclidean balls}
-%
-%\subsection{Convex magnitude conjecture}
-%
-%\subsection{Asymptotic results}
-%
-%\section{Schroeder paths}
-%
-%\section{Evaluating the second derivative}
-%
-%\section{Disjoint $k$-collections with exactly one flat step}
-%
-%\section{Two flat steps}
-%
-%\subsection{$\sigma = L$}
-%
-%\begin{frame}{Some info}
-%\begin{equation*}
-%\frac{d}{dt}\text{Mag}\left(B_2^d\right) = \frac{1}{2}V_1\left(B_2^d\right)
-%\end{equation*}
-%\end{frame}
-%
-%\begin{frame}{Some other info}
-%Fill in here
-%\end{frame}
 
 \end{document}
