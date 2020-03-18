@@ -139,7 +139,7 @@ Let $M \in M_n(\mathbb{R})$ be a $n\times n$ matrix. A \textbf{weighting} on $M$
 \framebreak
 
 \begin{lemma}
-Suppose $A$ possesses a weighting $w$ and a coweighting $v$. Then $\sum\limits_{j=1}^n w_j = \sum\limits_{j=1}^n v_j$.
+Suppose $M$ possesses a weighting $w$ and a coweighting $v$. Then $\sum\limits_{j=1}^n w_j = \sum\limits_{j=1}^n v_j$.
 \end{lemma}
 
 \begin{proof}
@@ -157,7 +157,7 @@ Let $M \in M_n(\mathbb{R})$. If $M$ possesses a weighting $w$ and coweighting $v
 \end{equation*}
 \end{definition}
 
-The weighting of a matrix is not guaranteed to exist, and even if it does, it is not clear how to compute it. But if the matrix is invertible, then the calculation is more straightforward, as the following lemma shows.
+The weighting of a matrix is not guaranteed to exist, but if the matrix is invertible, then the calculation is more straightforward, as the following lemma shows.
 
 \framebreak
 
@@ -187,7 +187,7 @@ where $m^{(j)}$ is the $j$-th row of $M^{-1}$, as the unique solution. Then the 
 \begin{frame}[allowframebreaks]{Finite metric spaces}
 
 \begin{definition}
-Let $A$ be a finite metric space with distance matrix $d$. Define its \textbf{similarity matrix} $Z_A$ by
+Let $A$ be a finite metric space with distance function $d$. Define its \textbf{similarity matrix} $Z_A$ by
 \begin{equation*}
 \left[Z_A\right]_{a,b} = e^{-d(a,b)}.
 \end{equation*}
@@ -388,7 +388,7 @@ is a lower semicontinuous function of $A$ (taking values in $[0,\infty]$) in the
 \framebreak
 
 \begin{definition}
-Let $A$ be a compact positive definite metric space. Then the \textbf{magnitude} of $A$, written $\vert A \vert$, is the value of the supremum $M(A)$ above.
+Let $A$ be a compact positive definite metric space. Then the \textbf{magnitude} of $A$, written $\vert A \vert$, is defined to be the value $M(A)$ from above.
 \end{definition}
 
 \framebreak
@@ -424,9 +424,9 @@ Let $\mathcal{K}^n$ be the space of compact convex sets in $\mathbb{R}^n$. A non
 \framebreak
 
 \begin{theorem}[Hadwiger's Theorem (\cite{schneider_convex_2014})]
-If $P:\mathcal{K}^n \to \mathbb{R}$ is invariant under rigid motions and continuous with respect to the Hausdorff metric, then there are valuations $V_0,V_1,\dots,V_n$ where each $V_i$ is homogenous of degree $i$, and constants $c_0,c_1,\dots,c_n$ such that
+There are valuations $V_0,V_1,\dots,V_n$ where each $V_i$ is homogeneous of degree $i$ such that if $P$ is a valuation that is invariant under rigid motions and continuous with respect to the Hausdorff metric, then there are constants $c_0,c_1,\dots,c_n$ such that
 \begin{equation*}
-P = \sum\limits_{i=0}^n c_i V_i.
+P = \sum\limits_{i=0}^nc_iV_i.
 \end{equation*}
 \end{theorem}
 
@@ -446,6 +446,20 @@ Let $K \in \mathcal{K}^n$. Then magnitude is a valuation and moreover
 \end{equation*}
 where $\omega_i$ is the volume of the $i$-th dimensional unit ball.
 \end{block}
+
+\framebreak
+
+\begin{theorem}[Theorem 7 of \cite{leinster_asymptotic_2013}]
+The magnitude of the straight line segment $L$ of length $\ell$ has the form
+\begin{equation*}
+\vert L \vert = 1+\frac{\ell}{2}
+\end{equation*}
+\end{theorem}
+
+That is,
+\begin{equation*}
+\text{Mag}\left(tB_2^1\right) = \big\vert [-t, t] \big\vert = 1 + t.
+\end{equation*}
 
 \framebreak
 
@@ -526,10 +540,95 @@ is the first intrinsic volume of the closed unit ball.
 
 \framebreak
 
+\begin{figure}[h!]
+\begin{equation*}
+\begin{tikzpicture}[scale=0.75]
+\foreach \i in {0,...,6}
+	\foreach \j in {0,...,5}{
+		\draw (\i,\j) circle(1pt);
+	};
+	
+	% 0 level
+	\node at (3,0) [circle, fill, inner sep=1pt]{};
+	
+	% 1 level
+	\node at (2,1) [circle, fill, inner sep=1pt]{};
+	\node at (4,1) [circle, fill, inner sep=1pt]{};
+	\draw (2,1) -- (4,1);
+		
+	% 2 level
+	\node at (1,2) [circle, fill, inner sep=1pt]{};
+	\node at (2,3) [circle, fill, inner sep=1pt]{};
+	\node at (4,3) [circle, fill, inner sep=1pt]{};
+	\node at (5,2) [circle, fill, inner sep=1pt]{};
+	\draw (1,2) -- (2,3) -- (4,3) -- (5,2);
+	
+	% 3 level
+	\node at (0,3) [circle, fill, inner sep=1pt]{};
+	\node at (1,4) [circle, fill, inner sep=1pt]{};
+	\node at (3,4) [circle, fill, inner sep=1pt]{};
+	\node at (4,5) [circle, fill, inner sep=1pt]{};
+	\node at (5,4) [circle, fill, inner sep=1pt]{};
+	\node at (6,3) [circle, fill, inner sep=1pt]{};
+	\draw (0,3) -- (1,4) -- (3,4) -- (4,5) -- (5,4) -- (6,3);
+\end{tikzpicture}
+\end{equation*}
+\caption{\label{fig:schroderex} A disjoint 3-collection.}
+\end{figure}
+
+\framebreak
+
 \begin{itemize}
 \item What does $X_k^0$ look like? Starting from $i = 0$ and moving up we realize that each path at height $i$ can only consist of $i$ ascents followed by $i$ descents. We will call this kind of path a \textbf{V-path at height $i$}. 
 \item The set $X_k^0$ consists of only one collection, which we'll call $\sigma_{\text{roof}}^k$, which is entirely made up of V-paths for each $0\leq i \leq k$.
 \end{itemize}
+
+\framebreak
+
+\begin{figure}[h!]
+\begin{equation*}
+\begin{tikzpicture}[scale=0.75]
+\foreach \i in {0,...,6}
+	\foreach \j in {0,...,6}{
+		\draw (\i,\j) circle(1pt);
+	};
+	
+	% 0 level
+	\node at (3,0) [circle, fill, inner sep=1pt]{};
+	
+	% 1 level
+	\node at (2,1) [circle, fill, inner sep=1pt]{};
+	\node at (4,1) [circle, fill, inner sep=1pt]{};
+	\node at (3,2) [circle, fill, inner sep=1pt]{};
+	\draw (2,1) -- (3,2);
+	\draw (4,1) -- (3,2);
+	
+	% 2 level
+	\node at (1,2) [circle, fill, inner sep=1pt]{};
+	\node at (2,3) [circle, fill, inner sep=1pt]{};
+	\node at (3,4) [circle, fill, inner sep=1pt]{};
+	\node at (4,3) [circle, fill, inner sep=1pt]{};
+	\node at (5,2) [circle, fill, inner sep=1pt]{};
+	\draw (1,2) -- (2,3) -- (3,4);
+	\draw (3,4) -- (4,3);
+	\draw (4,3) -- (5,2);
+	
+	% 3 level
+	\node at (0,3) [circle, fill, inner sep=1pt]{};
+	\node at (1,4) [circle, fill, inner sep=1pt]{};
+	\node at (2,5) [circle, fill, inner sep=1pt]{};
+	\node at (3,6) [circle, fill, inner sep=1pt]{};
+	\node at (4,5) [circle, fill, inner sep=1pt]{};
+	\node at (5,4) [circle, fill, inner sep=1pt]{};
+	\node at (6,3) [circle, fill, inner sep=1pt]{};
+	\draw (0,3) -- (1,4) -- (2,5) -- (3,6);
+	\draw (3,6) -- (4,5);
+	\draw (4,5) -- (5,4);
+	\draw (5,4) -- (6,3);
+\end{tikzpicture}
+\end{equation*}
+\caption{\label{fig:sigma3roof} The disjoint 3-collection $\sigma^3_\text{roof}$.}
+\end{figure}
 
 \framebreak
 
@@ -651,53 +750,6 @@ So we need to consider disjoint $(m-1)$-collections of Schröder paths containin
 
 \framebreak
 
-\begin{figure}
-\begin{equation*}
-\begin{tikzpicture}[scale=0.75]
-\foreach \i in {0,...,6}
-	\foreach \j in {0,...,6}{
-		\draw (\i,\j) circle(1pt);
-	};
-	
-	% 0 level
-	\node at (3,0) [circle, fill, inner sep=1pt]{};
-	
-	% 1 level
-	\node at (2,1) [circle, fill, inner sep=1pt]{};
-	\node at (3,1) [circle, fill, inner sep=1pt]{};
-	\node at (4,1) [circle, fill, inner sep=1pt]{};
-	\draw (2,1) -- (4,1);
-	
-	% 2 level
-	\node at (1,2) [circle, fill, inner sep=1pt]{};
-	\node at (2,3) [circle, fill, inner sep=1pt]{};
-	\node at (3,2) [circle, fill, inner sep=1pt]{};
-	\node at (4,3) [circle, fill, inner sep=1pt]{};
-	\node at (5,2) [circle, fill, inner sep=1pt]{};
-	\draw (1,2) -- (2,3);
-	\draw (2,3) -- node[above] {2} (3,2);
-	\draw (3,2) -- (4,3);
-	\draw (4,3) -- node[above] {2} (5,2);
-	
-	% 3 level
-	\node at (0,3) [circle, fill, inner sep=1pt]{};
-	\node at (1,4) [circle, fill, inner sep=1pt]{};
-	\node at (2,5) [circle, fill, inner sep=1pt]{};
-	\node at (3,6) [circle, fill, inner sep=1pt]{};
-	\node at (4,5) [circle, fill, inner sep=1pt]{};
-	\node at (5,4) [circle, fill, inner sep=1pt]{};
-	\node at (6,3) [circle, fill, inner sep=1pt]{};
-	\draw (0,3) -- (1,4) -- (2,5) -- (3,6);
-	\draw (3,6) -- node[above] {5} (4,5);
-	\draw (4,5) -- node[above] {4} (5,4);
-	\draw (5,4) -- node[above] {3} (6,3);
-\end{tikzpicture}
-\end{equation*}
-\caption{\label{fig:Mpath} A disjoint 3-collection containing a flat step at height 1 and an M-path at height 2 with $\omega_2$ weightings.}
-\end{figure}
-
-\framebreak
-
 \begin{itemize}
 \item Let $\sigma \in X_{k}^1$ with path containing flat step at height $p$.
 \item All paths below $p$ must be V-paths.
@@ -709,9 +761,71 @@ So we need to consider disjoint $(m-1)$-collections of Schröder paths containin
 \begin{lemma}\label{lem:X1}
 Let $\sigma^{m-1}_{p,q}$ denote the disjoint $(m-1)$-collection with centered flat step at height $p$ and $q$ M-paths above it. Then
 \begin{equation*}
-X_{m-1}^1 = \bigcup\limits_{\substack{1\leq p \leq m-1 \\ 0\leq q \leq m - 1 -p}} \sigma^{m-1}_{p,q}.
+X_{m-1}^1 = \bigcup\limits_{\substack{1\leq p \leq m-1 \\ 0\leq q \leq m - 1 -p}} \left\{\sigma^{m-1}_{p,q}\right\}.
 \end{equation*}
 \end{lemma}
+
+\begin{figure}
+\begin{equation*}
+\begin{tikzpicture}[scale=0.60]
+\foreach \i in {0,...,8}
+	\foreach \j in {0,...,8}{
+		\draw (\i,\j) circle(1pt);
+	};
+	
+	% 0 level
+	\node at (4,0) [circle, fill, inner sep=1pt]{};
+	
+	% 1 level
+	\node at (3,1) [circle, fill, inner sep=1pt]{};
+	\node at (4,2) [circle, fill, inner sep=1pt]{};
+	\node at (5,1) [circle, fill, inner sep=1pt]{};
+	\draw (3,1) -- (4,2);
+	\draw (4,2) -- node[above] {1} (5,1);
+	
+	% 2 level
+	\node at (2,2) [circle, fill, inner sep=1pt]{};
+	\node at (3,3) [circle, fill, inner sep=1pt]{};
+	\node at (4,3) [circle, fill, inner sep=1pt]{};
+	\node at (5,3) [circle, fill, inner sep=1pt]{};
+	\node at (6,2) [circle, fill, inner sep=1pt]{};
+	\draw (2,2) -- (3,3);
+	\draw (3,3) -- node[above] {$t$} (5,3);
+	\draw (5,3) -- node[above] {2} (6,2);
+	
+	% 3 level
+	\node at (1,3) [circle, fill, inner sep=1pt]{};
+	\node at (2,4) [circle, fill, inner sep=1pt]{};
+	\node at (3,5) [circle, fill, inner sep=1pt]{};
+	\node at (4,4) [circle, fill, inner sep=1pt]{};
+	\node at (5,5) [circle, fill, inner sep=1pt]{};
+	\node at (6,4) [circle, fill, inner sep=1pt]{};
+	\node at (7,3) [circle, fill, inner sep=1pt]{};
+	\draw (1,3) -- (3,5);
+	\draw (3,5) -- node[above] {4} (4,4);
+	\draw (4,4) -- (5,5);
+	\draw (5,5) -- node[above] {4} (6,4);
+	\draw (6,4) -- node[above] {3} (7,3);
+	
+	% 4 level
+	\node at (0,4) [circle, fill, inner sep=1pt]{};
+	\node at (1,5) [circle, fill, inner sep=1pt]{};
+	\node at (2,6) [circle, fill, inner sep=1pt]{};
+	\node at (3,7) [circle, fill, inner sep=1pt]{};
+	\node at (4,8) [circle, fill, inner sep=1pt]{};
+	\node at (5,7) [circle, fill, inner sep=1pt]{};
+	\node at (6,6) [circle, fill, inner sep=1pt]{};
+	\node at (7,5) [circle, fill, inner sep=1pt]{};
+	\node at (8,4) [circle, fill, inner sep=1pt]{};
+	\draw (0,4) -- (4,8);
+	\draw (4,8) -- node[above] {7} (5,7);
+	\draw (5,7) -- node[above] {6} (6,6);
+	\draw (6,6) -- node[above] {5} (7,5);
+	\draw (7,5) -- node[above] {4} (8,4);
+\end{tikzpicture}
+\end{equation*}
+\caption{\label{fig:oneflatstepscentered} A disjoint 4-collection with one flat step at height 2 and with $\omega_2$ weightings and total weight $80640t$.}
+\end{figure}
 
 \framebreak
 
@@ -730,6 +844,7 @@ So we have
 
 \begin{frame}[allowframebreaks]{Collections with two flat steps}
 
+\footnotesize
 \begin{itemize}
 \item The $N''(0)-d!D''(0)$ term requires us to think about collections containing exactly two flat steps.
 \item Again, all paths underneath the one containing flat step(s) must be V-paths.
@@ -737,64 +852,130 @@ So we have
 \item Furthermore, the path containing the first flat step must have its flat step centered.
 \item We can have M-paths above the first flat step path.
 \item Second flat step can either be centered, or offset by one space to the left or right.
+\item Above an off-centered flat step, we can have \textbf{asymmetric M-paths} followed by M-paths and then followed by V-paths.
 \end{itemize}
+\normalsize
 
 \framebreak
 
-\begin{columns}
-\begin{column}{0.45\textwidth}
-\begin{itemize}
-\item Above an off-centered flat step, we can have \textbf{asymmetric M-paths} followed by M-paths and then followed by V-paths.
-\item By symmetry, the weightings on the left offset case and the right offset case are the same, so only need to consider one.
-\end{itemize}
-\end{column}
-\begin{column}{0.45\textwidth}
 \begin{figure}
 \begin{equation*}
-\begin{tikzpicture}[scale=0.50]
-\foreach \i in {0,...,6}
-	\foreach \j in {0,...,6}{
+\begin{tikzpicture}[scale=0.55]
+\foreach \i in {0,...,8}
+	\foreach \j in {0,...,7}{
 		\draw (\i,\j) circle(1pt);
 	};
 	
 	% 0 level
-	\node at (3,0) [circle, fill, inner sep=1pt]{};
+	\node at (4,0) [circle, fill, inner sep=1pt]{};
 	
 	% 1 level
-	\node at (2,1) [circle, fill, inner sep=1pt]{};
 	\node at (3,1) [circle, fill, inner sep=1pt]{};
 	\node at (4,1) [circle, fill, inner sep=1pt]{};
-	\draw (2,1) -- (4,1);
+	\node at (5,1) [circle, fill, inner sep=1pt]{};
+	\draw (3,1) -- node[above] {$t$} (5,1);
 	
 	% 2 level
-	\node at (1,2) [circle, fill, inner sep=1pt]{};
-	\node at (2,3) [circle, fill, inner sep=1pt]{};
-	\node at (3,2) [circle, fill, inner sep=1pt]{};
+	\node at (2,2) [circle, fill, inner sep=1pt]{};
+	\node at (3,3) [circle, fill, inner sep=1pt]{};
 	\node at (4,2) [circle, fill, inner sep=1pt]{};
 	\node at (5,2) [circle, fill, inner sep=1pt]{};
-	\draw (1,2) -- (2,3);
-	\draw (2,3) -- node[above] {2} (3,2);
-	\draw (3,2) -- (4,2) -- (5,2);
+	\node at (6,2) [circle, fill, inner sep=1pt]{};
+	\draw (2,2) -- (3,3);
+	\draw (3,3) -- node[above] {2} (4,2);
+	\draw (4,2) -- node[above] {$t$} (6,2);
 	
 	% 3 level
-	\node at (0,3) [circle, fill, inner sep=1pt]{};
-	\node at (1,4) [circle, fill, inner sep=1pt]{};
-	\node at (2,5) [circle, fill, inner sep=1pt]{};
-	\node at (3,4) [circle, fill, inner sep=1pt]{};
-	\node at (4,3) [circle, fill, inner sep=1pt]{};
-	\node at (5,4) [circle, fill, inner sep=1pt]{};
-	\node at (6,3) [circle, fill, inner sep=1pt]{};
-	\draw (0,3) -- (1,4) -- (2,5);
-	\draw (2,5) -- node[above] {4} (3,4);
-	\draw (3,4) -- node[above] {3} (4,3);
-	\draw (4,3) -- (5,4);
-	\draw (5,4) -- node[above] {3} (6,3);
+	\node at (1,3) [circle, fill, inner sep=1pt]{};
+	\node at (2,4) [circle, fill, inner sep=1pt]{};
+	\node at (3,5) [circle, fill, inner sep=1pt]{};
+	\node at (4,4) [circle, fill, inner sep=1pt]{};
+	\node at (5,3) [circle, fill, inner sep=1pt]{};
+	\node at (6,4) [circle, fill, inner sep=1pt]{};
+	\node at (7,3) [circle, fill, inner sep=1pt]{};
+	\draw (1,3) -- (2,4) -- (3,5);
+	\draw (3,5) -- node[above] {4} (4,4);
+	\draw (4,4) -- node[above] {3} (5,3);
+	\draw (5,3) -- (6,4);
+	\draw (6,4) -- node[above] {3} (7,3);
+	
+	% 4 level
+	\node at (0,4) [circle, fill, inner sep=1pt]{};
+	\node at (1,5) [circle, fill, inner sep=1pt]{};
+	\node at (2,6) [circle, fill, inner sep=1pt]{};
+	\node at (3,7) [circle, fill, inner sep=1pt]{};
+	\node at (4,6) [circle, fill, inner sep=1pt]{};
+	\node at (5,7) [circle, fill, inner sep=1pt]{};
+	\node at (6,6) [circle, fill, inner sep=1pt]{};
+	\node at (7,5) [circle, fill, inner sep=1pt]{};
+	\node at (8,4) [circle, fill, inner sep=1pt]{};
+	\draw (0,4) -- (3,7);
+	\draw (3,7) -- node[above] {6} (4,6);
+	\draw (4,6) -- (5,7);
+	\draw (5,7) -- node[above] {6} (6,6);
+	\draw (6,6) -- node[above] {5} (7,5);
+	\draw (7,5) -- node[above] {4} (8,4);
+\end{tikzpicture}
+\qquad 
+\begin{tikzpicture}[scale=0.55]
+\foreach \i in {0,...,8}
+	\foreach \j in {0,...,7}{
+		\draw (\i,\j) circle(1pt);
+	};
+	
+	% 0 level
+	\node at (4,0) [circle, fill, inner sep=1pt]{};
+	
+	% 1 level
+	\node at (3,1) [circle, fill, inner sep=1pt]{};
+	\node at (4,1) [circle, fill, inner sep=1pt]{};
+	\node at (5,1) [circle, fill, inner sep=1pt]{};
+	\draw (3,1) -- node[above] {$t$} (5,1);
+	
+	% 2 level
+	\node at (2,2) [circle, fill, inner sep=1pt]{};
+	\node at (3,2) [circle, fill, inner sep=1pt]{};
+	\node at (4,2) [circle, fill, inner sep=1pt]{};
+	\node at (5,3) [circle, fill, inner sep=1pt]{};
+	\node at (6,2) [circle, fill, inner sep=1pt]{};
+	\draw (2,2) -- node[above] {$t$} (4,2);
+	\draw (4,2) -- (5,3);
+	\draw (5,3) -- node[above] {2} (6,2);
+	
+	% 3 level
+	\node at (1,3) [circle, fill, inner sep=1pt]{};
+	\node at (2,4) [circle, fill, inner sep=1pt]{};
+	\node at (3,3) [circle, fill, inner sep=1pt]{};
+	\node at (4,4) [circle, fill, inner sep=1pt]{};
+	\node at (5,5) [circle, fill, inner sep=1pt]{};
+	\node at (6,4) [circle, fill, inner sep=1pt]{};
+	\node at (7,3) [circle, fill, inner sep=1pt]{};
+	\draw (1,3) -- (2,4);
+	\draw (2,4) -- node[above] {3} (3,3);
+	\draw (3,3) -- (5,5);
+	\draw (5,5) -- node[above] {4} (6,4);
+	\draw (6,4) -- node[above] {3} (7,3);
+	
+	% 4 level
+	\node at (0,4) [circle, fill, inner sep=1pt]{};
+	\node at (1,5) [circle, fill, inner sep=1pt]{};
+	\node at (2,6) [circle, fill, inner sep=1pt]{};
+	\node at (3,7) [circle, fill, inner sep=1pt]{};
+	\node at (4,6) [circle, fill, inner sep=1pt]{};
+	\node at (5,7) [circle, fill, inner sep=1pt]{};
+	\node at (6,6) [circle, fill, inner sep=1pt]{};
+	\node at (7,5) [circle, fill, inner sep=1pt]{};
+	\node at (8,4) [circle, fill, inner sep=1pt]{};
+	\draw (0,4) -- (3,7);
+	\draw (3,7) -- node[above] {6} (4,6);
+	\draw (4,6) -- (5,7);
+	\draw (5,7) -- node[above] {6} (6,6);
+	\draw (6,6) -- node[above] {5} (7,5);
+	\draw (7,5) -- node[above] {4} (8,4);
 \end{tikzpicture}
 \end{equation*}
-\caption{\label{fig:asymMpath} A disjoint 3-collection containing two flat steps (one off-centered) and an asymmetric M-path with $\omega_2$ weightings.}
+\caption{\label{fig:asymMpath} Disjoint 4-collections containing two flat steps that are reflections of each other. Using $\omega_2$ weightings, both have total weight $51840t^2$.}
 \end{figure}
-\end{column}
-\end{columns}
 
 \framebreak
 
@@ -804,9 +985,11 @@ So we have
 \item $R^k_{p_1,p_2,q_1,q_2}$: The same as $L^k_{p_1,p_2,q_1,q_2}$ but the right offset case.
 \end{itemize}
 Then
+\small
 \begin{equation*}
-X_k^2 = \bigcup\limits_{p_1,p_2,q_1,q_2}\sigma_{p_1,p_2,q_1,q_2}^k \cup \bigcup\limits_{p_1,p_2,q_1,q_2}L_{p_1,p_2,q_1,q_2}^k \cup \bigcup\limits_{p_1,p_2,q_1,q_2}R_{p_1,p_2,q_1,q_2}^k.
+X_k^2 = \bigcup\limits_{p_1,p_2,q_1,q_2}\left\{ \sigma_{p_1,p_2,q_1,q_2}^k \right\} \cup \bigcup\limits_{p_1,p_2,q_1,q_2}\left\{ L_{p_1,p_2,q_1,q_2}^k \right\} \cup \bigcup\limits_{p_1,p_2,q_1,q_2}\left\{ R_{p_1,p_2,q_1,q_2}^k \right\}.
 \end{equation*}
+\normalsize
 
 \framebreak
 
@@ -821,6 +1004,135 @@ Let $d = 2m+1$ and $\sigma \in X_{m-1}$. Then define $\mu(\sigma)\in X_{m+1}$ by
 \omega_2(\mu(\sigma)) = d!\omega_0(\sigma).
 \end{equation*}
 \end{lemma}
+
+\framebreak
+
+\begin{figure}
+\begin{equation*}
+\begin{tikzpicture}[scale=0.50]
+\foreach \i in {0,...,6}
+	\foreach \j in {0,...,5}{
+		\draw (\i,\j) circle(1pt);
+	};
+	
+	% 0 level
+	\node at (3,0) [circle, fill, inner sep=1pt]{};
+	
+	% 1 level
+	\node at (2,1) [circle, fill, inner sep=1pt]{};
+	\node at (3,1) [circle, fill, inner sep=1pt]{};
+	\node at (4,1) [circle, fill, inner sep=1pt]{};
+	\draw (2,1) -- node[above] {$t$} (4,1);
+	
+	% 2 level
+	\node at (1,2) [circle, fill, inner sep=1pt]{};
+	\node at (2,3) [circle, fill, inner sep=1pt]{};
+	\node at (3,3) [circle, fill, inner sep=1pt]{};
+	\node at (4,3) [circle, fill, inner sep=1pt]{};
+	\node at (5,2) [circle, fill, inner sep=1pt]{};
+	\draw (1,2) -- (2,3);
+	\draw (2,3) -- node[above] {$t$} (4,3);
+	\draw (4,3) -- node[above] {4} (5,2);
+	
+	% 3 level
+	\node at (0,3) [circle, fill, inner sep=1pt]{};
+	\node at (1,4) [circle, fill, inner sep=1pt]{};
+	\node at (2,5) [circle, fill, inner sep=1pt]{};
+	\node at (3,4) [circle, fill, inner sep=1pt]{};
+	\node at (4,5) [circle, fill, inner sep=1pt]{};
+	\node at (5,4) [circle, fill, inner sep=1pt]{};
+	\node at (6,3) [circle, fill, inner sep=1pt]{};
+	\draw (0,3) -- (2,5);
+	\draw (2,5) -- node[above] {6} (3,4);
+	\draw (3,4) -- (4,5);
+	\draw (4,5) -- node[above] {6} (5,4);
+	\draw (5,4) -- node[above] {5} (6,3);
+\end{tikzpicture}
+\qquad
+\begin{tikzpicture}[scale=0.40]
+\foreach \i in {0,...,10}
+	\foreach \j in {0,...,10}{
+		\draw (\i,\j) circle(1pt);
+	};
+
+	% 0 level
+	\node at (5,0) [circle, fill, inner sep=1pt]{};
+	
+	% 1 level
+	\node at (4,1) [circle, fill, inner sep=1pt]{};
+	\node at (5,2) [circle, fill, inner sep=1pt]{};
+	\node at (6,1) [circle, fill, inner sep=1pt]{};
+	\draw (4,1) -- (5,2);
+	\draw (5,2) -- node[above] {1} (6,1);
+	
+	% 2 level
+	\node at (3,2) [circle, fill, inner sep=1pt]{};
+	\node at (4,3) [circle, fill, inner sep=1pt]{};
+	\node at (5,3) [circle, fill, inner sep=1pt]{};
+	\node at (6,3) [circle, fill, inner sep=1pt]{};
+	\node at (7,2) [circle, fill, inner sep=1pt]{};
+	\draw (3,2) -- (4,3);
+	\draw (4,3) -- node[above] {$t$} (6,3);
+	\draw (6,3) -- node[above] {2} (7,2);
+	
+	% 3 level
+	\node at (2,3) [circle, fill, inner sep=1pt]{};
+	\node at (3,4) [circle, fill, inner sep=1pt]{};
+	\node at (4,5) [circle, fill, inner sep=1pt]{};
+	\node at (5,5) [circle, fill, inner sep=1pt]{};
+	\node at (6,5) [circle, fill, inner sep=1pt]{};
+	\node at (7,4) [circle, fill, inner sep=1pt]{};
+	\node at (8,3) [circle, fill, inner sep=1pt]{};
+	\draw (2,3) -- (4,5);
+	\draw (4,5) -- node[above] {$t$} (6,5);
+	\draw (6,5) -- node[above] {4} (7,4);
+	\draw (7,4) -- node[above] {3} (8,3);
+	
+	% 4 level
+	\node at (1,4) [circle, fill, inner sep=1pt]{};
+	\node at (2,5) [circle, fill, inner sep=1pt]{};
+	\node at (3,6) [circle, fill, inner sep=1pt]{};
+	\node at (4,7) [circle, fill, inner sep=1pt]{};
+	\node at (5,6) [circle, fill, inner sep=1pt]{};
+	\node at (6,7) [circle, fill, inner sep=1pt]{};
+	\node at (7,6) [circle, fill, inner sep=1pt]{};
+	\node at (8,5) [circle, fill, inner sep=1pt]{};
+	\node at (9,4) [circle, fill, inner sep=1pt]{};
+	\draw (1,4) -- (4,7);
+	\draw (4,7) -- node[above] {6} (5,6);
+	\draw (5,6) -- (6,7);
+	\draw (6,7) -- node[above] {6} (7,6);
+	\draw (7,6) -- node[above] {5} (8,5);
+	\draw (8,5) -- node[above] {4} (9,4);
+	
+	% 5 level
+	\node at (0,5) [circle, fill, inner sep=1pt]{};
+	\node at (1,6) [circle, fill, inner sep=1pt]{};
+	\node at (2,7) [circle, fill, inner sep=1pt]{};
+	\node at (3,8) [circle, fill, inner sep=1pt]{};
+	\node at (4,9) [circle, fill, inner sep=1pt]{};
+	\node at (5,10) [circle, fill, inner sep=1pt]{};
+	\node at (6,9) [circle, fill, inner sep=1pt]{};
+	\node at (7,8) [circle, fill, inner sep=1pt]{};
+	\node at (8,7) [circle, fill, inner sep=1pt]{};
+	\node at (9,6) [circle, fill, inner sep=1pt]{};
+	\node at (10,5) [circle, fill, inner sep=1pt]{};
+	\draw (0,5) -- (5,10);
+	\draw (5,10) -- node[above] {9} (6,9);
+	\draw (6,9) -- node[above] {8} (7,8);
+	\draw (7,8) -- node[above] {7} (8,7);
+	\draw (8,7) -- node[above] {6} (9,6);
+	\draw (9,6) -- node[above] {5} (10,5);
+		
+	% dashed lines
+	\draw [dashed] (5,1) -- (1,5);
+	\draw [dashed] (1,5) -- (5,9);
+	\draw [dashed] (5,9) -- (9,5);
+	\draw [dashed] (9,5) -- (5,1);
+\end{tikzpicture}
+\end{equation*}
+\caption{\label{fig:embedded} A disjoint 3-collection $\sigma$ and its embedding as a disjoint 5-collection. On the left $\omega_0(\sigma) = 720t$ and on the right $\omega_2(\mu(\sigma)) = 261,273,600t = 9!\times720t$.}
+\end{figure}
 
 \framebreak
 
@@ -870,7 +1182,7 @@ Let $d=2m+1$ be odd and $B_2^d$ be the closed $d$-dimensional Euclidean ball. Th
 
 \begin{frame}{Partial results II}
 \begin{figure}
-\centerline{\includegraphics[width=9cm]{secs.eps}}\caption{\label{fig:secondsplot} Second order terms computed for odd dimensions from 1 to 41.}
+\centerline{\includegraphics[width=9cm]{secs.eps}}\caption{\label{fig:secondsplot} Second order terms computed for odd dimensions from 3 to 41 along with the values as predicted by the erstwhile convex magnitude conjecture.}
 \end{figure}
 \end{frame}
 
