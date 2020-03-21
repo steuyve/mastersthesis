@@ -29,7 +29,7 @@ for i = 1:length(ds)
     firsts(i) = 0.5*V1(m);
     
     % Calculate prediction by convex magnitude conjecture
-    preds(i) = (nchoosek(ds(i),2)/(ds(i)));
+    preds(i) = 0.5*(ds(i)-1);
 end
 
 figure(1);

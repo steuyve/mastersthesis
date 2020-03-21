@@ -541,12 +541,25 @@ Taking second derivatives and evaluating at $t = 0$ for each magnitude function 
 \end{equation}
 
 The rest of this thesis is devoted to computing the value of
-\begin{equation*}
+\begin{equation}\label{eqn:goal}
 \frac{d^2}{dt^2}\text{Mag}(tB_2^d)\big\vert_{t=0}.
-\end{equation*}
+\end{equation}
 for odd $d$.
 
-We will follow the same general approach that Meckes used to prove Theorem \ref{theo:firstorder} in \cite{meckes_magnitude_2019}. An outline is presented below:
+The convex magnitude conjecture predicts that (\ref{eqn:goal}) is given by
+\begin{equation*}
+\frac{1}{2\omega_2}V_2\left(B_2^d\right) = \frac{1}{2\pi}V_2\left(B_2^d\right).
+\end{equation*}
+By Theorem 9.2.4 of \cite{klain_geometric_1997}, we have that
+\begin{equation*}
+V_2\left(B_2^d\right) = \binom{d}{2}\frac{\omega_d}{\omega_{d-2}} = \binom{d}{2}\pi\frac{\Gamma\left(\frac{d}{2}\right)}{\Gamma\left(\frac{d}{2}+1\right)} = \binom{d}{2}\frac{2\pi}{d}.
+\end{equation*}
+So the convex magnitude conjecture predicts that
+\begin{equation}\label{eqn:secondorderpred}
+\frac{d^2}{dt^2}\text{Mag}(tB_2^d)\big\vert_{t=0} = \frac{1}{2\pi}V_2\left(B_2^d\right) = \frac{1}{d}\binom{d}{2} = \frac{1}{2}(d-1).
+\end{equation}
+
+To compute the value of (\ref{eqn:goal}), we will follow the same general approach that Meckes used to prove Theorem \ref{theo:firstorder} in \cite{meckes_magnitude_2019}. An outline is presented below:
 \begin{enumerate}[label=\arabic*.]
 \item Apply the quotient rule to Theorem \ref{theo:willertonND} and the result of Theorem \ref{theo:firstorder} to express the second derivative in terms of $N(t),D(t)$.
 \item The expression will contain first and second derivatives of $N(t)$ and $D(t)$ evaluated at $t = 0$. First consider disjoint $k$-collections containing exactly one flat step to simplify terms containing first derivatives.
@@ -1012,7 +1025,7 @@ Let $d$ be odd and $B_2^d$ be the closed $d$-dimensional Euclidean ball. Then
 Coding these explicit expressions in Matlab, we are able to plot these second derivative terms against the dimension of the ball (see Figure \ref{fig:secondsplot}).
 
 \begin{figure}[h!]
-\centerline{\includegraphics[width=12cm]{secs.eps}}\caption{\label{fig:secondsplot} Second order terms computed from (\ref{eqn:partialres}) in Proposition \ref{prop:partialres} above for odd dimensions from 1 to 41.}
+\centerline{\includegraphics[width=12cm]{secs.eps}}\caption{\label{fig:secondsplot} Second order terms computed from (\ref{eqn:partialres}) in Proposition \ref{prop:partialres} above for odd dimensions from 3 to 41 alongside the values as predicted by the erstwhile convex magnitude conjecture (\ref{eqn:secondorderpred}).}
 \end{figure}
 
 The first few points do indeed align with those directly computed in (\ref{eqn:explicitseconds}) in chapter 5 above. In fact, the plot suggests the second order terms depend linearly on the dimension, though work to confirm or disprove this is still ongoing. The code used to produce Figure \ref{fig:secondsplot} can be found at the public github repository \url{https://github.com/ssyl55/mastersthesis-src}.
