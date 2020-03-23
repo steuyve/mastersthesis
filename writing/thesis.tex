@@ -804,14 +804,14 @@ N'' - d!D'' = \sigma + L + R = \sigma + 2L
 We explicitly give expressions for $\sigma$ and $L$ below:
 \begin{equation}\label{eqn:sigma}
 \begin{aligned}
-\sigma = &\sum\limits_{\substack{2\leq p_2\leq m+1 \\ 0\leq q_1 \leq p_2-2 \\ 0 \leq q_2 \leq m+1-p_2}}\omega_2(\sigma_{1,p_2,q_1,q_2}^{m+1}) + \sum\limits_{\substack{2 \leq p_1 \leq m-1 \\ 0 \leq q_1 \leq m-p_1-1}}\omega_2(\sigma_{p_1,m,q_1,m+1-p_2}^{m+1}) \\
+\sigma = &\sum\limits_{\substack{2\leq p_2\leq m+1 \\ 0\leq q_1 \leq p_2-2 \\ 0 \leq q_2 \leq m+1-p_2}}\omega_2(\sigma_{1,p_2,q_1,q_2}^{m+1}) + \sum\limits_{\substack{2 \leq p_1 \leq m-1 \\ 0 \leq q_1 \leq m-1-p_1}}\omega_2(\sigma_{p_1,m,q_1,1}^{m+1}) \\
  &\quad+ \sum\limits_{\substack{2 \leq p_1 \leq m \\ 0 \leq q_1 \leq m-p_1}}\omega_2(\sigma_{p_1,m+1,q_1,0}^{m+1}) + \sum\limits_{\substack{2 \leq p_1 \leq m \\ p_1+1 \leq p_2 \leq m-1 \\ 0 \leq q_1 \leq p_2-p_1-1}} \omega_2(\sigma_{p_1,p_2,q_1,m+1-p_2}^{m+1})
 \end{aligned}
 \end{equation}
 and
 \begin{equation}\label{eqn:L}
 \begin{aligned}
-L = &\sum\limits_{\substack{2\leq p_2\leq m+1 \\ 0\leq q_1 \leq p_2-2 \\ 0 \leq q_2 \leq m+1-p_2}}\omega_2(L_{1,p_2,q_1,q_2}^{m+1}) + \sum\limits_{\substack{2 \leq p_1 \leq m-1 \\ 0 \leq q_1 \leq m-p_1-1}}\omega_2(L_{p_1,m,q_1,m+1-p_2}^{m+1}) \\
+L = &\sum\limits_{\substack{2\leq p_2\leq m+1 \\ 0\leq q_1 \leq p_2-2 \\ 0 \leq q_2 \leq m+1-p_2}}\omega_2(L_{1,p_2,q_1,q_2}^{m+1}) + \sum\limits_{\substack{2 \leq p_1 \leq m-1 \\ 0 \leq q_1 \leq m-1-p_1}}\omega_2(L_{p_1,m,q_1,m}^{m+1}) \\
  &\quad+ \sum\limits_{\substack{2 \leq p_1 \leq m \\ 0 \leq q_1 \leq m-p_1}}\omega_2(L_{p_1,m+1,q_1,0}^{m+1}) + \sum\limits_{\substack{2 \leq p_1 \leq m \\ p_1+1 \leq p_2 \leq m-1 \\ 0 \leq q_1 \leq p_2-p_1-1}} \omega_2(L_{p_1,p_2,q_1,m+1-p_2}^{m+1}).
 \end{aligned}
 \end{equation}
@@ -974,7 +974,7 @@ So for the first case, we have
 
 We similarly find expressions for the other three smaller sums.
 
-Consider a disjoint $(m+1)$-collection in the second case, that is, we fix $2\leq p_1\leq m-1$,$p_2=m$,$0\leq q_1\leq m-p_1-1$, $q_2 = 1$. Then each summand is given by
+Consider a disjoint $(m+1)$-collection in the second case, that is, we fix $2\leq p_1\leq m-1$,$p_2=m$,$0\leq q_1\leq m-1-p_1$, $q_2 = 1$. Then each summand is given by
 \begin{equation*}
 \frac{\sigma'}{N} = \frac{1}{2p_1-1}\left(\prod\limits_{k=p_1+1}^{p_1+q_1}\frac{(2k-2)}{(2k-1)}\right)\left(\frac{2m}{(2m-1)(2m+1)}\right)
 \end{equation*}
