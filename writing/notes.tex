@@ -271,12 +271,12 @@ N'' - d!D'' = \sigma + L + R = \sigma + 2L
 \end{equation*}
 We explicitly give expressions for $\sigma$ and $L$ below:
 \begin{align*}
-\sigma = &\sum\limits_{\substack{2\leq p_2\leq m+1 \\ 0\leq q_1 \leq p_2-2 \\ 0 \leq q_2 \leq m+1-p_2}}\omega_2(\sigma_{1,p_2,q_1,q_2}^{m+1}) + \sum\limits_{\substack{2 \leq p_1 \leq m-1 \\ 0 \leq q_1 \leq m-p_1-1}}\omega_2(\sigma_{p_1,m,q_1,m+1-p_2}^{m+1}) \\
+\sigma = &\sum\limits_{\substack{2\leq p_2\leq m+1 \\ 0\leq q_1 \leq p_2-2 \\ 0 \leq q_2 \leq m+1-p_2}}\omega_2(\sigma_{1,p_2,q_1,q_2}^{m+1}) + \sum\limits_{\substack{2 \leq p_1 \leq m-1 \\ 0 \leq q_1 \leq m-1-p_1}}\omega_2(\sigma_{p_1,m,q_1,1}^{m+1}) \\
  &\quad+ \sum\limits_{\substack{2 \leq p_1 \leq m \\ 0 \leq q_1 \leq m-p_1}}\omega_2(\sigma_{p_1,m+1,q_1,0}^{m+1}) + \sum\limits_{\substack{2 \leq p_1 \leq m \\ p_1+1 \leq p_2 \leq m-1 \\ 0 \leq q_1 \leq p_2-p_1-1}} \omega_2(\sigma_{p_1,p_2,q_1,m+1-p_2}^{m+1})
 \end{align*}
 and
 \begin{align*}
-L = &\sum\limits_{\substack{2\leq p_2\leq m+1 \\ 0\leq q_1 \leq p_2-2 \\ 0 \leq q_2 \leq m+1-p_2}}\omega_2(L_{1,p_2,q_1,q_2}^{m+1}) + \sum\limits_{\substack{2 \leq p_1 \leq m-1 \\ 0 \leq q_1 \leq m-p_1-1}}\omega_2(L_{p_1,m,q_1,m+1-p_2}^{m+1}) \\
+L = &\sum\limits_{\substack{2\leq p_2\leq m+1 \\ 0\leq q_1 \leq p_2-2 \\ 0 \leq q_2 \leq m+1-p_2}}\omega_2(L_{1,p_2,q_1,q_2}^{m+1}) + \sum\limits_{\substack{2 \leq p_1 \leq m-1 \\ 0 \leq q_1 \leq m-1-p_1}}\omega_2(L_{p_1,m,q_1,1}^{m+1}) \\
  &\quad+ \sum\limits_{\substack{2 \leq p_1 \leq m \\ 0 \leq q_1 \leq m-p_1}}\omega_2(L_{p_1,m+1,q_1,0}^{m+1}) + \sum\limits_{\substack{2 \leq p_1 \leq m \\ p_1+1 \leq p_2 \leq m-1 \\ 0 \leq q_1 \leq p_2-p_1-1}} \omega_2(L_{p_1,p_2,q_1,m+1-p_2}^{m+1})
 \end{align*}
 
@@ -316,7 +316,7 @@ So for the first case, we have
 
 We similarly find expressions for the other three smaller sums.
 
-Consider a disjoint $(m+1)$-collection in the second case, that is, we fix $2\leq p_1\leq m-1$,$p_2=m$,$0\leq q_1\leq m-p_1-1$, $q_2 = 1$. Then we have
+Consider a disjoint $(m+1)$-collection in the second case, that is, we fix $2\leq p_1\leq m-1$,$p_2=m$,$0\leq q_1\leq m-1-p_1$, $q_2 = 1$. Then we have
 \begin{equation*}
 \frac{\sigma'}{N} = \frac{1}{2p_1-1}\left(\prod\limits_{k=p_1+1}^{p_1+q_1}\frac{(2k-2)}{(2k-1)}\right)\left(\frac{2m}{(2m-1)(2m+1)}\right)
 \end{equation*}
@@ -400,10 +400,12 @@ Using (\ref{eqn:Dskipfactsimp}), we can rewrite the last sum in (\ref{eqn:partia
 &\qquad= V_1\sum\limits_{\substack{1\leq p \leq m-1 \\ 0 \leq q \leq m-1-p}} \frac{1}{2p+1}\frac{2^{2(p+q)}}{2^{2(p+1)-1}}\frac{(p+1)(p+2)C_{p+1}}{(2(p+q)+1)(p+q+1)C_{p+q}}.
 \end{align*}
 Setting $k = p+q$, this last sum turns into
-\begin{align*}\label{eqn:simplifiedlast}
+\begin{equation}
+\begin{aligned}\label{eqn:simplifiedlast}
 &V_1\sum\limits_{k=1}^{m-1}\sum\limits_{p=1}^k\frac{1}{2p+1}\frac{2^{2k}}{2^{2(p+1)-1}}\frac{(p+1)(p+2)C_{p+1}}{(2k+1)(k+1)C_k} \\
 &\qquad= V_1\sum\limits_{k=1}^{m-1}\frac{2^{2k}}{(2k+1)(k+1)C_k}\sum\limits_{p=1}^k\frac{(p+1)(p+2)C_{p+1}}{2^{2p+1}(2p+1)}.
-\end{align*}
+\end{aligned}
+\end{equation}
 
 The inner sum on the right hand side of the above can be further simplified
 \begin{equation}\label{eqn:innersumsimp}
@@ -417,6 +419,48 @@ The inner sum on the right hand side of the above can be further simplified
 Wolfram Alpha says that the last sum of (\ref{eqn:innersumsimp}) can be simplified to
 \begin{equation}\label{eqn:innersumsimp2}
 \sum\limits_{p=1}^k\frac{(2(p+1))!}{p!(p+1)!2^{2p+1}(2p+1)} = \frac{(k+1)(2(k+2))!}{2^{2(k+1)}(2k+3)(k+1)!(k+2)!}-1.
+\end{equation}
+
+So substituting (\ref{eqn:innersumsimp2}) into (\ref{eqn:simplifiedlast}) above we have
+\begin{equation}\label{eqn:simplifiedlast2}
+\begin{aligned}
+&V_1\sum\limits_{k=1}^{m-1}\frac{2^{2k}}{(2k+1)(k+1)C_k}\sum\limits_{p=1}^k\frac{(p+1)(p+2)C_{p+1}}{2^{2p+1}(2p+1)} \\
+&\quad=V_1\sum\limits_{k=1}^{m-1}\frac{2^{2k}}{(2k+1)(k+1)C_k}\left[\frac{(k+1)(2(k+2))!}{2^{2(k+1)}(2k+3)(k+1)!(k+2)!}-1\right] 
+\end{aligned}
+\end{equation}
+
+Expanding, the second sum in (\ref{eqn:simplifiedlast2}) simplifies to:
+\begin{equation}\label{eqn:secondsum}
+\begin{aligned}
+\sum\limits_{k=1}^{m-1}\frac{2^{2k}}{(2k+1)(k+1)C_k} &= \sum\limits_{k=1}^{m-1}\frac{2^{2k}(k+1)[k!]^2}{(2k+1)(k+1)(2k)!} \\
+&= \sum\limits_{k=1}^{m-1}\frac{2^{2k}[k!]^2}{(2k+1)(2k)!} \\
+&= 2^{2m}\frac{[m!]^2}{(2m)!}-2 \\
+&= \frac{2^{2m}}{(m+1)C_m}-2
+\end{aligned}
+\end{equation}
+where the second to last equality is given by Wolfram Alpha.
+
+The first sum in (\ref{eqn:simplifiedlast2}) simplifies to:
+\begin{equation}\label{eqn:firstsum}
+\begin{aligned}
+&\sum\limits_{k=1}^{m-1}\frac{2^{2k}}{(2k+1)(k+1)C_k}\frac{(k+1)(2(k+2))!}{2^{2(k+1)}(2k+3)(k+1)!(k+2)!} \\
+&\quad= \sum\limits_{k=1}^{m-1}\frac{2^{2k}}{2^{2(k+1)}}\frac{(k+1)^2(2(k+2))![k!]^2}{(2k+1)(k+1)(2k+3)(k+1)!(k+2)!(2k)!} \\
+&\quad= \sum\limits_{k=1}^{m-1}\frac{1}{2^2}\frac{(k+1)(2(k+2))![k!]^2}{(2k+1)(2k+3)(k+1)!(k+2)!(2k)!} \\
+&\quad= \sum\limits_{k=1}^{m-1}\frac{1}{2^2}\frac{(2(k+2))![k!]^2}{(2k+1)(2k+3)k!(k+2)!(2k)!} \\
+&\quad= \sum\limits_{k=1}^{m-1}\frac{1}{2^2}\frac{(2(k+2))!k!}{(2k+1)(2k+3)(k+2)!(2k)!} \\
+&\quad = \sum\limits_{k=1}^{m-1}\frac{1}{2^2}\frac{(2(k+2))!}{(2k+1)(2k+3)(k+1)(k+2)(2k)!} \\
+&\quad = \sum\limits_{k=1}^{m-1}\frac{1}{2^2}\frac{(2k+1)(2k+2)(2k+3)(2k+4)}{(2k+1)(2k+3)(k+1)(k+2)} \\
+&\quad = \sum\limits_{k=1}^{m-1}\frac{1}{2^2}\frac{(2k+2)(2k+4)}{(k+1)(k+2)} \\
+&\quad = \sum\limits_{k=1}^{m-1}\frac{1}{2^2}\frac{2(k+1)2(k+2)}{(k+1)(k+2)} \\
+&\quad = m-1.
+\end{aligned}
+\end{equation}
+
+So putting (\ref{eqn:firstsum}) and (\ref{eqn:secondsum}) together we have
+\begin{equation}\label{eqn:simplifiedlast3}
+\begin{aligned}
+V_1\sum\limits_{\substack{1\leq p \leq m -1 \\ 0 \leq q \leq m-1-p}}\frac{1}{2p+1}\prod\limits_{k=p+1}^{p+q}\left(\frac{2k}{2k+1}\right) = 2\binom{m-\frac{1}{2}}{m}^{-1}\left(m+1-\frac{2^{2m}}{(m+1)C_m}\right).
+\end{aligned}
 \end{equation}
 
 \pagebreak
