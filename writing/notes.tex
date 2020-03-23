@@ -346,14 +346,16 @@ and for the whole fourth case, we have
 \subsubsection*{Putting It All Together}
 
 So all together we have
-\begin{align*}
+\begin{equation}\label{eqn:puttogether}
+\begin{aligned}
 &\frac{d^2}{dt^2}\text{Mag}(tB_2^d)\big\vert_{t=0} = \\
 &6\sum\limits_{\substack{2\leq p_2\leq m+1 \\ 0\leq q_1 \leq p_2-2 \\ 0\leq q_2 \leq m+1-p_2}}\frac{1}{2p_2-1}\left(\prod\limits_{k=2}^{q_1+2}\frac{(2k-2)}{(2k-1)}\right)\left(\prod\limits_{k=p_2+1}^{p_2+q_2}\frac{(2k-2)}{(2k-1)}\right) + \\
 &6\sum\limits_{\substack{2\leq p_1\leq m-1 \\ 0\leq q_1\leq m-p_1-1}}\frac{1}{2p_1-1}\left(\prod\limits_{k=p_1+1}^{p_1+q_1}\frac{(2k-2)}{(2k-1)}\right)\left(\frac{2m}{(2m-1)(2m+1)}\right) + \\
 &6\sum\limits_{\substack{2\leq p_1\leq m \\ 0\leq q_1\leq m-p_1}}\frac{1}{2p_1-1}\left(\prod\limits_{k=p_1+1}^{p_1+q_1}\frac{(2k-2)}{(2k-1)}\right)\left(\frac{1}{2m+1}\right) + \\
 &6\sum\limits_{\substack{2\leq p_1\leq m \\ p_1+1\leq p_2 \leq m-1 \\ 0\leq q_1\leq p_2-p_1-1 }}\frac{1}{2p_1-1}\left(\prod\limits_{k=p_1+1}^{p_1+q_1}\frac{(2k-2)}{(2k-1)}\right)\frac{1}{2p_2-1}\left(\prod\limits_{k=p_2+1}^{m+1}\frac{(2k-2)}{(2k-1)}\right) - \\
 &V_{1}\sum\limits_{\substack{1\leq p \leq m-1 \\ 0 \leq q \leq m - 1 - p}}\frac{1}{2p+1}\prod\limits_{k=p+1}^{p+q}\left(\frac{2k}{2k+1}\right)
-\end{align*}
+\end{aligned}
+\end{equation}
 
 \subsection*{Skip Factorials}
 
@@ -376,25 +378,29 @@ Now let's write the product
 \prod\limits_{k=a}^{b}\frac{(2k-2)}{(2k-1)}
 \end{equation*}
 in terms of skip factorials and try to simplify from there:
-\begin{align*}
+\begin{equation}\label{eqn:skipfactomega2}
+\begin{aligned}
 \prod\limits_{k=a}^{b}\frac{(2k-2)}{(2k-1)} &= \frac{2(a-1)}{2a-1}\cdots\frac{2(b-1)}{2b-1} \\
 &= \frac{(2(b-1))!!}{(2(a-2))!!}\left[\frac{(2b-1)!!}{(2(a-1)-1)!!}\right]^{-1} \\
 &= \frac{2^{b-1}(b-1)!}{2^{a-2}(a-2)!}\left[\frac{(2b)!}{2^bb!}\frac{2^{a-1}(a-1)!}{(2(a-1))!}\right]^{-1} \\
 &= \frac{2^{2b-1}}{2^{2(a-1)-1}}\frac{b!(b-1)!}{(2b)!}\frac{(2(a-1))!}{(a-1)!(a-2)!} \\
 &= \frac{2^{2b-1}}{2^{2(a-1)-1}}\frac{(a-1)\binom{2(a-1)}{a-1}}{b\binom{2b}{b}} \\
 &= \frac{2^{2b-1}}{2^{2(a-1)-1}}\frac{(a-1)aC_{a-1}}{b(b+1)C_b}
-\end{align*}
+\end{aligned}
+\end{equation}
 And similarly:
-\begin{align*}
+\begin{equation}\label{eqn:skipfactomega0}
+\begin{aligned}
 \prod\limits_{k=a}^b\frac{2k}{2k+1} &= \frac{2a}{2a+1}\cdots\frac{2b}{2b+1} \\
 &= \frac{(2b)!!}{(2(a-1))!!}\left[\frac{(2b+1)!!}{(2a-1)!!}\right]^{-1} \\
 &= \frac{2^bb!}{2^{a-1}(a-1)!}\left[\frac{(2b+1)!}{2^bb!}\frac{2^aa!}{(2a)!}\right]^{-1} \\
 &= \frac{2^{2b}}{2^{2a-1}}\frac{(b!)^2}{(2b+1)!}\frac{(2a)!}{a!(a-1)!} \\
 &= \frac{2^{2b}}{2^{2a-1}}\frac{a\binom{2a}{a}}{(b+1)\binom{2b+1}{b}} \\
 &= \frac{2^{2b}}{2^{2a-1}}\frac{a(a+1)C_a}{(2b+1)(b+1)C_b}
-\end{align*}
+\end{aligned}
+\end{equation}
 
-Using the above, we can rewrite the last sum in our expression for the second derivative as the following:
+Using the (\ref{eqn:skipfactomega0}), we can rewrite the last sum in (\ref{eqn:puttogether}) as the following:
 \begin{equation*}
 V_{1}\sum\limits_{\substack{1\leq p \leq m-1 \\ 0 \leq q \leq m - 1 - p}}\frac{1}{2p+1}\prod\limits_{k=p+1}^{p+q}\left(\frac{2k}{2k+1}\right) = V_1\sum\limits_{\substack{1\leq p \leq m-1 \\ 0 \leq q \leq m-1}} \frac{1}{2p+1}\frac{2^{2(p+q)}}{2^{2(p+1)-1}}\frac{(p+1)(p+2)C_{p+1}}{(2(p+q)+1)(p+q+1)C_{p+q}}
 \end{equation*}
